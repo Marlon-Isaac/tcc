@@ -20,35 +20,35 @@
 3.Registro
 
     RF013: O sistema terá um formulário com Nome completo, Email, CPF, senha, escola de registro e tipo de usuário
-	RF014: Após a validação dos dados deve aparecer uma tela de aviso escrito "Obrigado pelo cadastro, seu pedido de cadastro para a secretaria da escola, por favor aguarde a aprovação ou reprovação do seu cadastro pela secretaria no Email" 
+    RF014: Após a validação dos dados deve aparecer uma tela de aviso escrito "Obrigado pelo cadastro, seu pedido de cadastro para a secretaria da escola, por favor aguarde a aprovação ou reprovação do seu cadastro pela secretaria no Email" 
 
-2. Funcionalidades Gerais
+4. Funcionalidades Gerais
 
-    RF010: O sistema deve permitir a comunicação entre os usuários por meio de um chat de mensagens.
-    RF011: O sistema deve incluir um quadro de notificações onde os usuários recebam mensagens específicas de acordo com seu tipo de usuário.
-    RF012: O sistema deve oferecer uma tela de reclamações e sugestões acessível a todos os usuários.
-    RF013: O sistema deve permitir a inserção de dicas e comentários cooperativos entre professores, parentes e profissionais.
-    RF014: O sistema deve permitir a criação e compartilhamento de uma agenda onde professores, profissionais e pais possam adicionar e visualizar compromissos relacionados ao aluno (ex: reuniões, atividades, avaliações).
-    RF015: O sistema deve incluir uma área de perfil do aluno, onde pais e professores possam acessar informações detalhadas sobre o aluno, como histórico de feedbacks, desempenho e observações feitas por profissionais.
+    RF015: O sistema deve permitir a comunicação entre os usuários por meio de um chat de mensagens.
+    RF016: O sistema deve incluir um quadro de notificações onde os usuários recebam mensagens específicas de acordo com seu tipo de usuário.
+    RF017: O sistema deve oferecer uma tela de reclamações e sugestões acessível a todos os usuários.
+    RF018: O sistema deve permitir a inserção de dicas e comentários cooperativos entre professores, parentes e profissionais.
+    RF019: O sistema deve permitir a criação e compartilhamento de uma agenda onde professores, profissionais e pais possam adicionar e visualizar compromissos relacionados ao aluno (ex: reuniões, atividades, avaliações).
+    RF020: O sistema deve incluir uma área de perfil do aluno, onde pais e professores possam acessar informações detalhadas sobre o aluno, como histórico de feedbacks, desempenho e observações feitas por profissionais.
 
-3. Funcionalidades Específicas
-3.1. Secretaria
+5. Funcionalidades Específicas
+5.1. Secretaria
 
-    RF016: O sistema deve fornecer um quadro de notificações para a Secretaria, mostrando pedidos de registros pendentes.
-    RF017: O sistema deve permitir que a Secretaria registre novos usuários.
+    RF021: O sistema deve fornecer um quadro de notificações para a Secretaria, mostrando pedidos de registros pendentes.
+    RF022: O sistema deve permitir que a Secretaria registre novos usuários.
 
-3.2. Professores
+5.2. Professores
 
-    RF018: O sistema deve fornecer aos professores um quadro de notícias sobre temas relevantes como "Deficientes Intelectuais" e "Métodos de Ensino".
-    RF019: Professores devem poder fornecer feedback aos pais dos alunos sobre o desempenho dos mesmos.
-    RF023: O sistema deve permitir que os professores criem e apliquem avaliações personalizadas para os alunos, com feedback disponível imediatamente para pais e profissionais.
+    RF023: O sistema deve fornecer aos professores um quadro de notícias sobre temas relevantes como "Deficientes Intelectuais" e "Métodos de Ensino".
+    RF024: Professores devem poder fornecer feedback aos pais dos alunos sobre o desempenho dos mesmos.
+    RF025: O sistema deve permitir que os professores criem e apliquem avaliações personalizadas para os alunos, com feedback disponível imediatamente para pais e profissionais.
 
-3.3. Parentes
+5.3. Parentes
 
-    RF020: O sistema deve permitir que os pais visualizem o feedback fornecido por professores e profissionais sobre o desempenho dos alunos.
-    RF024: O sistema deve permitir que os pais acompanhem metas estabelecidas para o desenvolvimento do aluno, com atualizações feitas por professores e profissionais.
+    RF026: O sistema deve permitir que os pais visualizem o feedback fornecido por professores e profissionais sobre o desempenho dos alunos.
+    RF027: O sistema deve permitir que os pais acompanhem metas estabelecidas para o desenvolvimento do aluno, com atualizações feitas por professores e profissionais.
 
-3.4. Profissionais
+5.4. Profissionais
 
-    RF021: O sistema deve permitir que profissionais insiram dicas para professores e pais.
-    RF022: Profissionais devem poder fornecer feedback sobre o aluno, que será visualizado pelos pais.
+    RF028: O sistema deve permitir que profissionais insiram dicas para professores e pais.
+    RF029: Profissionais devem poder fornecer feedback sobre o aluno, que será visualizado pelos pais.
