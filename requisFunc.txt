@@ -1,15 +1,26 @@
 
-1. Login e Registro
+1. Login
 
-    RF001: O sistema deve permitir que o usuário faça login por meio de um formulário contendo os campos de login, senha e tipo de usuário.
-    RF002: O campo de senha deve mascarar os caracteres inseridos para garantir a segurança.
-    RF003: O sistema deve suportar quatro tipos de usuários: Professor, Profissional, Secretaria e Parentes do aluno.
-    RF004: O sistema deve incluir um botão "Entrar" para validar as informações de login.
-    RF005: Se o login ou senha estiverem incorretos, o sistema deve exibir uma mensagem de erro "Login ou senha incorreto".
-    RF006: O sistema deve fornecer um link "Esqueci minha senha" que redireciona o usuário para uma tela de redefinição de senha.
-    RF007: O sistema deve permitir o registro de novos usuários por meio de um formulário que inclua Nome completo, Email, CPF, Senha, Escola de Registro e Tipo de Usuário.
-    RF008: Após o registro, o sistema deve exibir uma mensagem "Obrigado pelo cadastro, seu pedido será analisado pela secretaria da escola".
-    RF009: O sistema deve enviar um email com uma senha temporária ao usuário caso ele esqueça a senha.
+    RF001: O sistema terá um formulário com login, senha e tipo de usuário
+    RF002: O campo de senha deverá mascarar os caracteres inseridos
+    RF003: Os tipos de usuário são: Professor, Profissional, Secretaria e Parentes do aluno
+    RF004: Deve haver um botão "Entrar" para validar as informações de login
+    RF005: Caso as informações de login ou senha não estejam iguais as registradas no banco de dados então deve aparecer uma tela de erro escrito "Login ou senha incorreto"
+    RF006: Deve aparecer um link escrito "Esqueci minha senha" que redireciona o usuário para outra tela de redefinição de senha
+    RF007: Deve haver um botão "Registrar" que redireciona o usuário para outra tela de registro
+    RF008: Caso as informações de login e senha estejam iguais as registradas no banco de dados então o usuário será redirecionado para outra tela
+
+2.Recuperação de senha
+    
+    RF009: O sistema terá um formulário com email
+    RF010: Deve haver um botão "Redefinir" para validar a informação inserida
+    RF011: Caso a informação inserida não esteja igual a alguma informação registrada no banco de dados então deve aparecer uma tela de erro escrito "Email não encontrado"
+    RF012: Caso a informação inseria esteja igual as registradas no bando de dados então o usuário recebera um email com uma senha aleatória para utilizar
+
+3.Registro
+
+    RF013: O sistema terá um formulário com Nome completo, Email, CPF, senha, escola de registro e tipo de usuário
+	RF014: Após a validação dos dados deve aparecer uma tela de aviso escrito "Obrigado pelo cadastro, seu pedido de cadastro para a secretaria da escola, por favor aguarde a aprovação ou reprovação do seu cadastro pela secretaria no Email" 
 
 2. Funcionalidades Gerais
 
