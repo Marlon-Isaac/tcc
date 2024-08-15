@@ -4,9 +4,8 @@ Sistema para Auxílio de Professores de Alunos com Necessidades Especiais
 Descrição
 
 Este projeto visa desenvolver um sistema que oferece suporte aos professores, profissionais e parentes de alunos com necessidades especiais. O sistema tem como objetivo facilitar a comunicação, melhorar o acompanhamento do progresso dos alunos e fornecer ferramentas que auxiliem na gestão do aprendizado e nas interações entre os usuários.
-Funcionalidades
-Login e Registro
 
+    Login e Registro
     Sistema de login com suporte a diferentes tipos de usuários: Professor, Profissional, Secretaria, Parentes.
     Recuperação de senha por email e sistema de registro com validação pela secretaria.
 
