@@ -1,0 +1,10 @@
+Requisitos Não-Funcionais (RNF)
+
+2. Requisitos Não Funcionais (RNF)
+
+
+    RNF001: O sistema deve ser acessível em dispositivos móveis e desktops.
+    RNF002: O sistema deve garantir a segurança dos dados dos usuários, especialmente informações pessoais e acadêmicas.
+    RNF003: O sistema deve ser fácil de usar, com uma interface amigável e intuitiva.
+    RNF004: O sistema deve ser capaz de suportar múltiplos usuários simultaneamente sem perda de desempenho.
+    RNF005: O sistema deve garantir a integridade dos dados durante a comunicação entre usuários.
