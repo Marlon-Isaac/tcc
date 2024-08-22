@@ -1,54 +1,43 @@
 
-1. Login
+1. Login e Registro
 
-    RF001: O sistema terá um formulário com login, senha e tipo de usuário
-    RF002: O campo de senha deverá mascarar os caracteres inseridos
-    RF003: Os tipos de usuário são: Professor, Profissional, Secretaria e Parentes do aluno
-    RF004: Deve haver um botão "Entrar" para validar as informações de login
-    RF005: Caso as informações de login ou senha não estejam iguais as registradas no banco de dados então deve aparecer uma tela de erro escrito "Login ou senha incorreto"
-    RF006: Deve aparecer um link escrito "Esqueci minha senha" que redireciona o usuário para outra tela de redefinição de senha
-    RF007: Deve haver um botão "Registrar" que redireciona o usuário para outra tela de registro
-    RF008: Caso as informações de login e senha estejam iguais as registradas no banco de dados então o usuário será redirecionado para outra tela
+    RF001: O sistema deve permitir que o usuário faça login por meio de um formulário contendo os campos de login, senha e tipo de usuário.
+    RF002: O campo de senha deve mascarar os caracteres inseridos para garantir a segurança.
+    RF003: O sistema deve suportar quatro tipos de usuários: Professor, Profissional, Secretaria e Parentes do aluno.
+    RF004: O sistema deve incluir um botão "Entrar" para validar as informações de login.
+    RF005: Se o login ou senha estiverem incorretos, o sistema deve exibir uma mensagem de erro "Login ou senha incorreto".
+    RF006: O sistema deve fornecer um link "Esqueci minha senha" que redireciona o usuário para uma tela de redefinição de senha.
+    RF007: O sistema deve permitir o registro de novos usuários por meio de um formulário que inclua Nome completo, Email, CPF, Senha, Escola de Registro e Tipo de Usuário.
+    RF008: Após o registro, o sistema deve exibir uma mensagem "Obrigado pelo cadastro, seu pedido será analisado pela secretaria da escola".
+    RF009: O sistema deve enviar um email com uma senha temporária ao usuário caso ele esqueça a senha.
 
-2.Recuperação de senha
-    
-    RF009: O sistema terá um formulário com email
-    RF010: Deve haver um botão "Redefinir" para validar a informação inserida
-    RF011: Caso a informação inserida não esteja igual a alguma informação registrada no banco de dados então deve aparecer uma tela de erro escrito "Email não encontrado"
-    RF012: Caso a informação inseria esteja igual as registradas no bando de dados então o usuário recebera um email com uma senha aleatória para utilizar
+2. Funcionalidades Gerais
 
-3.Registro
+    RF010: O sistema deve permitir a comunicação entre os usuários por meio de um chat de mensagens.
+    RF011: O sistema deve incluir um quadro de notificações onde os usuários recebam mensagens específicas de acordo com seu tipo de usuário.
+    RF012: O sistema deve oferecer uma tela de reclamações e sugestões acessível a todos os usuários.
+    RF013: O sistema deve permitir a inserção de dicas e comentários cooperativos entre professores, parentes e profissionais.
+    RF014: O sistema deve permitir a criação e compartilhamento de uma agenda onde professores, profissionais e pais possam adicionar e visualizar compromissos relacionados ao aluno (ex: reuniões, atividades, avaliações).
+    RF015: O sistema deve incluir uma área de perfil do aluno, onde pais e professores possam acessar informações detalhadas sobre o aluno, como histórico de feedbacks, desempenho e observações feitas por profissionais.
 
-    RF013: O sistema terá um formulário com Nome completo, Email, CPF, senha, escola de registro e tipo de usuário
-    RF014: Após a validação dos dados deve aparecer uma tela de aviso escrito "Obrigado pelo cadastro, seu pedido de cadastro para a secretaria da escola, por favor aguarde a aprovação ou reprovação do seu cadastro pela secretaria no Email" 
+3. Funcionalidades Específicas
+3.1. Secretaria
 
-4. Funcionalidades Gerais
+    RF016: O sistema deve fornecer um quadro de notificações para a Secretaria, mostrando pedidos de registros pendentes.
+    RF017: O sistema deve permitir que a Secretaria registre novos usuários.
 
-    RF015: O sistema deve permitir a comunicação entre os usuários por meio de um chat de mensagens.
-    RF016: O sistema deve incluir um quadro de notificações onde os usuários recebam mensagens específicas de acordo com seu tipo de usuário.
-    RF017: O sistema deve oferecer uma tela de reclamações e sugestões acessível a todos os usuários.
-    RF018: O sistema deve permitir a inserção de dicas e comentários cooperativos entre professores, parentes e profissionais.
-    RF019: O sistema deve permitir a criação e compartilhamento de uma agenda onde professores, profissionais e pais possam adicionar e visualizar compromissos relacionados ao aluno (ex: reuniões, atividades, avaliações).
-    RF020: O sistema deve incluir uma área de perfil do aluno, onde pais e professores possam acessar informações detalhadas sobre o aluno, como histórico de feedbacks, desempenho e observações feitas por profissionais.
+3.2. Professores
 
-5. Funcionalidades Específicas
-5.1. Secretaria
+    RF018: O sistema deve fornecer aos professores um quadro de notícias sobre temas relevantes como "Deficientes Intelectuais" e "Métodos de Ensino".
+    RF019: Professores devem poder fornecer feedback aos pais dos alunos sobre o desempenho dos mesmos.
+    RF023: O sistema deve permitir que os professores criem e apliquem avaliações personalizadas para os alunos, com feedback disponível imediatamente para pais e profissionais.
 
-    RF021: O sistema deve fornecer um quadro de notificações para a Secretaria, mostrando pedidos de registros pendentes.
-    RF022: O sistema deve permitir que a Secretaria registre novos usuários.
+3.3. Parentes
 
-5.2. Professores
+    RF020: O sistema deve permitir que os pais visualizem o feedback fornecido por professores e profissionais sobre o desempenho dos alunos.
+    RF024: O sistema deve permitir que os pais acompanhem metas estabelecidas para o desenvolvimento do aluno, com atualizações feitas por professores e profissionais.
 
-    RF023: O sistema deve fornecer aos professores um quadro de notícias sobre temas relevantes como "Deficientes Intelectuais" e "Métodos de Ensino".
-    RF024: Professores devem poder fornecer feedback aos pais dos alunos sobre o desempenho dos mesmos.
-    RF025: O sistema deve permitir que os professores criem e apliquem avaliações personalizadas para os alunos, com feedback disponível imediatamente para pais e profissionais.
+3.4. Profissionais
 
-5.3. Parentes
-
-    RF026: O sistema deve permitir que os pais visualizem o feedback fornecido por professores e profissionais sobre o desempenho dos alunos.
-    RF027: O sistema deve permitir que os pais acompanhem metas estabelecidas para o desenvolvimento do aluno, com atualizações feitas por professores e profissionais.
-
-5.4. Profissionais
-
-    RF028: O sistema deve permitir que profissionais insiram dicas para professores e pais.
-    RF029: Profissionais devem poder fornecer feedback sobre o aluno, que será visualizado pelos pais.
+    RF021: O sistema deve permitir que profissionais insiram dicas para professores e pais.
+    RF022: Profissionais devem poder fornecer feedback sobre o aluno, que será visualizado pelos pais.

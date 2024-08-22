@@ -1,0 +1,15 @@
+1. Diagrama de Casos de Uso
+
+    Objetivo: Identificar os principais casos de uso e atores (tipos de usuários) que interagem com o sistema.
+    Sugestões:
+        Atores: Professor, Profissional, Secretaria, Parente, e Usuário (para login e registro).
+        Casos de Uso:
+            Login e registro
+            Recuperação de senha
+        
+
+2. Diagrama de Classes
+
+3. Diagrama de Atividades 
+
+
