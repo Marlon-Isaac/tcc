@@ -1,9 +1,110 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0" version="24.7.7">
   <diagram name="Página-1" id="59-KwjCg-xNRsrudqL4U">
-    <mxGraphModel>
+    <mxGraphModel dx="1533" dy="869" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="n_blE9-1hrJNbN-C65JE-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="399" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" source="n_blE9-1hrJNbN-C65JE-1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-4" target="n_blE9-1hrJNbN-C65JE-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-4" value="Abrir tela de agendamento" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="359" y="90" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-5" target="n_blE9-1hrJNbN-C65JE-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-5" value="Escolher um dia para agendar" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="359" y="220" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-7" target="n_blE9-1hrJNbN-C65JE-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-7" value="Escolher um horario para agender" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="359" y="350" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-9" target="n_blE9-1hrJNbN-C65JE-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-9" value="Preencher todas as informcoes do agendamento&amp;nbsp;" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="359" y="480" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="735" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-11" value="Enviar notificacao para secretaria" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="359" y="610" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-15" target="n_blE9-1hrJNbN-C65JE-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-15" target="n_blE9-1hrJNbN-C65JE-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-15" value="Permitir agendamento?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="361" y="740" width="106" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-16" target="n_blE9-1hrJNbN-C65JE-30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="1180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-16" value="Enviar notificacao para responsavel" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="760" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="228" y="890" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-18" value="Enviar notificacao para responsavel" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="168" y="760" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-24" target="n_blE9-1hrJNbN-C65JE-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-24" target="n_blE9-1hrJNbN-C65JE-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-24" value="Dia totalmente agendado?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="175" y="890" width="106" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-25" target="n_blE9-1hrJNbN-C65JE-30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="1180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-25" value="Bloquear acesso para agendar o dia" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1030" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-27" target="n_blE9-1hrJNbN-C65JE-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-27" value="Bloquear acesso para agendar o horario marcado" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="294" y="1030" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-29" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="399" y="1260" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="n_blE9-1hrJNbN-C65JE-30" target="n_blE9-1hrJNbN-C65JE-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_blE9-1hrJNbN-C65JE-30" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="374" y="1140" width="80" height="80" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
