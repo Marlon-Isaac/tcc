@@ -1,0 +1,1 @@
+Nesse diagrama os responsáveis podem abrir o calendário de agendas, agendar horários no sistema e vizualizar confirmação de agendamento igual os profissionais e a secretaria, porém a secretaria pode reprovar ou aprovar os agendamentos feitos pelos profissionais e responsáveis.
