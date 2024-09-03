@@ -1,0 +1,61 @@
+tela inicial
+
+	-navbar/sidebar
+	-quadro de avisos
+	-chat
+	-formulario de sugestões
+
+dicas-profissionais
+
+	- Dicas tem uma serie de postagens de dicas de profissionais
+	- Havera um botão para o usuario adicionais uma dica escrito "+ dica"
+	-Ao apertar no botão ira surgir um pop-up com um formulario com as seguintes informações: Titulo e conteúdo
+	-Deve haver um botão escrito "Enviar" para verificar se as informações foram preenchidas e postar o conteúdo
+	-Ao enviar o conteúdo o pop-up será fechado
+	-Deve haver um botão escrito "Cancelar" para sair do pop-up
+	
+ 
+dicas-todos usuarios
+	- Dicas tem uma serie de postagens de dicas de profissionais
+	-o usuário pode curtir ou não curtir as postagens
+	-ao clicar na postagem abrirá outra página
+	-essa página terá um campo de texto onde o usuário poderá fazer seu comentário
+	-essa página terá comentários de outros usuários 	
+	- o usuário pode
+
+
+agenda- Responsaveis 
+
+	-Agenda tem um sistema de calendario
+	-Os dias com todos os horarios agendados aparecerão na cor vermelha
+	-Os dias com quase todos os horarios agendados aparecerão na cor amarela
+	-Os dias com poucos ou nenhum horario agendado aparecera na cor verde
+	-O usuario pode selecionar um dia e horario para solicitar um agendamento
+	-Caso o usuario tente selecionar um dia com cor vemelha ira aparecer todos os dias com cor cinza sendo não disponiveis
+	-Ao selecionar um dia ira aparecer um pop-up com os horario para agendar
+	-Ao selecionar um horario a tela do pop-up ira mudar para um formulario com as seguintes informações: nome(preenchido automaticamente pelas informações do sistema), nome aluno e assunto
+	-Deve haver um botão escrito "Solicitar" para verificar se todas as informações foram preenchidas
+	-Caso todas as informações forem preenchidas o pop-up deve fechar automaticamente
+	-Apos a solicitação o horario solicitado deve mudar de cor para a cor laranja até ser aprovado
+	-O horario agendado pelo usuario e aprovado deve mudar para a cor verde
+	-O dia com o horario agendado pelo usuario deve conter um simbolo de emote no canto superior direito
+
+agenda- profissionais/professores
+
+	-Agenda tem um sistema de calendarios
+	-Os dias com todos os horarios agendados aparecerão na cor vermelha
+	-Os dias com quase todos os horarios agendados aparecerão na cor amarela
+	-Os dias com poucos ou nenhum horario agendado aparecera na cor verde
+	-Caso haja algum agendamento não aprovado, o quadro de avisos será responsavel por notificar sobre o não aprovamento
+ 	-Caso haja algum agendamento aprovado, o quadro de avisos será responsavel por notificar sobre o aprovamento no dia confirmado, e um dia antés da data agendada
+	-
+
+
+agenda- secretaria
+
+	-nao possui
+
+perfil
+	- O perfil deverá conter uma foto do usuario
+	- O perfil deverá conter o tipo de usuario
+	- O perfil deverá conter as informações do usuario (Nome,Sobrenome,Email,Cpf)

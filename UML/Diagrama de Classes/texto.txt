@@ -1,0 +1,1 @@
+Todos os tipos de usuario herdam da as informações da classe Usuario, Todos os Usuarios possuem as funções de Chat, Notificações e Reclamações, O tipo de Usuario "Profissional" possuem a capacidade de criar POST'S NA SESSÃO DICAS, O Usuario SECRETARIA tem a função de REGISTRO de outros Usuarios 
