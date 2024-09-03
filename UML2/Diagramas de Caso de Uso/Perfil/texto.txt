@@ -1,0 +1,1 @@
+nesse diagrama todos os usuários podem abrir seus perfis, vizualizar os perfis cadastrados e enviar mensagens para outros usuários

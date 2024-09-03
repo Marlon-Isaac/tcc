@@ -1,0 +1,114 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.8">
+  <diagram name="Página-1" id="My-SFrsU9ZblH7H9Tk9y">
+    <mxGraphModel dx="2620" dy="975" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-46" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-600" y="90" width="1020" height="1350" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-16" value="a" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="-81" y="140" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-17" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-66" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-19" target="XFCcJwyApP0TOd0OrRAB-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-19" value="Abrir tela de agendamento" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-121" y="230" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-21" target="XFCcJwyApP0TOd0OrRAB-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-21" value="Escolher um dia para agendar" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-121" y="360" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-23" target="XFCcJwyApP0TOd0OrRAB-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-23" value="Escolher um horario para agender" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-121" y="490" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-25" target="XFCcJwyApP0TOd0OrRAB-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-25" value="Preencher todas as informcoes do agendamento&amp;nbsp;" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-121" y="620" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-27">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-66" y="875" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-27" value="Enviar notificacao para secretaria" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-121" y="750" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-30" target="XFCcJwyApP0TOd0OrRAB-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-30" target="XFCcJwyApP0TOd0OrRAB-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-30" value="Permitir agendamento?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-119" y="880" width="106" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-32" target="XFCcJwyApP0TOd0OrRAB-44">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="120" y="1320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-32" value="Enviar notificacao para responsavel" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="900" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-252" y="1030" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-34" value="Enviar notificacao para responsavel" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-312" y="900" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-37" target="XFCcJwyApP0TOd0OrRAB-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-37" target="XFCcJwyApP0TOd0OrRAB-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-37" value="Dia totalmente agendado?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-305" y="1030" width="106" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-39" target="XFCcJwyApP0TOd0OrRAB-44">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-380" y="1320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-39" value="Bloquear acesso para agendar o dia" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-440" y="1170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-41" target="XFCcJwyApP0TOd0OrRAB-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-41" value="Bloquear acesso para agendar o horario marcado" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-186" y="1170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-42" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="-81" y="1400" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XFCcJwyApP0TOd0OrRAB-44" target="XFCcJwyApP0TOd0OrRAB-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XFCcJwyApP0TOd0OrRAB-44" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-106" y="1280" width="80" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

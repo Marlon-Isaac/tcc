@@ -1,0 +1,2 @@
+Neste diagrama, há a presença de dois usuarios (Profissionais e os Restantes de Usuarios), Os profissionais são os unicos capazes de Realizar as Postagens na Aba Comentario e Dicas, e acaba por puxar as funções dos outros usuarios tambem de: Vizualizar as postagens anteriores, Comentar nas postagens anteriores e Reagir Positivamente ou Negativamente as posatgens 
+

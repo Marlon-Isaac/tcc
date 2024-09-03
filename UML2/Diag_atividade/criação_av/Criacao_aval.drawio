@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0" version="24.7.7">
+  <diagram name="Página-1" id="52o8mD3Knmm5MOFZX_cf">
+    <mxGraphModel dx="1393" dy="1958" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-21" value="" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="184" y="-20" width="460" height="800" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="399" y="10" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" source="PFYrMZ__ZEGu-7xkFcUR-1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="PFYrMZ__ZEGu-7xkFcUR-3" target="PFYrMZ__ZEGu-7xkFcUR-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-3" value="entrar na área de avaliações" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="359" y="100" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="PFYrMZ__ZEGu-7xkFcUR-4" target="PFYrMZ__ZEGu-7xkFcUR-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-4" value="criar questões&amp;nbsp;" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="359" y="430" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="PFYrMZ__ZEGu-7xkFcUR-5" target="PFYrMZ__ZEGu-7xkFcUR-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="275" y="390" />
+              <mxPoint x="414" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-5" value="objetiva" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="220" y="330" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="PFYrMZ__ZEGu-7xkFcUR-6" target="PFYrMZ__ZEGu-7xkFcUR-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="555" y="390" />
+              <mxPoint x="414" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-6" value="dissertativa" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="500" y="330" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="PFYrMZ__ZEGu-7xkFcUR-7" target="PFYrMZ__ZEGu-7xkFcUR-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PFYrMZ__ZEGu-7xkFcUR-7" target="PFYrMZ__ZEGu-7xkFcUR-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-7" value="Define o tipo de avaliação" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="359" y="240" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="PFYrMZ__ZEGu-7xkFcUR-14" target="PFYrMZ__ZEGu-7xkFcUR-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-14" value="definir a data do início e fim da avaliação" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="359" y="520" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="PFYrMZ__ZEGu-7xkFcUR-15" target="PFYrMZ__ZEGu-7xkFcUR-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-15" value="salvar e postar avaliação" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="359" y="610" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PFYrMZ__ZEGu-7xkFcUR-19" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="399" y="730" width="30" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
