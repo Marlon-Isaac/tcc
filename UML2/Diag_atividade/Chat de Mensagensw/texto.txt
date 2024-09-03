@@ -1,1 +1,0 @@
-Assim que o usuario entrar na Aba de Chats, A funcionalidade é carregada, os usuarios possiveis de serem chamados por mensagem são carregados, e uma vez que há a certeza que selecionou a pessoa certa, Abre a janela de Menagens, podendo Digitar, Apagar e Editar as mensagens

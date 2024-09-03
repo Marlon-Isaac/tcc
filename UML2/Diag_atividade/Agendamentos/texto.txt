@@ -1,5 +1,0 @@
-O usuario logado abre a aba de Agendamentos (de horario), escolhe por um dia que deseja agendar uma reunião com os responsaveis da escola, e tem a obrigação de antes de confirmar, preencher todas as informações necessarias para confirmação; Uma vez enviado a solicitação, Uma notificação é enviada á Secretaria, que tem a função de Confirmar ou Não Confirmar o Agendamento do Usuario
-
-Se o Agendamento for Negado, é enviado uma notificação para o Usuario, que tem seu Sistema bloqueando o aquele dia
-
-Se o Agendamento for Aprovado, é enviado uma notificação para o Usuario confirmando que ocorrerá tudo de acordo com o Agendado

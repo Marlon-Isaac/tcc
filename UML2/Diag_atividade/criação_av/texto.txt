@@ -1,1 +1,0 @@
-Nesse diagrama o profissional entra na área de avaliações, define o tipo de avaliação objetiva/dissertativa, e cria as questões, logo após ele define a data do inicio e do fim da avaliação, salva e posta.

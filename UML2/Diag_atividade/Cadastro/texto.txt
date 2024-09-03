@@ -1,1 +1,0 @@
-nesse diagrama o usuário insere as informações, depois essas informações são validadas, se exibir erro, volta e insere as informações de novo ou a aba/aplicativo é fechado, se o cadastro for validado, a usuário é redirecionado para a tela de login e o cadastro é feito.
