@@ -476,11 +476,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\as485\\Source\\Repos\\tcc\\C#\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
+      "projectName": "WinFormsApp1",
+      "projectPath": "C:\\Users\\as485\\Source\\Repos\\tcc\\C#\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
+      "packagesPath": "C:\\Users\\as485\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\as485\\Source\\Repos\\tcc\\C#\\WinFormsApp1\\WinFormsApp1\\obj\\",
+=======
       "projectUniqueName": "C:\\Users\\as485\\OneDrive\\Pictures\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
       "projectName": "WinFormsApp1",
       "projectPath": "C:\\Users\\as485\\OneDrive\\Pictures\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
       "packagesPath": "C:\\Users\\as485\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\as485\\OneDrive\\Pictures\\WinFormsApp1\\WinFormsApp1\\obj\\",
+>>>>>>> b7fce41258b56fedf55407f7319b4b61f2dd8afe
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
