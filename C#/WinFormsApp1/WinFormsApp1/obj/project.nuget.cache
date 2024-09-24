@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "DF1i2+NRqnqJ7yWwH+96B7IOZ/9fSMwSLX4+MsS+ipLDj9IvFt/KiCWrHMqFaOw8u4o0Dr2Yh+Q4+zmuwYkNsw==",
+  "dgSpecHash": "uTV2rXujURYhzhI7/hK8vdjSQDfzZFOxOcKJo1YAfT+GLzNlojgwZApZivL5wXwvSyxzIQ5woo/faJqqdEEePQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\as485\\source\\repos\\tcc\\C#\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
-=======
-  "dgSpecHash": "kcB6r2s/cwEiZIpPG724mDPt8aBdIwpqoF1p7cGjXbFmjVykmgSXIqvoZft03CFaryjRTjJEJ5lGvPdeQzq1uw==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\as485\\OneDrive\\Pictures\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
->>>>>>> b7fce41258b56fedf55407f7319b4b61f2dd8afe
+  "projectFilePath": "C:\\Users\\as485\\source\\repos\\tcc2\\C#\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\as485\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\as485\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

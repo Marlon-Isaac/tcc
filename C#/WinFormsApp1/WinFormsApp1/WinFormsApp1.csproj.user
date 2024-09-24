@@ -4,15 +4,9 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-<<<<<<< HEAD
-    <Compile Update="home.cs">
+    <Compile Update="Recuperar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="recuperar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-=======
->>>>>>> b7fce41258b56fedf55407f7319b4b61f2dd8afe
     <Compile Update="Registro.cs">
       <SubType>Form</SubType>
     </Compile>

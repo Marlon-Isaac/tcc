@@ -14,10 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WinFormsApp1
-<<<<<<< HEAD
-build_property.ProjectDir = C:\Users\as485\source\repos\tcc\C#\WinFormsApp1\WinFormsApp1\
-=======
-build_property.ProjectDir = C:\Users\as485\OneDrive\Pictures\WinFormsApp1\WinFormsApp1\
->>>>>>> b7fce41258b56fedf55407f7319b4b61f2dd8afe
+build_property.ProjectDir = C:\Users\as485\source\repos\tcc2\C#\WinFormsApp1\WinFormsApp1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
