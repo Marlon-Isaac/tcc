@@ -56,3 +56,4 @@ C:\Users\as485\source\repos\tcc2\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-w
 C:\Users\as485\source\repos\tcc2\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.pdb
 C:\Users\as485\source\repos\tcc2\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.genruntimeconfig.cache
 C:\Users\as485\source\repos\tcc2\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\ref\WinFormsApp1.dll
+C:\Users\as485\source\repos\tcc2\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Recuperar2.resources

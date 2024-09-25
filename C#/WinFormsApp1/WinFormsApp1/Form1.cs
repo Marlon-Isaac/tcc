@@ -62,8 +62,9 @@ namespace WinFormsApp1
             var senha = textBox2.Text;
             if (login.Length != 0 && senha.Length != 0)
             {
+                banco banco = new banco();
                 //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+                string conexao = banco.conexao;
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(conexao))

@@ -11,7 +11,7 @@
         "projectName": "WinFormsApp1",
         "projectPath": "C:\\Users\\as485\\source\\repos\\tcc2\\C#\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
         "packagesPath": "C:\\Users\\as485\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\as485\\Source\\Repos\\tcc2\\C#\\WinFormsApp1\\WinFormsApp1\\obj\\",
+        "outputPath": "C:\\Users\\as485\\source\\repos\\tcc2\\C#\\WinFormsApp1\\WinFormsApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

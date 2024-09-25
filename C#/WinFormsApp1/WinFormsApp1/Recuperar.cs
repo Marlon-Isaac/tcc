@@ -29,8 +29,8 @@ namespace WinFormsApp1
 
             if (email.Length != 0)
             {
-                //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+                banco banco = new banco();
+                string conexao = banco.conexao;
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(conexao))
@@ -59,7 +59,8 @@ namespace WinFormsApp1
                                                 gmail = reader["Gmail"].ToString();
                                                 senha = reader["Senha"].ToString();
 
-
+                                                Random random = new Random();
+                                                aleatorio aleatorio = new aleatorio(random.Next(100000, 1000000));
                                                 // Configurações do servidor SMTP
                                                 string smtpAddress = gmail; // Endereço do servidor SMTP
                                                 int portNumber = 587; // Porta do servidor SMTP (ex: 587 para TLS, 465 para SSL)
@@ -69,7 +70,7 @@ namespace WinFormsApp1
                                                 string password = senha; // Sua senha de e-mail
                                                 string emailTo = email; // E-mail do destinatário
                                                 string subject = "Recuperação de senha - NÃO RESPONDA!"; // Assunto do e-mail
-                                                string body = ""; // Corpo do e-mail
+                                                string body = "o numero de recuperação é" + aleatorio.b; // Corpo do e-mail
 
                                                 using (MailMessage mail = new MailMessage())
                                                 {
@@ -121,6 +122,11 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Preencha todos os itens!", "Erro");
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
