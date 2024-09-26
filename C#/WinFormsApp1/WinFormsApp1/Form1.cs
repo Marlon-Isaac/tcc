@@ -71,37 +71,16 @@ namespace WinFormsApp1
                     using (SqlConnection conn = new SqlConnection(conexao))
                     {
                         conn.Open();
-                        String query = "SELECT Senha FROM Login WHERE login = @login";//SELECT PasswordHash FROM Users WHERE Username = @Username
+                        String query = "SELECT COUNT(1) FROM Login WHERE Login = @login AND Senha = @senha";
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
                             cmd.Parameters.AddWithValue("@login", login);
+                            cmd.Parameters.AddWithValue("@senha", senha);
                             int count = Convert.ToInt32(cmd.ExecuteScalar());
-                            cripto cripto = new cripto();
-                            if (count == 0)
-                            {
-                                using (SqlDataReader reader = cmd.ExecuteReader())
-                                {
-                                    if (reader.Read())  // Se houver um resultado
-                                    {
-                                        var a = reader["Senha"];
-                                        string hash = Convert.FromBase64String(a);
-                                        MessageBox.Show(hash);
-                                        /*senharesul = cripto.verificar(hash, senha);
 
-                                        if (count == 1 && senharesul == true)
-                                        {
-                                            MessageBox.Show("bem vindo");
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("senha incorreta");
-                                        }*/
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Nenhum dado registrado");
-                                    }
-                                }
+                            if (count == 1)
+                            {
+                                MessageBox.Show("Bem vindo");
                             }
                             else
                             {

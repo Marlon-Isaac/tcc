@@ -39,13 +39,11 @@ namespace WinFormsApp1
         {
             var Nome = textBox1.Text;
             var Email = textBox2.Text;
-            var senha1 = textBox3.Text;
+            var senha = textBox3.Text;
             var tipo = comboBox1.SelectedItem.ToString();
 
-            if (Nome.Length != 0 && Email.Length != 0 && senha1.Length != 0 && comboBox1.SelectedIndex != -1)
+            if (Nome.Length != 0 && Email.Length != 0 && senha.Length != 0 && comboBox1.SelectedIndex != -1)
             {
-                cripto cripto = new cripto();
-                var senha = cripto.senha(senha1);
                 //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                 banco banco = new banco();
                 string conexao = banco.conexao;
@@ -55,7 +53,6 @@ namespace WinFormsApp1
                 
                     using (SqlConnection conn = new SqlConnection(conexao))
                     {
-                        MessageBox.Show("ok");
                         conn.Open();
                         String query = "INSERT INTO login (Nome, Login, Senha, Tipo) VALUES (@nome, @login, @senha, @tipo)";
                         using (SqlCommand cmd = new SqlCommand(query, conn))
