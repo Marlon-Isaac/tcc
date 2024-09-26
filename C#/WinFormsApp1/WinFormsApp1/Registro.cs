@@ -44,35 +44,36 @@ namespace WinFormsApp1
 
             if (Nome.Length != 0 && Email.Length != 0 && senha1.Length != 0 && comboBox1.SelectedIndex != -1)
             {
-                MessageBox.Show(tipo);
                 cripto cripto = new cripto();
                 var senha = cripto.senha(senha1);
                 //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                 banco banco = new banco();
                 string conexao = banco.conexao;
-                MessageBox.Show(senha);
-                /*
-                try
-                {
+
+
+                try { 
+                
                     using (SqlConnection conn = new SqlConnection(conexao))
                     {
+                        MessageBox.Show("ok");
                         conn.Open();
-                        String query = "SELECT COUNT(1) FROM Login WHERE email=@login AND Senha=@senha";
+                        String query = "INSERT INTO login (Nome, Login, Senha, Tipo) VALUES (@nome, @login, @senha, @tipo)";
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
-                            //cmd.Parameters.AddWithValue("@login", login);
+                            cmd.Parameters.AddWithValue("@nome", Nome);
+                            cmd.Parameters.AddWithValue ("@login", Email);
                             cmd.Parameters.AddWithValue("@senha", senha);
-
-                            int count = Convert.ToInt32(cmd.ExecuteScalar());
-
-                            if (count == 1)
+                            cmd.Parameters.AddWithValue("@tipo", tipo);
+                            cmd.ExecuteNonQuery();
+                            DialogResult result = MessageBox.Show("Pedido de registro concluido!","" ,MessageBoxButtons.OK);
+                            if (result == DialogResult.OK) 
                             {
-                                MessageBox.Show("bem vindo");
+                                Form1 form1 = new Form1();
+                                form1.Show();
+                                this.Close();
                             }
-                            else
-                            {
-                                MessageBox.Show("login ou senha incorreto");
-                            }
+                            conn.Close();
+
                         }
 
 
@@ -83,7 +84,7 @@ namespace WinFormsApp1
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro no banco de dados" + ex.Message, "erro", MessageBoxButtons.OK);
-                }*/
+                }
             }
             else
             {

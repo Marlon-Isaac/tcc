@@ -71,39 +71,45 @@ namespace WinFormsApp1
                     using (SqlConnection conn = new SqlConnection(conexao))
                     {
                         conn.Open();
-                        String query = "SELECT Senha FROM Login WHERE email=@login";//SELECT PasswordHash FROM Users WHERE Username = @Username
+                        String query = "SELECT Senha FROM Login WHERE login = @login";//SELECT PasswordHash FROM Users WHERE Username = @Username
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
                             cmd.Parameters.AddWithValue("@login", login);
+                            int count = Convert.ToInt32(cmd.ExecuteScalar());
                             cripto cripto = new cripto();
-                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            if (count == 0)
                             {
-                                if (reader.Read())  // Se houver um resultado
+                                using (SqlDataReader reader = cmd.ExecuteReader())
                                 {
-                                    string hash = reader["Senha"].ToString();
-                                    senharesul = cripto.verificar(hash, senha);
-                                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-
-                                    if (count == 1 && senharesul == true)
+                                    if (reader.Read())  // Se houver um resultado
                                     {
-                                        MessageBox.Show("bem vindo");
+                                        var a = reader["Senha"];
+                                        string hash = Convert.FromBase64String(a);
+                                        MessageBox.Show(hash);
+                                        /*senharesul = cripto.verificar(hash, senha);
+
+                                        if (count == 1 && senharesul == true)
+                                        {
+                                            MessageBox.Show("bem vindo");
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("senha incorreta");
+                                        }*/
                                     }
                                     else
                                     {
-                                        MessageBox.Show("login ou senha incorreto");
+                                        MessageBox.Show("Nenhum dado registrado");
                                     }
                                 }
                             }
-                            
-
-                            
+                            else
+                            {
+                                MessageBox.Show("login incorreto");
+                            }
                         }
-
-
                     }
-
                 }
-
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro no banco de dados" + ex.Message, "erro", MessageBoxButtons.OK);
