@@ -1,24 +1,22 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Net.Mail;
-using System.Net;
-
-
-
 
 namespace WinFormsApp1
 {
-    public partial class Recuperar : Form
+    public partial class recuperar : Form
     {
-        public Recuperar()
+        public recuperar()
         {
             InitializeComponent();
         }
@@ -27,10 +25,10 @@ namespace WinFormsApp1
         {
             var email = textBox1.Text;
 
-            if (email.Length != 0)
+            if (email.Length !=  0)
             {
-                banco banco = new banco();
-                string conexao = banco.conexao;
+                //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(conexao))
@@ -38,17 +36,17 @@ namespace WinFormsApp1
                         string gmail;
                         string senha;
                         conn.Open();
-                        String query = "SELECT COUNT(1) FROM Login WHERE email=@Login";
+                        String query = "SELECT COUNT(1) FROM Login WHERE email=@login";
                         string query1 = "SELECT * FROM Gmail";
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
-                            cmd.Parameters.AddWithValue("email", email);
+                                cmd.Parameters.AddWithValue("email", email); 
 
                             int count = Convert.ToInt32(cmd.ExecuteScalar());
 
                             if (count == 1)
                             {
-                                using (SqlCommand cmd1 = new SqlCommand(query1, conn))
+                                using (SqlCommand cmd1 = new SqlCommand(query1, conn)) 
                                 {
                                     using (SqlDataReader reader = cmd1.ExecuteReader())
                                     {
@@ -59,8 +57,7 @@ namespace WinFormsApp1
                                                 gmail = reader["Gmail"].ToString();
                                                 senha = reader["Senha"].ToString();
 
-                                                Random random = new Random();
-                                                aleatorio aleatorio = new aleatorio(random.Next(100000, 1000000));
+
                                                 // Configurações do servidor SMTP
                                                 string smtpAddress = gmail; // Endereço do servidor SMTP
                                                 int portNumber = 587; // Porta do servidor SMTP (ex: 587 para TLS, 465 para SSL)
@@ -70,7 +67,7 @@ namespace WinFormsApp1
                                                 string password = senha; // Sua senha de e-mail
                                                 string emailTo = email; // E-mail do destinatário
                                                 string subject = "Recuperação de senha - NÃO RESPONDA!"; // Assunto do e-mail
-                                                string body = "o numero de recuperação é" + aleatorio.b; // Corpo do e-mail
+                                                string body = ""; // Corpo do e-mail
 
                                                 using (MailMessage mail = new MailMessage())
                                                 {
@@ -101,7 +98,7 @@ namespace WinFormsApp1
                                 }
                             }
 
-
+                            
                             else
                             {
                                 MessageBox.Show("Email incorreto");
@@ -122,11 +119,6 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Preencha todos os itens!", "Erro");
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

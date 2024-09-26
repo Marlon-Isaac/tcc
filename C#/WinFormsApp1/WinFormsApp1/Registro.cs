@@ -39,14 +39,19 @@ namespace WinFormsApp1
         {
             var Nome = textBox1.Text;
             var Email = textBox2.Text;
-            var senha = textBox3.Text;
+            var senha1 = textBox3.Text;
             var tipo = comboBox1.SelectedItem.ToString();
 
-            if (Nome.Length != 0 && Email.Length != 0 && senha.Length != 0 && comboBox1.SelectedIndex != -1)
+            if (Nome.Length != 0 && Email.Length != 0 && senha1.Length != 0 && comboBox1.SelectedIndex != -1)
             {
                 MessageBox.Show(tipo);
+                cripto cripto = new cripto();
+                var senha = cripto.senha(senha1);
                 //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+                banco banco = new banco();
+                string conexao = banco.conexao;
+                MessageBox.Show(senha);
+                /*
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(conexao))
@@ -78,7 +83,7 @@ namespace WinFormsApp1
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro no banco de dados" + ex.Message, "erro", MessageBoxButtons.OK);
-                }
+                }*/
             }
             else
             {

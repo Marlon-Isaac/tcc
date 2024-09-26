@@ -60,6 +60,7 @@ namespace WinFormsApp1
         {
             var login = textBox1.Text;
             var senha = textBox2.Text;
+            bool senharesul;
             if (login.Length != 0 && senha.Length != 0)
             {
                 banco banco = new banco();
@@ -70,22 +71,32 @@ namespace WinFormsApp1
                     using (SqlConnection conn = new SqlConnection(conexao))
                     {
                         conn.Open();
-                        String query = "SELECT COUNT(1) FROM Login WHERE email=@login AND Senha=@senha";
+                        String query = "SELECT Senha FROM Login WHERE email=@login";//SELECT PasswordHash FROM Users WHERE Username = @Username
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
                             cmd.Parameters.AddWithValue("@login", login);
-                            cmd.Parameters.AddWithValue("@senha", senha);
-
-                            int count = Convert.ToInt32(cmd.ExecuteScalar());
-
-                            if (count == 1)
+                            cripto cripto = new cripto();
+                            using (SqlDataReader reader = cmd.ExecuteReader())
                             {
-                                MessageBox.Show("bem vindo");
+                                if (reader.Read())  // Se houver um resultado
+                                {
+                                    string hash = reader["Senha"].ToString();
+                                    senharesul = cripto.verificar(hash, senha);
+                                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                                    if (count == 1 && senharesul == true)
+                                    {
+                                        MessageBox.Show("bem vindo");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("login ou senha incorreto");
+                                    }
+                                }
                             }
-                            else
-                            {
-                                MessageBox.Show("login ou senha incorreto");
-                            }
+                            
+
+                            
                         }
 
 
@@ -123,7 +134,7 @@ namespace WinFormsApp1
 
         private void label4_Click(object sender, EventArgs e)
         {
-            Recuperar recuperar = new Recuperar();
+            recuperar recuperar = new recuperar();
             recuperar.Show();
         }
     }
