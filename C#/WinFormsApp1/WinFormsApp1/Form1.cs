@@ -122,5 +122,10 @@ namespace WinFormsApp1
             recuperar recuperar = new recuperar();
             recuperar.Show();
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -21,10 +21,16 @@ namespace WinFormsApp1
     public class aleatorio(int a)
     {
         public int b = a;
+
     }
     public class banco()
     {
         //public string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
         public string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+    }
+    public class sapae()
+    {
+        public string gmail = "sapae00001@gmail.com";
+        public string senha = "rfld sbzi wpxa xczn";
     }
 }
