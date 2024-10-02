@@ -128,11 +128,12 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
+            comboBox1.ImeMode = ImeMode.Off;
             comboBox1.Items.AddRange(new object[] { "Professor", "Profissional", "Responsavel", "Secretaria" });
             comboBox1.Location = new Point(78, 251);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(263, 23);
-            comboBox1.TabIndex = 13;
+            comboBox1.TabIndex = 5;
             // 
             // label5
             // 
@@ -149,7 +150,7 @@
             textBox3.Name = "textBox3";
             textBox3.PasswordChar = '*';
             textBox3.Size = new Size(262, 23);
-            textBox3.TabIndex = 11;
+            textBox3.TabIndex = 4;
             // 
             // label4
             // 

@@ -33,73 +33,77 @@ namespace WinFormsApp1
                 {
                     using (SqlConnection conn = new SqlConnection(conexao))
                     {
-                        sapae sapae = new sapae();
-                        Random random = new Random();
-                        int numero = random.Next(100000, 1000000);
-                        aleatorio aleatorio = new aleatorio(numero);
-                        string gmail = sapae.gmail;
-                        string senha = sapae.senha;
+                        string gmail;
+                        string senha;
                         conn.Open();
-                        String query = "SELECT COUNT(1) FROM Login WHERE Login=@login";
+                        String query = "SELECT COUNT(1) FROM Login WHERE email=@login";
+                        string query1 = "SELECT * FROM Gmail";
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
-                                cmd.Parameters.AddWithValue("@login", email); 
+                                cmd.Parameters.AddWithValue("email", email); 
 
                             int count = Convert.ToInt32(cmd.ExecuteScalar());
 
                             if (count == 1)
                             {
-
-                                string smtpAddress = "smtp.gmail.com"; // Endereço do servidor SMTP
-                                int portNumber = 465; // Porta do servidor SMTP (ex: 587 para TLS, 465 para SSL)
-                                bool enableSSL = true; // Habilita ou desabilita SSL
-
-                                string emailFrom = gmail; // Seu e-mail
-                                string password = senha; // Sua senha de e-mail
-                                string emailTo = email; // E-mail do destinatário
-                                string subject = "Recuperação de senha - NÃO RESPONDA!"; // Assunto do e-mail
-                                string body = "O numero de recuperação de senha da sua conta é" + aleatorio.b; // Corpo do e-mail
-
-                                try
+                                using (SqlCommand cmd1 = new SqlCommand(query1, conn)) 
                                 {
-                                    using (MailMessage mail = new MailMessage())
+                                    using (SqlDataReader reader = cmd1.ExecuteReader())
                                     {
-                                        mail.From = new MailAddress(emailFrom);
-                                        mail.To.Add(emailTo);
-                                        mail.Subject = subject;
-                                        mail.Body = body;
-                                        mail.IsBodyHtml = false; // Defina como true se o corpo for em HTML
-
-                                        using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
+                                        if (reader.HasRows)
                                         {
-                                            smtp.Credentials = new NetworkCredential(emailFrom, password);
-                                            smtp.EnableSsl = enableSSL;
-                                            try
+                                            while (reader.Read())
                                             {
-                                                smtp.Send(mail);
-                                                MessageBox.Show("E-mail enviado com sucesso!");
-                                            }
-                                            catch (Exception ex)
-                                            {
-                                                MessageBox.Show($"Erro ao enviar e-mail: {ex.Message}");
+                                                gmail = reader["Gmail"].ToString();
+                                                senha = reader["Senha"].ToString();
+
+
+                                                // Configurações do servidor SMTP
+                                                string smtpAddress = gmail; // Endereço do servidor SMTP
+                                                int portNumber = 587; // Porta do servidor SMTP (ex: 587 para TLS, 465 para SSL)
+                                                bool enableSSL = true; // Habilita ou desabilita SSL
+
+                                                string emailFrom = gmail; // Seu e-mail
+                                                string password = senha; // Sua senha de e-mail
+                                                string emailTo = email; // E-mail do destinatário
+                                                string subject = "Recuperação de senha - NÃO RESPONDA!"; // Assunto do e-mail
+                                                string body = ""; // Corpo do e-mail
+
+                                                using (MailMessage mail = new MailMessage())
+                                                {
+                                                    mail.From = new MailAddress(emailFrom);
+                                                    mail.To.Add(emailTo);
+                                                    mail.Subject = subject;
+                                                    mail.Body = body;
+                                                    mail.IsBodyHtml = false; // Defina como true se o corpo for em HTML
+
+                                                    using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
+                                                    {
+                                                        smtp.Credentials = new NetworkCredential(emailFrom, password);
+                                                        smtp.EnableSsl = enableSSL;
+                                                        try
+                                                        {
+                                                            smtp.Send(mail);
+                                                            MessageBox.Show("E-mail enviado com sucesso!");
+                                                        }
+                                                        catch (Exception ex)
+                                                        {
+                                                            MessageBox.Show($"Erro ao enviar e-mail: {ex.Message}");
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
                                 }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show("Erro ao enviar email: " + ex.Message);
-                                }
-
                             }
 
-
+                            
                             else
                             {
                                 MessageBox.Show("Email incorreto");
                             }
                         }
-
 
 
                     }
