@@ -47,44 +47,51 @@ namespace WinFormsApp1
             {
                 if (validar.ValidarEmail(Email))
                 {
-                    //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                    banco banco = new banco();
-                    string conexao = banco.conexao;
-
-
-                    try
+                    if (senha.Length > 5)
                     {
+                        //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                        banco banco = new banco();
+                        string conexao = banco.conexao;
 
-                        using (SqlConnection conn = new SqlConnection(conexao))
+
+                        try
                         {
-                            conn.Open();
-                            String query = "INSERT INTO Registro (Nome, Login, Senha, Tipo) VALUES (@nome, @login, @senha, @tipo)";
-                            using (SqlCommand cmd = new SqlCommand(query, conn))
+
+                            using (SqlConnection conn = new SqlConnection(conexao))
                             {
-                                cmd.Parameters.AddWithValue("@nome", Nome);
-                                cmd.Parameters.AddWithValue("@login", Email);
-                                cmd.Parameters.AddWithValue("@senha", senha);
-                                cmd.Parameters.AddWithValue("@tipo", tipo);
-                                cmd.ExecuteNonQuery();
-                                DialogResult result = MessageBox.Show("Pedido de registro concluido!", "", MessageBoxButtons.OK);
-                                if (result == DialogResult.OK)
+                                conn.Open();
+                                String query = "INSERT INTO Registro (Nome, Login, Senha, Tipo) VALUES (@nome, @login, @senha, @tipo)";
+                                using (SqlCommand cmd = new SqlCommand(query, conn))
                                 {
-                                    Form1 form1 = new Form1();
-                                    form1.Show();
-                                    this.Close();
+                                    cmd.Parameters.AddWithValue("@nome", Nome);
+                                    cmd.Parameters.AddWithValue("@login", Email);
+                                    cmd.Parameters.AddWithValue("@senha", senha);
+                                    cmd.Parameters.AddWithValue("@tipo", tipo);
+                                    cmd.ExecuteNonQuery();
+                                    DialogResult result = MessageBox.Show("Pedido de registro concluido!", "", MessageBoxButtons.OK);
+                                    if (result == DialogResult.OK)
+                                    {
+                                        Form1 form1 = new Form1();
+                                        form1.Show();
+                                        this.Close();
+                                    }
+                                    conn.Close();
+
                                 }
-                                conn.Close();
+
 
                             }
 
-
                         }
 
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Erro no banco de dados" + ex.Message, "erro", MessageBoxButtons.OK);
+                        }
                     }
-
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("Erro no banco de dados" + ex.Message, "erro", MessageBoxButtons.OK);
+                        MessageBox.Show("Senha insegura");
                     }
                 }
                 else

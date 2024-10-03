@@ -71,20 +71,55 @@ namespace WinFormsApp1
                     using (SqlConnection conn = new SqlConnection(conexao))
                     {
                         conn.Open();
-                        String query = "SELECT COUNT(1) FROM Login WHERE Login = @login AND Senha = @senha";
+                        String query = "SELECT Tipo FROM Login WHERE Login = @login AND Senha = @senha";
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
                             cmd.Parameters.AddWithValue("@login", login);
                             cmd.Parameters.AddWithValue("@senha", senha);
-                            int count = Convert.ToInt32(cmd.ExecuteScalar());
-
-                            if (count == 1)
+                            object result = cmd.ExecuteScalar();
+                            /*Professor
+                              Profissional
+                              Responsavel
+                              Secretaria*/
+                            if (result != null)
                             {
-                                MessageBox.Show("Bem vindo");
+                                string tipo = result.ToString();
+                                switch (tipo)
+                                {
+                                    case "Professor":
+                                        Home homeProf = new Home();
+                                        homeProf.Show();
+                                        this.Hide();
+                                        break;
 
-                                Home homeForm = new Home();
-                                homeForm.Show();
-                                this.Hide();
+                                    case "Profissional":
+                                        Home homePro = new Home();
+                                        homePro.Show();
+                                        this.Hide();
+                                        break;
+
+                                    case "Responsavel":
+                                        Home homeResp = new Home();
+                                        homeResp.Show();
+                                        this.Hide();
+                                        break;
+
+                                    case "Secretaria":
+                                        Home homeSec = new Home();
+                                        homeSec.Show();
+                                        this.Hide();
+                                        break;
+
+                                    case "Administador":
+                                        Home homeADM = new Home();
+                                        homeADM.Show();
+                                        this.Hide();
+                                        break;
+
+                                    default:
+                                        MessageBox.Show("Erro de tipo de usuario, porfavor contate o administrador");
+                                        break;
+                                }
                             }
                             else
                             {
