@@ -81,6 +81,10 @@ namespace WinFormsApp1
                             if (count == 1)
                             {
                                 MessageBox.Show("Bem vindo");
+
+                                Home homeForm = new Home();
+                                homeForm.Show();
+                                this.Hide();
                             }
                             else
                             {

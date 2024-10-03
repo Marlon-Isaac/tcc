@@ -2,7 +2,6 @@ tela inicial
 
 	-navbar/sidebar
 	-quadro de avisos
-	-chat
 	-formulario de sugestões
 
 dicas-profissionais

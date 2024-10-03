@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             panel1 = new Panel();
             button7 = new Button();
@@ -38,11 +39,16 @@
             button2 = new Button();
             button1 = new Button();
             panel2 = new Panel();
+            button8 = new Button();
             label2 = new Label();
             label1 = new Label();
-            button8 = new Button();
+            panel3 = new Panel();
+            panel4 = new Panel();
+            label3 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -134,7 +140,7 @@
             // button1
             // 
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Image = Properties.Resources.icons8_home_24;
+            button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(3, 93);
             button1.Name = "button1";
@@ -154,6 +160,19 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(178, 601);
             panel2.TabIndex = 1;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(40, 50, 58);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Location = new Point(3, 67);
+            button8.Name = "button8";
+            button8.Size = new Size(175, 47);
+            button8.TabIndex = 4;
+            button8.Text = "Clique para escrever";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // label2
             // 
@@ -177,17 +196,33 @@
             label1.TabIndex = 2;
             label1.Text = "Reclamações";
             // 
-            // button8
+            // panel3
             // 
-            button8.BackColor = Color.FromArgb(40, 50, 58);
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Location = new Point(3, 67);
-            button8.Name = "button8";
-            button8.Size = new Size(175, 47);
-            button8.TabIndex = 4;
-            button8.Text = "Clique para escrever";
-            button8.UseVisualStyleBackColor = false;
-            button8.Click += button8_Click;
+            panel3.BackColor = Color.FromArgb(40, 50, 58);
+            panel3.Location = new Point(826, 135);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(178, 463);
+            panel3.TabIndex = 5;
+            // 
+            // panel4
+            // 
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(label3);
+            panel4.Location = new Point(120, 14);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(700, 575);
+            panel4.TabIndex = 6;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.FlatStyle = FlatStyle.Flat;
+            label3.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(3, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(175, 20);
+            label3.TabIndex = 0;
+            label3.Text = "Central de Notificações";
             // 
             // Home
             // 
@@ -195,6 +230,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
             ClientSize = new Size(1004, 601);
+            Controls.Add(panel4);
+            Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -207,6 +244,8 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -224,5 +263,9 @@
         private Label label2;
         private Label label1;
         private Button button8;
+        private Panel panel3;
+        private Panel panel4;
+        private Label label3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

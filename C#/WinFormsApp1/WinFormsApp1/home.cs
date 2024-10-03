@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,49 +20,96 @@ namespace WinFormsApp1
 
         private void Home_Load(object sender, EventArgs e)
         {
+            ArredondarBordasPanel4(); // Chame o método para arredondar bordas do panel4
+            
+
+            banco banco = new banco();
+            string conexaoString = banco.conexao;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(conexaoString))
+                {
+                    conn.Open();
+                    string query = "SELECT Nome, Email, Telefone, Comentario FROM SugestoesReclamacoes";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Limpar o conteúdo atual do Panel3
+                        panel3.Controls.Clear();
+
+                        // Habilitar o AutoScroll para o Panel3
+                        panel3.AutoScroll = true;
+
+                        int yPosition = 10; // Posição vertical inicial
+
+                        while (reader.Read())
+                        {
+                            string nome = reader["Nome"].ToString();
+                            string email = reader["Email"].ToString();
+                            string comentario = reader["Comentario"].ToString();
+
+                            Label labelNome = new Label
+                            {
+                                Text = $"Nome: {nome}",
+                                AutoSize = true,
+                                Location = new Point(10, yPosition)
+                            };
+
+                            Label labelEmail = new Label
+                            {
+                                Text = $"Email: {email}",
+                                AutoSize = true,
+                                Location = new Point(10, yPosition + 20)
+                            };
+
+                            Label labelComentario = new Label
+                            {
+                                Text = $"Comentário: {comentario}",
+                                AutoSize = true,
+                                Location = new Point(10, yPosition + 60)
+                            };
+
+                            panel3.Controls.Add(labelNome);
+                            panel3.Controls.Add(labelEmail);
+                            panel3.Controls.Add(labelComentario);
+
+                            // Incrementar a posição vertical para o próximo conjunto de Labels
+                            yPosition += 100;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados: " + ex.Message, "Erro", MessageBoxButtons.OK);
+            }
         }
+
+        private void ArredondarBordasPanel4()
+        {
+            int borderRadius = 30; // Defina o raio da borda
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+
+            path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90); // canto superior esquerdo
+            path.AddArc(new Rectangle(panel4.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90); // canto superior direito
+            path.AddArc(new Rectangle(panel4.Width - borderRadius, panel4.Height - borderRadius, borderRadius, borderRadius), 0, 90); // canto inferior direito
+            path.AddArc(new Rectangle(0, panel4.Height - borderRadius, borderRadius, borderRadius), 90, 90); // canto inferior esquerdo
+
+            path.CloseAllFigures();
+
+            panel4.Region = new Region(path); // Aplique a região ao panel4
+        }
+
+
 
         private void button8_Click(object sender, EventArgs e)
         {
-            // Crie um novo formulário (pop-up)
-            Form popupForm = new Form();
+            sugestions sug = new sugestions();
+            sug.Show();
 
-            // Adicione os controles necessários ao pop-up
-            popupForm.Text = "Formulário de Reclamação/Sugestão";
-            popupForm.StartPosition = FormStartPosition.CenterParent;
-            popupForm.Size = new Size(300, 200);
 
-            Label lblInstrucao = new Label();
-            lblInstrucao.Text = "Escreva sua Reclamação/Sugestão:";
-            lblInstrucao.Location = new Point(10, 10);
-
-            TextBox tbMensagem = new TextBox();
-            tbMensagem.Multiline = true;
-            tbMensagem.ScrollBars = ScrollBars.Vertical;
-            tbMensagem.Size = new Size(250, 100);
-            tbMensagem.Location = new Point(10, 30);
-
-            Button btnEnviar = new Button();
-            btnEnviar.Text = "Enviar";
-            btnEnviar.Location = new Point(10, 140);
-            btnEnviar.Click += (s, args) =>
-            {
-                MessageBox.Show("Mensagem Enviada: " + tbMensagem.Text);
-                popupForm.Close();
-            };
-
-            Button btnFechar = new Button();
-            btnFechar.Text = "Fechar";
-            btnFechar.Location = new Point(80, 140);
-            btnFechar.Click += (s, args) => popupForm.Close();
-
-            popupForm.Controls.Add(lblInstrucao);
-            popupForm.Controls.Add(tbMensagem);
-            popupForm.Controls.Add(btnEnviar);
-            popupForm.Controls.Add(btnFechar);
-
-            // Exiba o pop-up para o usuário
-            popupForm.ShowDialog();
         }
     }
 }

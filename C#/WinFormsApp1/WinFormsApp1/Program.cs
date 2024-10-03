@@ -1,4 +1,7 @@
+using System.Drawing;
+using System;
 using System.Drawing.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WinFormsApp1
 {
@@ -26,8 +29,9 @@ namespace WinFormsApp1
     public class banco()
     {
         //public string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
-        public string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+        public string conexao = "Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = TCC; Integrated Security = True; Connect Timeout = 30; Encrypt=False;";
     }
+    
     public class sapae()
     {
         public string gmail = "sapae00001@gmail.com";
