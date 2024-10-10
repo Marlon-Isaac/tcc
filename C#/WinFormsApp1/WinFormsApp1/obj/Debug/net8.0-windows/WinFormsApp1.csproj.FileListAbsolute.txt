@@ -226,3 +226,4 @@ C:\Users\187382022\Source\Repos\tcc3\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8
 C:\Users\187382022\Source\Repos\tcc3\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.genruntimeconfig.cache
 C:\Users\187382022\Source\Repos\tcc3\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\ref\WinFormsApp1.dll
 C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.sugestions.resources
+C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.perfil.resources

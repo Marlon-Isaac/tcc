@@ -21,7 +21,7 @@ namespace WinFormsApp1
         private void Home_Load(object sender, EventArgs e)
         {
             ArredondarBordasPanel4(); // Chame o método para arredondar bordas do panel4
-            
+
 
             banco banco = new banco();
             string conexaoString = banco.conexao;
@@ -109,6 +109,25 @@ namespace WinFormsApp1
             sugestions sug = new sugestions();
             sug.Show();
 
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Home homeForm = new Home();
+            homeForm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            perfil perfilForm = new perfil();
+            perfilForm.Show();
+            this.Hide();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
 
         }
     }

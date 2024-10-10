@@ -76,6 +76,7 @@
             button7.Size = new Size(111, 49);
             button7.TabIndex = 5;
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // button6
             // 
@@ -136,6 +137,7 @@
             button2.TabIndex = 1;
             button2.Text = "   Perfil";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -148,6 +150,7 @@
             button1.TabIndex = 1;
             button1.Text = "    Home";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // panel2
             // 
