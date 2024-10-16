@@ -16,7 +16,7 @@ namespace WinFormsApp1
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new Logins());
             
         }
         
@@ -29,7 +29,7 @@ namespace WinFormsApp1
     public class banco()
     {
         //public string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
-        public string conexao = "Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = TCC; Integrated Security = True; Connect Timeout = 30; Encrypt=False;";
+        public string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
     }
     
     public class sapae()

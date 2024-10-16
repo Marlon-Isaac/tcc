@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp1
 {
-    partial class perfil
+    partial class Perfil
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(perfil));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Perfil));
             panel1 = new Panel();
             button7 = new Button();
             button6 = new Button();
@@ -40,15 +40,15 @@
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            panel4 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            button8 = new Button();
+            label7 = new Label();
+            label6 = new Label();
             label5 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            panel4 = new Panel();
+            button8 = new Button();
+            label4 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -69,7 +69,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(114, 601);
+            panel1.Size = new Size(114, 595);
             panel1.TabIndex = 1;
             // 
             // button7
@@ -141,7 +141,7 @@
             button2.TabIndex = 1;
             button2.Text = "   Perfil";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += Button2_Click;
             // 
             // button1
             // 
@@ -154,115 +154,64 @@
             button1.TabIndex = 1;
             button1.Text = "    Home";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += Button1_Click;
             // 
             // panel2
             // 
+            panel2.Controls.Add(panel4);
             panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(378, 12);
+            panel2.Controls.Add(panel3);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(114, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(315, 240);
+            panel2.Size = new Size(748, 595);
             panel2.TabIndex = 2;
             // 
             // pictureBox1
             // 
-            pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Location = new Point(37, 15);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(315, 240);
+            pictureBox1.Size = new Size(603, 248);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            pictureBox1.Click += PictureBox1_Click;
             // 
             // panel3
             // 
+            panel3.Controls.Add(label7);
+            panel3.Controls.Add(label6);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label1);
-            panel3.Controls.Add(textBox2);
-            panel3.Controls.Add(textBox1);
-            panel3.Location = new Point(226, 258);
+            panel3.Location = new Point(37, 287);
             panel3.Name = "panel3";
-            panel3.Size = new Size(639, 143);
+            panel3.Size = new Size(354, 159);
             panel3.TabIndex = 3;
             // 
-            // textBox1
+            // label7
             // 
-            textBox1.Location = new Point(19, 19);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(596, 30);
-            textBox1.TabIndex = 0;
+            label7.AutoSize = true;
+            label7.FlatStyle = FlatStyle.Flat;
+            label7.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(36, 72);
+            label7.Name = "label7";
+            label7.Size = new Size(48, 20);
+            label7.TabIndex = 8;
+            label7.Text = "Nome";
             // 
-            // textBox2
+            // label6
             // 
-            textBox2.Location = new Point(19, 74);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(596, 30);
-            textBox2.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(button8);
-            panel4.Controls.Add(label4);
-            panel4.Location = new Point(226, 427);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(639, 117);
-            panel4.TabIndex = 4;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.FlatStyle = FlatStyle.Flat;
-            label1.Location = new Point(19, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 17);
-            label1.TabIndex = 3;
-            label1.Text = "Nome";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.FlatStyle = FlatStyle.Flat;
-            label2.Location = new Point(19, 55);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 17);
-            label2.TabIndex = 4;
-            label2.Text = "Email";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.FlatStyle = FlatStyle.Flat;
-            label3.Location = new Point(19, 110);
-            label3.Name = "label3";
-            label3.Size = new Size(99, 17);
-            label3.TabIndex = 5;
-            label3.Text = "Tipo de Usuario:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.FlatStyle = FlatStyle.Flat;
-            label4.Location = new Point(19, 18);
-            label4.Name = "label4";
-            label4.Size = new Size(86, 17);
-            label4.TabIndex = 4;
-            label4.Text = "Alterar Senha";
-            // 
-            // button8
-            // 
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Location = new Point(21, 38);
-            button8.Name = "button8";
-            button8.Size = new Size(146, 35);
-            button8.TabIndex = 5;
-            button8.Text = "Clique";
-            button8.UseVisualStyleBackColor = true;
+            label6.AutoSize = true;
+            label6.FlatStyle = FlatStyle.Flat;
+            label6.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(36, 17);
+            label6.Name = "label6";
+            label6.Size = new Size(48, 20);
+            label6.TabIndex = 7;
+            label6.Text = "Nome";
             // 
             // label5
             // 
@@ -274,22 +223,80 @@
             label5.TabIndex = 6;
             label5.Text = "labl";
             // 
-            // perfil
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.FlatStyle = FlatStyle.Flat;
+            label3.Location = new Point(19, 110);
+            label3.Name = "label3";
+            label3.Size = new Size(99, 17);
+            label3.TabIndex = 5;
+            label3.Text = "Tipo de Usuario:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.FlatStyle = FlatStyle.Flat;
+            label2.Location = new Point(19, 55);
+            label2.Name = "label2";
+            label2.Size = new Size(38, 17);
+            label2.TabIndex = 4;
+            label2.Text = "Email";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.FlatStyle = FlatStyle.Flat;
+            label1.Location = new Point(19, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 17);
+            label1.TabIndex = 3;
+            label1.Text = "Nome";
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(button8);
+            panel4.Controls.Add(label4);
+            panel4.Location = new Point(397, 287);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(246, 159);
+            panel4.TabIndex = 4;
+            // 
+            // button8
+            // 
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Location = new Point(21, 38);
+            button8.Name = "button8";
+            button8.Size = new Size(175, 51);
+            button8.TabIndex = 5;
+            button8.Text = "Clique";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += Button8_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.FlatStyle = FlatStyle.Flat;
+            label4.Location = new Point(19, 18);
+            label4.Name = "label4";
+            label4.Size = new Size(86, 17);
+            label4.TabIndex = 4;
+            label4.Text = "Alterar Senha";
+            // 
+            // Perfil
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
-            ClientSize = new Size(1004, 601);
-            Controls.Add(panel4);
-            Controls.Add(panel3);
+            ClientSize = new Size(862, 595);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Comic Sans MS", 9F);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Name = "perfil";
+            Name = "Perfil";
             StartPosition = FormStartPosition.CenterScreen;
-            Load += perfil_Load;
+            Load += Perfil_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -316,11 +323,11 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox textBox2;
-        private TextBox textBox1;
         private Panel panel4;
         private Button button8;
         private Label label4;
         private Label label5;
+        private Label label7;
+        private Label label6;
     }
 }

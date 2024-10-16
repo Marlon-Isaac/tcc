@@ -12,49 +12,50 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class perfil : Form
+    public partial class Perfil : Form
     {
-        public perfil()
+        public Perfil()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            Home homeForm = new Home();
+            Home homeForm = new();
             homeForm.Show();
             this.Hide();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
-            perfil perfilForm = new perfil();
+            Perfil perfilForm = new();
             perfilForm.Show();
             this.Hide();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void PictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void perfil_Load(object sender, EventArgs e)
+        private void Perfil_Load(object sender, EventArgs e)
         {
-            Bitmap originalImage = new Bitmap(pictureBox1.Image);
-            Bitmap circleImage = new Bitmap(originalImage.Width, originalImage.Height);
+            using Bitmap originalImage = new(pictureBox1.Image);
+            Bitmap circleImage = new(originalImage.Width, originalImage.Height);
 
-            using (Graphics g = Graphics.FromImage(circleImage))
-            {
-                GraphicsPath path = new GraphicsPath();
-                path.AddEllipse(0, 0, circleImage.Width, circleImage.Height);
+            using Graphics g = Graphics.FromImage(circleImage);
+            GraphicsPath path = new();
+            path.AddEllipse(0, 0, circleImage.Width, circleImage.Height);
 
-                g.SetClip(path);
-                g.DrawImage(originalImage, 0, 0);
+            g.SetClip(path);
+            g.DrawImage(originalImage, 0, 0);
 
-                pictureBox1.Image = circleImage;
+            pictureBox1.Image = circleImage;
+        }
 
-               
-            }
+        private void Button8_Click(object sender, EventArgs e)
+        {
+
         }
     }
-    }
+}
