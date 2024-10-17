@@ -25,7 +25,7 @@ namespace WinFormsApp1
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            Logins form = new();
+            Login form = new();
             form.Show();
             this.Close();
         }
@@ -73,7 +73,7 @@ namespace WinFormsApp1
                         DialogResult result = MessageBox.Show("Pedido de registro concluido!", "", MessageBoxButtons.OK);
                         if (result == DialogResult.OK)
                         {
-                            Logins form1 = new();
+                            Login form1 = new();
                             form1.Show();
                             this.Close();
                         }
