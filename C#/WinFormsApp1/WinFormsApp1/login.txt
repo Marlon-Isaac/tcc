@@ -7,6 +7,9 @@ CREATE TABLE [dbo].login
     [Tipo] VARCHAR(50) NOT NULL,
 )
 
+ALTER TABLE [dbo].login
+ADD [Imagem] VARBINARY(MAX);
+
 
 CREATE TABLE [dbo].Registro
 (

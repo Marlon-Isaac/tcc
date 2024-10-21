@@ -108,6 +108,8 @@ namespace WinFormsApp1
 
         }
 
+        
+
         private void Button1_Click(object sender, EventArgs e)
         {
             Home homeForm = new();
@@ -124,7 +126,7 @@ namespace WinFormsApp1
 
         private void Button7_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

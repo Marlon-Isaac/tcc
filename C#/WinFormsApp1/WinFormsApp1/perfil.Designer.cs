@@ -38,6 +38,9 @@
             button2 = new Button();
             button1 = new Button();
             panel2 = new Panel();
+            panel4 = new Panel();
+            button8 = new Button();
+            label4 = new Label();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
             label7 = new Label();
@@ -46,14 +49,11 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            panel4 = new Panel();
-            button8 = new Button();
-            label4 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
-            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -81,6 +81,7 @@
             button7.Size = new Size(111, 49);
             button7.TabIndex = 5;
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // button6
             // 
@@ -164,15 +165,45 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(114, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(748, 595);
+            panel2.Size = new Size(287, 595);
             panel2.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(button8);
+            panel4.Controls.Add(label4);
+            panel4.Location = new Point(37, 378);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(208, 107);
+            panel4.TabIndex = 4;
+            // 
+            // button8
+            // 
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Location = new Point(21, 38);
+            button8.Name = "button8";
+            button8.Size = new Size(175, 51);
+            button8.TabIndex = 5;
+            button8.Text = "Clique";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += Button8_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.FlatStyle = FlatStyle.Flat;
+            label4.Location = new Point(19, 18);
+            label4.Name = "label4";
+            label4.Size = new Size(86, 17);
+            label4.TabIndex = 4;
+            label4.Text = "Alterar Senha";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(37, 15);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(603, 248);
+            pictureBox1.Size = new Size(208, 227);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -186,9 +217,9 @@
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(37, 287);
+            panel3.Location = new Point(37, 248);
             panel3.Name = "panel3";
-            panel3.Size = new Size(354, 159);
+            panel3.Size = new Size(208, 136);
             panel3.TabIndex = 3;
             // 
             // label7
@@ -253,42 +284,12 @@
             label1.TabIndex = 3;
             label1.Text = "Nome";
             // 
-            // panel4
-            // 
-            panel4.Controls.Add(button8);
-            panel4.Controls.Add(label4);
-            panel4.Location = new Point(397, 287);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(246, 159);
-            panel4.TabIndex = 4;
-            // 
-            // button8
-            // 
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Location = new Point(21, 38);
-            button8.Name = "button8";
-            button8.Size = new Size(175, 51);
-            button8.TabIndex = 5;
-            button8.Text = "Clique";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += Button8_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.FlatStyle = FlatStyle.Flat;
-            label4.Location = new Point(19, 18);
-            label4.Name = "label4";
-            label4.Size = new Size(86, 17);
-            label4.TabIndex = 4;
-            label4.Text = "Alterar Senha";
-            // 
             // Perfil
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
-            ClientSize = new Size(862, 595);
+            ClientSize = new Size(401, 595);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Comic Sans MS", 9F);
@@ -299,11 +300,11 @@
             Load += Perfil_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             ResumeLayout(false);
         }
 

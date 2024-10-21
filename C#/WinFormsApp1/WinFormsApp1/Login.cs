@@ -22,6 +22,11 @@ namespace WinFormsApp1
             Painelarredondado();
         }
 
+        public void FecharLogin()
+        {
+            this.Close();  // Fecha o formulário Login
+        }
+
         public void Painelarredondado()
         {
             int borderRadius = 30;
@@ -54,42 +59,55 @@ namespace WinFormsApp1
         {
             var login = textBox1.Text;
             var senha = textBox2.Text;
-            bool senharesul;
+
             if (login.Length != 0 && senha.Length != 0)
             {
                 banco banco = new();
                 string conexao = banco.conexao;
+
                 try
                 {
                     using SqlConnection conn = new(conexao);
                     conn.Open();
-                    String query = "SELECT COUNT(1) FROM Login WHERE Login = @login AND Senha = @senha";
+
+                    // Consulta para verificar o login e obter o ID do usuário, Nome e Tipo
+                    string query = "SELECT Id, Nome, Tipo FROM Login WHERE Login = @login AND Senha = @senha";
+
                     using SqlCommand cmd = new(query, conn);
                     cmd.Parameters.AddWithValue("@login", login);
                     cmd.Parameters.AddWithValue("@senha", senha);
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    if (count == 1)
+                    using SqlDataReader reader = cmd.ExecuteReader(); // Inicializando o leitor
+
+                    if (reader.Read())  // Se o login for bem-sucedido
                     {
-                        MessageBox.Show("Bem vindo");
+                        // Obter as informações do usuário logado
+                        int usuarioLogadoId = reader["Id"] != DBNull.Value ? Convert.ToInt32(reader["Id"]) : 0;
+                        string nomeUsuario = reader["Nome"]?.ToString() ?? "Usuário";
 
+                        // Armazenar as informações do usuário na sessão
+                        SessaoUsuario.UsuarioLogadoId = usuarioLogadoId;
+
+                        MessageBox.Show("Bem-vindo " + nomeUsuario);
+
+                        // Redireciona para o formulário Home
                         Home homeForm = new();
                         homeForm.Show();
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("login incorreto");
+                        MessageBox.Show("Login ou senha incorretos");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro no banco de dados" + ex.Message, "erro", MessageBoxButtons.OK);
+                    MessageBox.Show("Erro no banco de dados: " + ex.Message, "Erro", MessageBoxButtons.OK);
                 }
             }
             else
             {
-                MessageBox.Show("Preencha todos os itens", "Erro", MessageBoxButtons.OK);
+                MessageBox.Show("Preencha todos os campos", "Erro", MessageBoxButtons.OK);
             }
         }
 

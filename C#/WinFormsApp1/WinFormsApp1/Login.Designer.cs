@@ -45,6 +45,7 @@
             // 
             resources.ApplyResources(textBox1, "textBox1");
             textBox1.BackColor = Color.FromArgb(40, 50, 58);
+            textBox1.ForeColor = Color.White;
             textBox1.Name = "textBox1";
             textBox1.TextChanged += TextBox1_TextChanged;
             // 
@@ -59,6 +60,7 @@
             // 
             resources.ApplyResources(textBox2, "textBox2");
             textBox2.BackColor = Color.FromArgb(40, 50, 58);
+            textBox2.ForeColor = Color.White;
             textBox2.Name = "textBox2";
             textBox2.TextChanged += TextBox2_TextChanged;
             // 
@@ -120,17 +122,17 @@
             panel1.Name = "panel1";
             panel1.Paint += Panel1_Paint;
             // 
-            // Form1
+            // Login
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = Color.FromArgb(17, 21, 24);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "Form1";
+            Name = "Login";
             ShowIcon = false;
             Load += Form1_Load;
             panel1.ResumeLayout(false);
