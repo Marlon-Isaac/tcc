@@ -88,7 +88,7 @@ namespace WinFormsApp1
                 try
                 {
                     // Sua string de conexão
-                    banco banco = new();
+                    Banco banco = new();
                     string conexao = banco.conexao;
 
                     using SqlConnection conn = new(conexao);
@@ -130,7 +130,7 @@ namespace WinFormsApp1
             try
             {
                 // Usando a classe banco para obter a string de conexão
-                banco banco = new();
+                Banco banco = new();
                 string conexao = banco.conexao;
 
                 // Conectando ao banco de dados com a string de conexão
@@ -163,7 +163,7 @@ namespace WinFormsApp1
             try
             {
                 // Usando a classe banco para obter a string de conexão
-                banco banco = new();
+                Banco banco = new();
                 string conexao = banco.conexao;
 
                 // Conectando ao banco de dados com a string de conexão obtida da classe banco

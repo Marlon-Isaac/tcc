@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             panel1 = new Panel();
             button7 = new Button();
@@ -45,7 +44,6 @@
             panel3 = new Panel();
             panel4 = new Panel();
             label3 = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -125,6 +123,7 @@
             button3.TabIndex = 1;
             button3.Text = "   Dicas";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -161,7 +160,7 @@
             panel2.Dock = DockStyle.Right;
             panel2.Location = new Point(826, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(178, 601);
+            panel2.Size = new Size(202, 601);
             panel2.TabIndex = 1;
             // 
             // button8
@@ -171,7 +170,7 @@
             button8.FlatStyle = FlatStyle.Flat;
             button8.Location = new Point(3, 67);
             button8.Name = "button8";
-            button8.Size = new Size(175, 47);
+            button8.Size = new Size(196, 47);
             button8.TabIndex = 4;
             button8.Text = "Clique para escrever";
             button8.UseVisualStyleBackColor = false;
@@ -181,10 +180,10 @@
             // 
             label2.AutoSize = true;
             label2.FlatStyle = FlatStyle.Flat;
-            label2.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(29, 32);
+            label2.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(44, 35);
             label2.Name = "label2";
-            label2.Size = new Size(95, 23);
+            label2.Size = new Size(130, 29);
             label2.TabIndex = 3;
             label2.Text = "e Sugestões";
             // 
@@ -192,20 +191,21 @@
             // 
             label1.AutoSize = true;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(3, 9);
+            label1.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(3, 5);
             label1.Name = "label1";
-            label1.Size = new Size(100, 23);
+            label1.Size = new Size(154, 33);
             label1.TabIndex = 2;
             label1.Text = "Reclamações";
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(40, 50, 58);
-            panel3.Location = new Point(826, 135);
+            panel3.Location = new Point(829, 120);
             panel3.Name = "panel3";
-            panel3.Size = new Size(178, 463);
+            panel3.Size = new Size(196, 478);
             panel3.TabIndex = 5;
+            panel3.Paint += Panel3_Paint;
             // 
             // panel4
             // 
@@ -232,7 +232,7 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
-            ClientSize = new Size(1004, 601);
+            ClientSize = new Size(1028, 601);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -269,6 +269,5 @@
         private Panel panel3;
         private Panel panel4;
         private Label label3;
-        private System.Windows.Forms.Timer timer1;
     }
 }

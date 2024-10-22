@@ -300,3 +300,5 @@ C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-window
 C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Logins.resources
 C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Login.pt.resources
 C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Logins.pt.resources
+C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.DicasPost.resources
+C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.DicasPost1.resources

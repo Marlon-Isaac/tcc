@@ -53,7 +53,7 @@ namespace WinFormsApp1
                 if (validar.ValidarEmail(Email))
                 {
                     //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                    banco banco = new();
+                    Banco banco = new();
                     string conexao = banco.conexao;
 
 

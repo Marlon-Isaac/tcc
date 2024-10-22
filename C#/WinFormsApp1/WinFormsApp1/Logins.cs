@@ -57,7 +57,7 @@ namespace WinFormsApp1
             bool senharesul;
             if (login.Length != 0 && senha.Length != 0)
             {
-                banco banco = new();
+                Banco banco = new();
                 string conexao = banco.conexao;
                 try
                 {
@@ -112,7 +112,7 @@ namespace WinFormsApp1
 
         private void Label4_Click(object sender, EventArgs e)
         {
-            recuperar recuperar = new();
+            Recuperar recuperar = new();
             recuperar.Show();
         }
 

@@ -23,64 +23,88 @@ namespace WinFormsApp1
             ArredondarBordasPanel4(); // Chame o método para arredondar bordas do panel4
 
 
-            banco banco = new();
+            Banco banco = new();
             string conexaoString = banco.conexao;
-
             try
             {
                 using SqlConnection conn = new(conexaoString);
                 conn.Open();
                 string query = "SELECT Nome, Email, Telefone, Comentario FROM SugestoesReclamacoes";
-
                 using SqlCommand cmd = new(query, conn);
                 using SqlDataReader reader = cmd.ExecuteReader();
+
                 // Limpar o conteúdo atual do Panel3
                 panel3.Controls.Clear();
-
-                // Habilitar o AutoScroll para o Panel3
-                panel3.AutoScroll = true;
+                // Desativar o AutoScroll do Panel3
+                panel3.AutoScroll = false;
 
                 int yPosition = 10; // Posição vertical inicial
+                ToolTip toolTip = new(); // Criar um ToolTip para mostrar o comentário completo
+
+                // Definir a fonte de 7px (fora do loop, pois é a mesma para todos os labels)
+                Font smallFont = new Font("Arial", 7);
 
                 while (reader.Read())
                 {
-                    string? nome = reader.IsDBNull(reader.GetOrdinal("Nome")) ? "Nome não disponível" : reader["Nome"].ToString();
-                    string? email = reader.IsDBNull(reader.GetOrdinal("Email")) ? "Email não disponível" : reader["Email"].ToString();
-                    string? comentario = reader.IsDBNull(reader.GetOrdinal("Comentario")) ? "Sem comentário" : reader["Comentario"].ToString();
+                    string nome = reader.IsDBNull(reader.GetOrdinal("Nome")) ? "Nome não disponível" : reader["Nome"].ToString();
+                    string email = reader.IsDBNull(reader.GetOrdinal("Email")) ? "Email não disponível" : reader["Email"].ToString();
+                    string comentario = reader.IsDBNull(reader.GetOrdinal("Comentario")) ? "Sem comentário" : reader["Comentario"].ToString();
 
+                    // Abreviar o comentário se ele for maior que um certo número de caracteres
+                    string comentarioExibido = comentario.Length > 30 ? string.Concat(comentario.AsSpan(0, 30), "...") : comentario;
+
+                    // Tamanho máximo permitido para os labels (por exemplo, 300px de largura)
+                    Size maximumLabelSize = new Size(300, 0);
+
+                    // Labels para Nome, Email e Comentário com fonte reduzida e limite de largura
                     Label labelNome = new()
                     {
                         Text = $"Nome: {nome}",
+                        Font = smallFont, // Aplicar a fonte de 7px
+                        Location = new Point(10, yPosition),
                         AutoSize = true,
-                        Location = new Point(10, yPosition)
+                        MaximumSize = maximumLabelSize // Definir o tamanho máximo antes de quebrar linha
                     };
 
                     Label labelEmail = new()
                     {
                         Text = $"Email: {email}",
+                        Font = smallFont, // Aplicar a fonte de 7px
+                        Location = new Point(10, yPosition + 20), // Colocar logo abaixo do nome
                         AutoSize = true,
-                        Location = new Point(10, yPosition + 20)
+                        MaximumSize = maximumLabelSize // Definir o tamanho máximo antes de quebrar linha
                     };
 
                     Label labelComentario = new()
                     {
-                        Text = $"Comentário: {comentario}",
+                        Text = $"Comentário: {comentarioExibido}",
+                        Font = smallFont, // Aplicar a fonte de 7px
+                        Location = new Point(10, yPosition + 40), // Colocar abaixo do email
                         AutoSize = true,
-                        Location = new Point(10, yPosition + 60)
+                        MaximumSize = maximumLabelSize // Definir o tamanho máximo antes de quebrar linha
                     };
 
+                    // Adicionar um ToolTip ao label do comentário
+                    toolTip.SetToolTip(labelComentario, comentario); // Exibir o comentário completo no ToolTip
+
+                    // Adicionar os labels ao painel
                     panel3.Controls.Add(labelNome);
                     panel3.Controls.Add(labelEmail);
                     panel3.Controls.Add(labelComentario);
 
                     // Incrementar a posição vertical para o próximo conjunto de Labels
-                    yPosition += 100;
+                    yPosition += 100; // Incremento suficiente para deixar espaço entre os conjuntos
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao carregar dados: " + ex.Message, "Erro", MessageBoxButtons.OK);
             }
+
+
+
+
+
         }
 
         private void ArredondarBordasPanel4()
@@ -108,7 +132,7 @@ namespace WinFormsApp1
 
         }
 
-        
+
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -126,7 +150,27 @@ namespace WinFormsApp1
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // Verifica se o formulário Login está aberto
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is Login loginForm)
+                {
+                    loginForm.FecharLogin();  // Chama o método para fechar o Login
+                    break;
+                }
+            }
+        }
+
+        private void Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DicasPost dicasPostForm = new();
+            dicasPostForm.Show(); 
+            this.Hide();
         }
     }
 }
