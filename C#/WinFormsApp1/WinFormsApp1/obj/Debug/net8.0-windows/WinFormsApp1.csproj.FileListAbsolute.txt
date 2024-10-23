@@ -169,13 +169,11 @@ C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\bin\Debug\net8.0-wi
 C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.csproj.AssemblyReference.cache
 C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.home1.resources
-C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Form1.resources
 C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Home.resources
 C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Properties.Resources.resources
 C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.recuperar.resources
 C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Recuperar2.resources
 C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Registro.resources
-C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Form1.pt.resources
 C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.csproj.GenerateResource.cache
 C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.AssemblyInfoInputs.cache
@@ -302,3 +300,12 @@ C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-window
 C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Logins.pt.resources
 C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.DicasPost.resources
 C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.DicasPost1.resources
+C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.DicasPost.resources
+C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.DicasPost1.resources
+C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Login.resources
+C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Logins.resources
+C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Perfil.resources
+C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.sugestions.resources
+C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Login.pt.resources
+C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Logins.pt.resources
+C:\Users\as485\Source\Repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Confirmar.resources

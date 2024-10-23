@@ -21,10 +21,10 @@ namespace WinFormsApp1
         }
         
     }
-    public class Aleatorio(int a)
+    public class Aleatorio()
     {
-        public int b = a;
-
+        public int a = 0;
+        public string b = null;
     }
     public class Banco()
     {

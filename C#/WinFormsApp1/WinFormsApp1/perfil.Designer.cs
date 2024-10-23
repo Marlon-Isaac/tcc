@@ -72,17 +72,6 @@
             panel1.Size = new Size(114, 595);
             panel1.TabIndex = 1;
             // 
-            // button7
-            // 
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Image = (Image)resources.GetObject("button7.Image");
-            button7.Location = new Point(3, 540);
-            button7.Name = "button7";
-            button7.Size = new Size(111, 49);
-            button7.TabIndex = 5;
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
-            // 
             // button6
             // 
             button6.FlatStyle = FlatStyle.Flat;

@@ -44,6 +44,7 @@
             label1.Size = new Size(173, 30);
             label1.TabIndex = 0;
             label1.Text = "Recuperar senha";
+            label1.Click += label1_Click;
             // 
             // textBox1
             // 
@@ -74,12 +75,13 @@
             // 
             // button2
             // 
-            button2.Location = new Point(285, 151);
+            button2.Location = new Point(266, 151);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 4;
             button2.Text = "Cancelar";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
             // 
             // recuperar
             // 

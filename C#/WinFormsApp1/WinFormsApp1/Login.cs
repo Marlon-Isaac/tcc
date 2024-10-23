@@ -62,7 +62,7 @@ namespace WinFormsApp1
 
             if (login.Length != 0 && senha.Length != 0)
             {
-                Banco banco = new();
+                Banco banco = new Banco();
                 string conexao = banco.conexao;
 
                 try
@@ -130,7 +130,7 @@ namespace WinFormsApp1
 
         private void Label4_Click(object sender, EventArgs e)
         {
-            Recuperar recuperar = new();
+            recuperar recuperar = new recuperar();
             recuperar.Show();
         }
 

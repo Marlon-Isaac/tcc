@@ -112,7 +112,7 @@ namespace WinFormsApp1
 
         private void Label4_Click(object sender, EventArgs e)
         {
-            Recuperar recuperar = new();
+            recuperar recuperar = new recuperar();
             recuperar.Show();
         }
 
