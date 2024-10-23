@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp1
 {
-    partial class Recuperar
+    partial class recuperar
     {
         /// <summary>
         /// Required designer variable.

@@ -45,7 +45,7 @@ namespace WinFormsApp1
                 return;
             }
 
-            Banco banco = new Banco();
+            banco banco = new banco();
             string conexaoString = banco.conexao;
 
             try
