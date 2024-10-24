@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Perfil));
             panel1 = new Panel();
+            button9 = new Button();
             button7 = new Button();
             button6 = new Button();
             button5 = new Button();
@@ -38,9 +39,6 @@
             button2 = new Button();
             button1 = new Button();
             panel2 = new Panel();
-            panel4 = new Panel();
-            button8 = new Button();
-            label4 = new Label();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
             label7 = new Label();
@@ -51,7 +49,6 @@
             label1 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -59,6 +56,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(40, 50, 58);
+            panel1.Controls.Add(button9);
             panel1.Controls.Add(button7);
             panel1.Controls.Add(button6);
             panel1.Controls.Add(button5);
@@ -71,6 +69,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(114, 595);
             panel1.TabIndex = 1;
+            // 
+            // button9
+            // 
+            button9.FlatStyle = FlatStyle.Flat;
+            button9.Image = (Image)resources.GetObject("button9.Image");
+            button9.Location = new Point(0, 534);
+            button9.Name = "button9";
+            button9.Size = new Size(111, 49);
+            button9.TabIndex = 6;
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
             // 
             // button7
             // 
@@ -155,7 +164,6 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(panel4);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(panel3);
             panel2.Dock = DockStyle.Fill;
@@ -163,36 +171,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(287, 595);
             panel2.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(button8);
-            panel4.Controls.Add(label4);
-            panel4.Location = new Point(37, 378);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(208, 107);
-            panel4.TabIndex = 4;
-            // 
-            // button8
-            // 
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Location = new Point(21, 38);
-            button8.Name = "button8";
-            button8.Size = new Size(175, 51);
-            button8.TabIndex = 5;
-            button8.Text = "Clique";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += Button8_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.FlatStyle = FlatStyle.Flat;
-            label4.Location = new Point(19, 18);
-            label4.Name = "label4";
-            label4.Size = new Size(86, 17);
-            label4.TabIndex = 4;
-            label4.Text = "Alterar Senha";
             // 
             // pictureBox1
             // 
@@ -215,7 +193,7 @@
             panel3.Controls.Add(label1);
             panel3.Location = new Point(37, 248);
             panel3.Name = "panel3";
-            panel3.Size = new Size(208, 136);
+            panel3.Size = new Size(208, 181);
             panel3.TabIndex = 3;
             // 
             // label7
@@ -223,7 +201,7 @@
             label7.AutoSize = true;
             label7.FlatStyle = FlatStyle.Flat;
             label7.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(36, 72);
+            label7.Location = new Point(19, 90);
             label7.Name = "label7";
             label7.Size = new Size(48, 20);
             label7.TabIndex = 8;
@@ -234,7 +212,7 @@
             label6.AutoSize = true;
             label6.FlatStyle = FlatStyle.Flat;
             label6.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(36, 17);
+            label6.Location = new Point(19, 27);
             label6.Name = "label6";
             label6.Size = new Size(48, 20);
             label6.TabIndex = 7;
@@ -244,7 +222,7 @@
             // 
             label5.AutoSize = true;
             label5.FlatStyle = FlatStyle.Flat;
-            label5.Location = new Point(124, 110);
+            label5.Location = new Point(98, 136);
             label5.Name = "label5";
             label5.Size = new Size(28, 17);
             label5.TabIndex = 6;
@@ -254,7 +232,7 @@
             // 
             label3.AutoSize = true;
             label3.FlatStyle = FlatStyle.Flat;
-            label3.Location = new Point(19, 110);
+            label3.Location = new Point(3, 136);
             label3.Name = "label3";
             label3.Size = new Size(99, 17);
             label3.TabIndex = 5;
@@ -264,7 +242,7 @@
             // 
             label2.AutoSize = true;
             label2.FlatStyle = FlatStyle.Flat;
-            label2.Location = new Point(19, 55);
+            label2.Location = new Point(3, 75);
             label2.Name = "label2";
             label2.Size = new Size(38, 17);
             label2.TabIndex = 4;
@@ -274,7 +252,7 @@
             // 
             label1.AutoSize = true;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Location = new Point(19, 0);
+            label1.Location = new Point(3, 10);
             label1.Name = "label1";
             label1.Size = new Size(38, 17);
             label1.TabIndex = 3;
@@ -296,8 +274,6 @@
             Load += Perfil_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -320,11 +296,9 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Panel panel4;
-        private Button button8;
-        private Label label4;
         private Label label5;
         private Label label7;
         private Label label6;
+        private Button button9;
     }
 }

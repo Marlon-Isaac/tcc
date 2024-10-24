@@ -44,20 +44,16 @@ namespace WinFormsApp1
                             var result = cmd.ExecuteScalar();
                             int count = result != null ? Convert.ToInt32(result) : 0;
 
-                            if (count != 0 || count != null)
+                            /*if (count != 0 || count != null)
                             {
                                 try
                                 {
-                                    Random random = new Random();
-                                    int numeroAleatorio = random.Next(1000000); // Gera um número entre 0 e 999999
-                                    Aleatorio aleatorio = new Aleatorio();
-                                    aleatorio.a = numeroAleatorio;
-                                    var body = "<center><br>Redefinição de senha<br><br>Use este codigo<br><br>" + aleatorio.a + "<br><br>Caso você não tenha pedido redefinição de senha ignore este email</center>";
+                                    Random random = new Random();2atorio.a + "<br><br>Caso você não tenha pedido redefinição de senha ignore este email</center>";
                                     var gmail = new EnviarEmail("smtp.gmail.com", sapae.gmail, sapae.senha);
                                     gmail.Enviar(email, "Redefinição de senha", body);
-                                    aleatorio.b = email;
-                                    Confirmar confirmar = new Confirmar();
-                                    confirmar.Show();
+                                    //aleatorio.b = email;
+                                    //Confirmar confirmar = new Confirmar();
+                                    //confirmar.Show();
                                     this.Close();
                                 }
                                 catch (Exception ex)
@@ -70,7 +66,7 @@ namespace WinFormsApp1
                             else
                             {
                                 MessageBox.Show("Email incorreto");
-                            }
+                            }*/
                         }
 
 

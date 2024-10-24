@@ -21,11 +21,6 @@ namespace WinFormsApp1
         }
         
     }
-    public class Aleatorio()
-    {
-        public int a = 0;
-        public string b = null;
-    }
     public class Banco()
     {
         //public string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";

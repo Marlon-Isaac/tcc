@@ -143,9 +143,9 @@ namespace WinFormsApp1
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(335, 14);
+            pictureBox1.Location = new Point(349, -1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(427, 332);
+            pictureBox1.Size = new Size(427, 366);
             pictureBox1.TabIndex = 13;
             pictureBox1.TabStop = false;
             // 
