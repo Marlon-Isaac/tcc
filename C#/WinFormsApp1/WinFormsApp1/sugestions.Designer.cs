@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp1
 {
-    partial class sugestions
+    partial class Sugestions
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sugestions));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sugestions));
             panel1 = new Panel();
             label1 = new Label();
             textBox1 = new TextBox();
@@ -169,7 +169,7 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // sugestions
+            // Sugestions
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -187,7 +187,8 @@
             Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Name = "sugestions";
+            Name = "Sugestions";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Sugestões e Reclamações";
             Load += sugestions_Load;
             panel1.ResumeLayout(false);

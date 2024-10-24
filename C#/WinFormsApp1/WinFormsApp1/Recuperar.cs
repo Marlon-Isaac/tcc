@@ -20,24 +20,24 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        string a;
-        string b;
-        private void button1_Click(object sender, EventArgs e)
+        string a = "";
+        string b = "";
+        private void Button1_Click(object sender, EventArgs e)
         {
             var email = textBox1.Text;
 
             if (email.Length != 0)
             {
                 //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                Banco banco = new Banco();
+                Banco banco = new();
                 try
                 {
-                    using (SqlConnection conn = new SqlConnection(banco.conexao))
+                    using (SqlConnection conn = new(banco.conexao))
                     {
                         conn.Open();
                         String query = "SELECT * FROM Login WHERE Login=@email";
-                        Sapae sapae = new Sapae();
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        Sapae sapae = new();
+                        using (SqlCommand cmd = new(query, conn))
                         {
                             cmd.Parameters.AddWithValue("@email", email);
 
@@ -45,11 +45,11 @@ namespace WinFormsApp1
                             var result = cmd.ExecuteScalar();
                             int count = result != null ? Convert.ToInt32(result) : 0;
 
-                            if (count != 0 || count != null)
+                            if (count != 0)
                             {
                                 try
                                 {
-                                    Random random = new Random();
+                                    Random random = new();
                                     int numeroAleatorio = random.Next(100000, 1000000); // Gera um número de 6 dígitos aleatório
                                     a = Convert.ToString(numeroAleatorio);
                                     var body = "<center><br>Redefinição de senha<br><br>Use este codigo<br><br>" + a + "<br><br>Caso você não tenha pedido redefinição de senha ignore este email</center>";
@@ -140,11 +140,11 @@ namespace WinFormsApp1
             {
                 if (senha.Length >= 6)
                 {
-                    Banco banco = new Banco();
-                    using SqlConnection conn = new SqlConnection(banco.conexao);
+                    Banco banco = new();
+                    using SqlConnection conn = new(banco.conexao);
                     conn.Open();
                     string query = "UPDATE Login SET Senha = @senha WHERE Login = @Login";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlCommand cmd = new(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@senha", senha);
                         cmd.Parameters.AddWithValue("@Login", b);

@@ -18,7 +18,7 @@ namespace WinFormsApp1
 
         public string Senha { get; set; }
 
-        Sapae sapae = new Sapae();
+        Sapae sapae = new();
         public EnviarEmail(string provedor, string usuario, string senha)
         {
             Provedor = provedor ?? throw new ArgumentNullException(nameof(provedor));
@@ -36,11 +36,13 @@ namespace WinFormsApp1
 
         private MailMessage PrepararMensagem(string email, string subject, string body)
         {
-            var mail = new MailMessage();
-            mail.From = new MailAddress(sapae.gmail);
-            mail.Subject = subject;
-            mail.Body = body;
-            mail.IsBodyHtml = true;
+            var mail = new MailMessage
+            {
+                From = new MailAddress(sapae.gmail),
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            };
             mail.To.Add(email);
 
             return mail;
@@ -49,12 +51,14 @@ namespace WinFormsApp1
 
         private void Smtp(MailMessage message)
         {
-            SmtpClient smtpClient = new SmtpClient();
-            smtpClient.Host = Provedor;
-            smtpClient.Port = 587;
-            smtpClient.EnableSsl = true;
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new NetworkCredential(Usuario, Senha);
+            SmtpClient smtpClient = new()
+            {
+                Host = Provedor,
+                Port = 587,
+                EnableSsl = true,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(Usuario, Senha)
+            };
             smtpClient.Send(message);
             smtpClient.Dispose();
 

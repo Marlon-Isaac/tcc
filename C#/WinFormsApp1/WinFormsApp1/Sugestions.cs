@@ -12,9 +12,9 @@ using System.Text.RegularExpressions;
 
 namespace WinFormsApp1
 {
-    public partial class sugestions : Form
+    public partial class Sugestions : Form
     {
-        public sugestions()
+        public Sugestions()
         {
             InitializeComponent();
         }
@@ -45,19 +45,19 @@ namespace WinFormsApp1
                 return;
             }
 
-            Banco banco = new Banco();
+            Banco banco = new();
             string conexaoString = banco.conexao;
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(conexaoString))
+                using (SqlConnection conn = new(conexaoString))
                 {
                     conn.Open();
 
                     // Inserir os dados na tabela SugestoesReclamacoes
                     string query = "INSERT INTO SugestoesReclamacoes (Nome, Email, Telefone, Comentario) VALUES (@Nome, @Email, @Telefone, @Comentario)";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlCommand cmd = new(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Nome", nome);
                         cmd.Parameters.AddWithValue("@Email", email);

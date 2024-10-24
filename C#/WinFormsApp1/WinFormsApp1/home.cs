@@ -126,7 +126,7 @@ namespace WinFormsApp1
 
         private void Button8_Click(object sender, EventArgs e)
         {
-            sugestions sug = new();
+            Sugestions sug = new();
             sug.Show();
 
 

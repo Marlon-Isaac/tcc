@@ -46,11 +46,11 @@ namespace WinFormsApp1
             var Nome = textBox1.Text;
             var Email = textBox2.Text;
             var senha = textBox3.Text;
-            _ = new validar();
+            _ = new Validar();
 
             if (Nome.Length != 0 && Email.Length != 0 && senha.Length != 0 && comboBox1.SelectedIndex != -1)
             {
-                if (validar.ValidarEmail(Email))
+                if (Validar.ValidarEmail(Email))
                 {
                     //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                     Banco banco = new();
