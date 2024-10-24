@@ -53,7 +53,6 @@ namespace WinFormsApp1
             smtpClient.Host = Provedor;
             smtpClient.Port = 587;
             smtpClient.EnableSsl = true;
-            smtpClient.Timeout = 50000;
             smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials = new NetworkCredential(Usuario, Senha);
             smtpClient.Send(message);
