@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class recuperar : Form
+    public partial class Recuperar : Form
     {
-        public recuperar()
+        public Recuperar()
         {
             InitializeComponent();
         }
@@ -25,20 +25,20 @@ namespace WinFormsApp1
         {
             var email = textBox1.Text;
 
-            if (email.Length !=  0)
+            if (email.Length != 0)
             {
                 //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                banco banco = new banco();
+                Banco banco = new Banco();
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(banco.conexao))
                     {
                         conn.Open();
                         String query = "SELECT * FROM Login WHERE Login=@email";
-                        sapae sapae = new sapae();
+                        Sapae sapae = new Sapae();
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
-                                cmd.Parameters.AddWithValue("@email", email);
+                            cmd.Parameters.AddWithValue("@email", email);
 
                             //int count = Convert.ToInt32(cmd.ExecuteScalar());
                             var result = cmd.ExecuteScalar();
@@ -46,69 +46,21 @@ namespace WinFormsApp1
 
                             if (count != 0 || count != null)
                             {
-
-                                /*// Configurações do servidor SMTP
-                                string smtpAddress = sapae.gmail; // Endereço do servidor SMTP
-                                int portNumber = 587; // Porta do servidor SMTP (ex: 587 para TLS, 465 para SSL)
-                                bool enableSSL = true; // Habilita ou desabilita SSL
-
-                                string emailFrom = sapae.gmail ; // Seu e-mail
-                                string password = sapae.senha; // Sua senha de e-mail
-                                string emailTo = email; // E-mail do destinatário
-                                string subject = "Recuperação de senha - NÃO RESPONDA!"; // Assunto do e-mail
-                                string body = ""; // Corpo do e-mail
-
-                                using (MailMessage mail = new MailMessage())
-                                {
-                                    mail.From = new MailAddress(emailFrom);
-                                    mail.To.Add(emailTo);
-                                    mail.Subject = subject;
-                                    mail.Body = body;
-                                    mail.IsBodyHtml = false; // Defina como true se o corpo for em HTML
-
-                                    using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
-                                    {
-                                        smtp.Credentials = new NetworkCredential(emailFrom, password);
-                                        smtp.EnableSsl = enableSSL;
-                                        try
-                                        {
-                                            smtp.Send(mail);
-                                            MessageBox.Show("E-mail enviado com sucesso!");
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            MessageBox.Show($"Erro ao enviar e-mail: {ex.Message}");
-                                        }
-                                    }
-                                }*/
-
-                                MailMessage mailMessage = new MailMessage();
-
-
-                                mailMessage.From = new MailAddress(sapae.gmail);
-                                mailMessage.To.Add(new MailAddress(email));
-
-
-                                mailMessage.Subject = "Título do e-mail";
-                                mailMessage.Body = "Olá, esse é o conteúdo do e-mail";
-                                mailMessage.IsBodyHtml = false;
                                 try
                                 {
-                                    using (var smtp = new System.Net.Mail.SmtpClient())
-                                    {
-                                        smtp.Host = "smtp.gmail.com";
-                                        smtp.Port = 587;
-                                        smtp.EnableSsl = true;
-                                        smtp.Credentials = new System.Net.NetworkCredential("remetente@email.com", "senha");
-
-                                        //Exemplo de anexo de texto:
-                                        //mailMessage.Attachments.Add(new System.Net.Mail.Attachment(
-                                        //   new MemoryStream(Encoding.UTF8.GetBytes("conteudo do arquivo")),
-                                        //   "anexo.txt", System.Net.Mime.MediaTypeNames.Text.Plain));
-
-                                        smtp.Send(mailMessage);
-                                    }
-                                } catch(Exception ex) 
+                                    Random random = new Random();
+                                    int numeroAleatorio = random.Next(1000000); // Gera um número entre 0 e 999999
+                                    Aleatorio aleatorio = new Aleatorio();
+                                    aleatorio.a = numeroAleatorio;
+                                    var body = "<center><br>Redefinição de senha<br><br>Use este codigo<br><br>" + aleatorio.a + "<br><br>Caso você não tenha pedido redefinição de senha ignore este email</center>";
+                                    var gmail = new EnviarEmail("smtp.gmail.com", sapae.gmail, sapae.senha);
+                                    gmail.Enviar(email, "Redefinição de senha", body);
+                                    aleatorio.b = email;
+                                    Confirmar confirmar = new Confirmar();
+                                    confirmar.Show();
+                                    this.Close();
+                                }
+                                catch (Exception ex)
                                 {
                                     MessageBox.Show(ex.Message);
                                 }
@@ -135,6 +87,16 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Preencha todos os itens!", "Erro");
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

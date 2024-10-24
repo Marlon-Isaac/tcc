@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class recuperar : Form
+    public partial class Recuperar : Form
     {
-        public recuperar()
+        public Recuperar()
         {
             InitializeComponent();
         }

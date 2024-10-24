@@ -72,6 +72,13 @@
             panel1.Size = new Size(114, 595);
             panel1.TabIndex = 1;
             // 
+            // button7
+            // 
+            button7.Location = new Point(22, 560);
+            button7.Name = "button7";
+            button7.Size = new Size(75, 23);
+            button7.TabIndex = 0;
+            // 
             // button6
             // 
             button6.FlatStyle = FlatStyle.Flat;

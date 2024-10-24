@@ -37,6 +37,7 @@ namespace WinFormsApp1
             label1 = new Label();
             textBox1 = new TextBox();
             panel1 = new Panel();
+            label6 = new Label();
             pictureBox1 = new PictureBox();
             comboBox1 = new ComboBox();
             label5 = new Label();
@@ -51,7 +52,7 @@ namespace WinFormsApp1
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(66, 318);
+            button1.Location = new Point(76, 285);
             button1.Name = "button1";
             button1.Size = new Size(157, 46);
             button1.TabIndex = 8;
@@ -64,7 +65,7 @@ namespace WinFormsApp1
             label3.AutoSize = true;
             label3.Font = new Font("Comic Sans MS", 9.75F);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(18, 132);
+            label3.Location = new Point(19, 123);
             label3.Name = "label3";
             label3.Size = new Size(40, 18);
             label3.TabIndex = 6;
@@ -83,7 +84,7 @@ namespace WinFormsApp1
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(18, 150);
+            textBox2.Location = new Point(20, 144);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(262, 23);
             textBox2.TabIndex = 3;
@@ -110,6 +111,7 @@ namespace WinFormsApp1
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(40, 50, 58);
+            panel1.Controls.Add(label6);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(comboBox1);
             panel1.Controls.Add(label5);
@@ -123,15 +125,27 @@ namespace WinFormsApp1
             panel1.Controls.Add(textBox1);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(776, 426);
+            panel1.Size = new Size(776, 362);
             panel1.TabIndex = 10;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Cursor = Cursors.Hand;
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(0, 347);
+            label6.Name = "label6";
+            label6.Size = new Size(37, 15);
+            label6.TabIndex = 14;
+            label6.Text = "Voltar";
+            label6.Click += label6_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(335, 14);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(427, 397);
+            pictureBox1.Size = new Size(427, 332);
             pictureBox1.TabIndex = 13;
             pictureBox1.TabStop = false;
             // 
@@ -140,7 +154,7 @@ namespace WinFormsApp1
             comboBox1.FormattingEnabled = true;
             comboBox1.ImeMode = ImeMode.Off;
             comboBox1.Items.AddRange(new object[] { "Professor", "Profissional", "Responsavel", "Secretaria" });
-            comboBox1.Location = new Point(17, 277);
+            comboBox1.Location = new Point(20, 238);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(263, 23);
             comboBox1.TabIndex = 5;
@@ -151,7 +165,7 @@ namespace WinFormsApp1
             label5.AutoSize = true;
             label5.Font = new Font("Comic Sans MS", 9.75F);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(17, 256);
+            label5.Location = new Point(18, 217);
             label5.Name = "label5";
             label5.Size = new Size(102, 18);
             label5.TabIndex = 12;
@@ -159,7 +173,7 @@ namespace WinFormsApp1
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(18, 212);
+            textBox3.Location = new Point(18, 191);
             textBox3.Name = "textBox3";
             textBox3.PasswordChar = '*';
             textBox3.Size = new Size(262, 23);
@@ -170,7 +184,7 @@ namespace WinFormsApp1
             label4.AutoSize = true;
             label4.Font = new Font("Comic Sans MS", 9.75F);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(18, 194);
+            label4.Location = new Point(19, 170);
             label4.Name = "label4";
             label4.Size = new Size(45, 18);
             label4.TabIndex = 10;
@@ -182,7 +196,7 @@ namespace WinFormsApp1
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.FromArgb(17, 21, 24);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 389);
             Controls.Add(panel1);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -196,7 +210,7 @@ namespace WinFormsApp1
             ResumeLayout(false);
         }
 
-       
+
 
         #endregion
         private Button button1;
@@ -211,5 +225,6 @@ namespace WinFormsApp1
         private Label label4;
         private ComboBox comboBox1;
         private PictureBox pictureBox1;
+        private Label label6;
     }
 }

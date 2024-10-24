@@ -1,6 +1,7 @@
 using Microsoft.Win32;
 using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
+using System.Drawing.Drawing2D;
 
 namespace WinFormsApp1
 {
@@ -20,30 +21,44 @@ namespace WinFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             Painelarredondado();
+
+            int borderRadius = 30;
+
+            // Botão 1
+            GraphicsPath path1 = new GraphicsPath();
+            path1.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+            path1.AddArc(new Rectangle(button1.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+            path1.AddArc(new Rectangle(button1.Width - borderRadius, button1.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+            path1.AddArc(new Rectangle(0, button1.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+            path1.CloseFigure();
+            button1.Region = new Region(path1);
+
+            // Botão 2
+            GraphicsPath path2 = new GraphicsPath();
+            path2.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+            path2.AddArc(new Rectangle(button2.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+            path2.AddArc(new Rectangle(button2.Width - borderRadius, button2.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+            path2.AddArc(new Rectangle(0, button2.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+            path2.CloseFigure();
+            button2.Region = new Region(path2);
         }
 
         public void FecharLogin()
         {
-            this.Close();  // Fecha o formulário Login
+            this.Close();
         }
 
         public void Painelarredondado()
         {
             int borderRadius = 30;
             System.Drawing.Drawing2D.GraphicsPath path = new();
-            path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90); // canto superior esquerdo
-            path.AddArc(new Rectangle(panel1.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90); // canto superior direito
-            path.AddArc(new Rectangle(panel1.Width - borderRadius, panel1.Height - borderRadius, borderRadius, borderRadius), 0, 90); // canto inferior direito
-            path.AddArc(new Rectangle(0, panel1.Height - borderRadius, borderRadius, borderRadius), 90, 90); // canto inferior esquerdo
-
+            path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+            path.AddArc(new Rectangle(panel1.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+            path.AddArc(new Rectangle(panel1.Width - borderRadius, panel1.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+            path.AddArc(new Rectangle(0, panel1.Height - borderRadius, borderRadius, borderRadius), 90, 90);
             path.CloseAllFigures();
             panel1.Region = new Region(path);
         }
-
-
-
-
-
 
         private void Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -55,7 +70,22 @@ namespace WinFormsApp1
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             var login = textBox1.Text;
             var senha = textBox2.Text;
@@ -111,32 +141,17 @@ namespace WinFormsApp1
             }
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
             Registro registro = new();
             registro.Show();
             this.Hide();
         }
 
-        private void TextBox1_TextChanged(object sender, EventArgs e)
+        private void label4_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void Label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label4_Click(object sender, EventArgs e)
-        {
-            recuperar recuperar = new recuperar();
+            Recuperar recuperar = new Recuperar();
             recuperar.Show();
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

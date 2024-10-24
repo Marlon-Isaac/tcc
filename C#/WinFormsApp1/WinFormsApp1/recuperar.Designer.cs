@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp1
 {
-    partial class recuperar
+    partial class Recuperar
     {
         /// <summary>
         /// Required designer variable.
@@ -83,10 +83,11 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click_1;
             // 
-            // recuperar
+            // Recuperar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(40, 50, 58);
             ClientSize = new Size(498, 219);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -95,7 +96,7 @@
             Controls.Add(label1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "recuperar";
+            Name = "Recuperar";
             ShowIcon = false;
             Text = " ";
             ResumeLayout(false);

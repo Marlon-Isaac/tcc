@@ -40,8 +40,8 @@ namespace WinFormsApp1
             return comboBox1;
         }
 
-        private void Button1_Click(object sender, EventArgs e) 
-        { 
+        private void Button1_Click(object sender, EventArgs e)
+        {
 
             var Nome = textBox1.Text;
             var Email = textBox2.Text;
@@ -102,6 +102,11 @@ namespace WinFormsApp1
 
         }
 
-        
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Login form = new();
+            form.Show();
+            this.Close();
+        }
     }
 }
