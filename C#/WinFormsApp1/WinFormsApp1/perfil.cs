@@ -23,14 +23,14 @@ namespace WinFormsApp1
         {
             Home homeForm = new();
             homeForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
             Perfil perfilForm = new();
             perfilForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)
@@ -201,15 +201,14 @@ namespace WinFormsApp1
 
         private void button9_Click(object sender, EventArgs e)
         {
-            // Verifica se o formulário Login está aberto
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form is Login loginForm)
-                {
-                    loginForm.FecharLogin();  // Chama o método para fechar o Login
-                    break;
-                }
-            }
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

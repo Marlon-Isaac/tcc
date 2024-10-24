@@ -47,15 +47,9 @@ namespace WinFormsApp1
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            // Verifica se o formulário Login está aberto
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form is Login loginForm)
-                {
-                    loginForm.FecharLogin();  // Chama o método para fechar o Login
-                    break;
-                }
-            }
+            Login login = new Login();
+            login.Show();
+            this.Close();
         }
 
 
