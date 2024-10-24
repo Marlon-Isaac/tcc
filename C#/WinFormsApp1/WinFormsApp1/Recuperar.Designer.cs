@@ -32,6 +32,8 @@
             label2 = new Label();
             button1 = new Button();
             panel1 = new Panel();
+            button2 = new Button();
+            button3 = new Button();
             textBox4 = new TextBox();
             label5 = new Label();
             textBox3 = new TextBox();
@@ -39,8 +41,6 @@
             textBox2 = new TextBox();
             label3 = new Label();
             label1 = new Label();
-            button2 = new Button();
-            button3 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -93,6 +93,38 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(365, 226);
             panel1.TabIndex = 5;
+            // 
+            // button2
+            // 
+            button2.FlatAppearance.BorderColor = Color.White;
+            button2.FlatAppearance.BorderSize = 3;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(64, 257);
+            button2.Name = "button2";
+            button2.Size = new Size(243, 34);
+            button2.TabIndex = 6;
+            button2.Text = "Enviar";
+            button2.UseVisualStyleBackColor = true;
+            button2.Visible = false;
+            button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.FlatAppearance.BorderColor = Color.White;
+            button3.FlatAppearance.BorderSize = 3;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(64, 257);
+            button3.Name = "button3";
+            button3.Size = new Size(243, 34);
+            button3.TabIndex = 7;
+            button3.Text = "Enviar";
+            button3.UseVisualStyleBackColor = true;
+            button3.Visible = false;
+            button3.Click += button3_Click;
             // 
             // textBox4
             // 
@@ -167,38 +199,6 @@
             label1.Size = new Size(192, 29);
             label1.TabIndex = 0;
             label1.Text = "Recuperar Usuario";
-            // 
-            // button2
-            // 
-            button2.FlatAppearance.BorderColor = Color.White;
-            button2.FlatAppearance.BorderSize = 3;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(64, 257);
-            button2.Name = "button2";
-            button2.Size = new Size(243, 34);
-            button2.TabIndex = 6;
-            button2.Text = "Enviar";
-            button2.UseVisualStyleBackColor = true;
-            button2.Visible = false;
-            button2.Click += button2_Click;
-            // 
-            // button3
-            // 
-            button3.FlatAppearance.BorderColor = Color.White;
-            button3.FlatAppearance.BorderSize = 3;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(64, 257);
-            button3.Name = "button3";
-            button3.Size = new Size(243, 34);
-            button3.TabIndex = 7;
-            button3.Text = "Enviar";
-            button3.UseVisualStyleBackColor = true;
-            button3.Visible = false;
-            button3.Click += button3_Click;
             // 
             // Recuperar
             // 

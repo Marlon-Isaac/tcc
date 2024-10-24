@@ -175,9 +175,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(37, 15);
+            pictureBox1.Location = new Point(15, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(208, 227);
+            pictureBox1.Size = new Size(251, 275);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -191,19 +191,19 @@
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(37, 248);
+            panel3.Location = new Point(15, 293);
             panel3.Name = "panel3";
-            panel3.Size = new Size(208, 181);
+            panel3.Size = new Size(251, 275);
             panel3.TabIndex = 3;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.FlatStyle = FlatStyle.Flat;
-            label7.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(19, 90);
+            label7.Font = new Font("Comic Sans MS", 15.75F);
+            label7.Location = new Point(19, 123);
             label7.Name = "label7";
-            label7.Size = new Size(48, 20);
+            label7.Size = new Size(68, 29);
             label7.TabIndex = 8;
             label7.Text = "Nome";
             // 
@@ -211,10 +211,10 @@
             // 
             label6.AutoSize = true;
             label6.FlatStyle = FlatStyle.Flat;
-            label6.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(19, 27);
+            label6.Font = new Font("Comic Sans MS", 15.75F);
+            label6.Location = new Point(19, 44);
             label6.Name = "label6";
-            label6.Size = new Size(48, 20);
+            label6.Size = new Size(68, 29);
             label6.TabIndex = 7;
             label6.Text = "Nome";
             // 
@@ -222,9 +222,10 @@
             // 
             label5.AutoSize = true;
             label5.FlatStyle = FlatStyle.Flat;
-            label5.Location = new Point(98, 136);
+            label5.Font = new Font("Comic Sans MS", 15.75F);
+            label5.Location = new Point(19, 195);
             label5.Name = "label5";
-            label5.Size = new Size(28, 17);
+            label5.Size = new Size(48, 29);
             label5.TabIndex = 6;
             label5.Text = "labl";
             // 
@@ -232,9 +233,10 @@
             // 
             label3.AutoSize = true;
             label3.FlatStyle = FlatStyle.Flat;
-            label3.Location = new Point(3, 136);
+            label3.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(3, 172);
             label3.Name = "label3";
-            label3.Size = new Size(99, 17);
+            label3.Size = new Size(131, 23);
             label3.TabIndex = 5;
             label3.Text = "Tipo de Usuario:";
             // 
@@ -242,9 +244,10 @@
             // 
             label2.AutoSize = true;
             label2.FlatStyle = FlatStyle.Flat;
-            label2.Location = new Point(3, 75);
+            label2.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(3, 100);
             label2.Name = "label2";
-            label2.Size = new Size(38, 17);
+            label2.Size = new Size(49, 23);
             label2.TabIndex = 4;
             label2.Text = "Email";
             // 
@@ -252,9 +255,10 @@
             // 
             label1.AutoSize = true;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Location = new Point(3, 10);
+            label1.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(3, 19);
             label1.Name = "label1";
-            label1.Size = new Size(38, 17);
+            label1.Size = new Size(62, 26);
             label1.TabIndex = 3;
             label1.Text = "Nome";
             // 
