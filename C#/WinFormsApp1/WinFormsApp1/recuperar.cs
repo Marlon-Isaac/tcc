@@ -21,56 +21,50 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             var email = textBox1.Text;
 
             if (email.Length != 0)
             {
                 //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                Banco banco = new Banco();
+                Banco banco = new();
                 try
                 {
-                    using (SqlConnection conn = new SqlConnection(banco.conexao))
+                    using SqlConnection conn = new(banco.conexao);
+                    conn.Open();
+                    String query = "SELECT * FROM Login WHERE Login=@email";
+                    Sapae sapae = new();
+                    using SqlCommand cmd = new(query, conn);
+                    cmd.Parameters.AddWithValue("@email", email);
+
+                    //int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    var result = cmd.ExecuteScalar();
+                    int count = result != null ? Convert.ToInt32(result) : 0;
+
+                    /*if (count != 0 || count != null)
                     {
-                        conn.Open();
-                        String query = "SELECT * FROM Login WHERE Login=@email";
-                        Sapae sapae = new Sapae();
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        try
                         {
-                            cmd.Parameters.AddWithValue("@email", email);
-
-                            //int count = Convert.ToInt32(cmd.ExecuteScalar());
-                            var result = cmd.ExecuteScalar();
-                            int count = result != null ? Convert.ToInt32(result) : 0;
-
-                            /*if (count != 0 || count != null)
-                            {
-                                try
-                                {
-                                    Random random = new Random();2atorio.a + "<br><br>Caso você não tenha pedido redefinição de senha ignore este email</center>";
-                                    var gmail = new EnviarEmail("smtp.gmail.com", sapae.gmail, sapae.senha);
-                                    gmail.Enviar(email, "Redefinição de senha", body);
-                                    //aleatorio.b = email;
-                                    //Confirmar confirmar = new Confirmar();
-                                    //confirmar.Show();
-                                    this.Close();
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show(ex.Message);
-                                }
-                            }
-
-
-                            else
-                            {
-                                MessageBox.Show("Email incorreto");
-                            }*/
+                            Random random = new Random();2atorio.a + "<br><br>Caso você não tenha pedido redefinição de senha ignore este email</center>";
+                            var gmail = new EnviarEmail("smtp.gmail.com", sapae.gmail, sapae.senha);
+                            gmail.Enviar(email, "Redefinição de senha", body);
+                            //aleatorio.b = email;
+                            //Confirmar confirmar = new Confirmar();
+                            //confirmar.Show();
+                            this.Close();
                         }
-
-
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
+
+
+                    else
+                    {
+                        MessageBox.Show("Email incorreto");
+                    }*/
 
                 }
 
@@ -85,12 +79,12 @@ namespace WinFormsApp1
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void Button2_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
