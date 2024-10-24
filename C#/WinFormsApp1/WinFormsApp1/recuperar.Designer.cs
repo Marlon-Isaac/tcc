@@ -33,6 +33,7 @@
             label2 = new Label();
             button1 = new Button();
             button2 = new Button();
+            panel1 = new Panel();
             SuspendLayout();
             // 
             // label1
@@ -83,17 +84,25 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click_1;
             // 
+            // panel1
+            // 
+            panel1.Location = new Point(12, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(384, 243);
+            panel1.TabIndex = 5;
+            // 
             // Recuperar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 50, 58);
-            ClientSize = new Size(498, 219);
+            ClientSize = new Size(498, 529);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(textBox1);
             Controls.Add(label1);
+            Controls.Add(panel1);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Recuperar";
@@ -110,5 +119,6 @@
         private Label label2;
         private Button button1;
         private Button button2;
+        private Panel panel1;
     }
 }
