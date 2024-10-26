@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DicasPost1));
             panel1 = new Panel();
             label1 = new Label();
             label2 = new Label();
@@ -124,7 +125,7 @@
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Properties.Resources.icons8_person_24;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(216, 111);

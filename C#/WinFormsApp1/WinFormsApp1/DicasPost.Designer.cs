@@ -37,9 +37,9 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
-            panel3 = new Panel();
             button8 = new Button();
             label1 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -145,13 +145,6 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += Button1_Click;
             // 
-            // panel3
-            // 
-            panel3.Location = new Point(114, 43);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(687, 556);
-            panel3.TabIndex = 3;
-            // 
             // button8
             // 
             button8.FlatStyle = FlatStyle.Flat;
@@ -174,15 +167,26 @@
             label1.TabIndex = 5;
             label1.Text = "Sessão de Dicas e Auxilios";
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(120, 54);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(668, 535);
+            flowLayoutPanel1.TabIndex = 6;
+            flowLayoutPanel1.WrapContents = false;
+            flowLayoutPanel1.Paint += FlowLayoutPanel1_Paint;
+            // 
             // DicasPost
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
             ClientSize = new Size(800, 599);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(label1);
             Controls.Add(button8);
-            Controls.Add(panel3);
             Controls.Add(panel1);
             Font = new Font("Comic Sans MS", 9F);
             ForeColor = Color.White;
@@ -205,8 +209,8 @@
         private Button button3;
         private Button button2;
         private Button button1;
-        private Panel panel3;
         private Button button8;
         private Label label1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

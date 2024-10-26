@@ -87,6 +87,7 @@
             button6.TabIndex = 4;
             button6.Text = "   Avisos";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button5
             // 

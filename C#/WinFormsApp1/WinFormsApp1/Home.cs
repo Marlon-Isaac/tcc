@@ -163,7 +163,14 @@ namespace WinFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
             DicasPost dicasPostForm = new();
-            dicasPostForm.Show(); 
+            dicasPostForm.Show();
+            this.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Aceitar aceitar = new Aceitar();
+            aceitar.Show();
             this.Close();
         }
     }

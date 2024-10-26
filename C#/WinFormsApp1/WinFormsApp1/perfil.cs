@@ -209,6 +209,14 @@ namespace WinFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
 
+            DicasPost dicasPostForm = new();
+            dicasPostForm.Show();
+            this.Close();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

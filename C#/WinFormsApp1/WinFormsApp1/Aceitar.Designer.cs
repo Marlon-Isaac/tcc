@@ -38,6 +38,7 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(114, 450);
+            panel1.Size = new Size(118, 450);
             panel1.TabIndex = 11;
             // 
             // button8
@@ -164,12 +165,21 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // panel2
+            // 
+            panel2.Location = new Point(155, 32);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(596, 381);
+            panel2.TabIndex = 12;
+            panel2.Paint += panel2_Paint;
+            // 
             // Aceitar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
             ClientSize = new Size(800, 450);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
@@ -185,7 +195,6 @@
 
         private Panel panel1;
         private Button button9;
-        private Button button7;
         private Button button6;
         private Button button5;
         private Button button4;
@@ -193,5 +202,6 @@
         private Button button2;
         private Button button1;
         private Button button8;
+        private Panel panel2;
     }
 }

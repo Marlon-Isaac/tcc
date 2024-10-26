@@ -229,6 +229,7 @@
             label5.Size = new Size(48, 29);
             label5.TabIndex = 6;
             label5.Text = "labl";
+            label5.Click += label5_Click;
             // 
             // label3
             // 
