@@ -343,3 +343,4 @@ C:\Users\187382022\source\repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.
 C:\Users\187382022\source\repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Perfil.resources
 C:\Users\187382022\source\repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.sugestions.resources
 C:\Users\187382022\source\repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Login.pt.resources
+C:\Users\as485\source\repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Aceitar.resources
