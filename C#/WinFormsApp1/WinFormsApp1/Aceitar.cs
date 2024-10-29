@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design.Serialization;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -43,11 +44,12 @@ namespace WinFormsApp1
             using (SqlConnection conn = new SqlConnection(banco.conexao))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT Nome, Login, Senha, Tipo FROM registro ORDER BY ID OFFSET {currentRow} ROWS FETCH NEXT 1 ROWS ONLY", conn);
+                SqlCommand cmd = new SqlCommand($"SELECT Id, Nome, Login, Senha, Tipo FROM registro ORDER BY ID OFFSET {currentRow} ROWS FETCH NEXT 1 ROWS ONLY", conn);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
+                    string id = reader["Id"].ToString();
                     string nome = reader["Nome"].ToString();
                     string login = reader["Login"].ToString();
                     string senha = reader["Senha"].ToString();
@@ -69,7 +71,7 @@ namespace WinFormsApp1
                         Top = 10 + (currentRow * 50),
                         Width = 70
                     };
-                    btnAccept.Click += (sender, e) => HandleButtonClick(nome, login, senha, tipo, true);
+                    btnAccept.Click += (sender, e) => HandleButtonClick( id, nome, login, senha, tipo, true);
                     panel2.Controls.Add(btnAccept);
 
                     Button btnReject = new Button
@@ -79,13 +81,13 @@ namespace WinFormsApp1
                         Top = 10 + (currentRow * 50),
                         Width = 70
                     };
-                    btnReject.Click += (sender, e) => HandleButtonClick(nome, login, senha, tipo, false);
+                    btnReject.Click += (sender, e) => HandleButtonClick( id, nome, login, senha, tipo, false);
                     panel2.Controls.Add(btnReject);
                 }
             }
         }
 
-        private void HandleButtonClick(string nome, string login, string senha, string tipo, bool accepted)
+        private void HandleButtonClick(string id, string nome, string login, string senha, string tipo, bool accepted)
         {
             if (accepted)
             {
@@ -98,6 +100,30 @@ namespace WinFormsApp1
                     cmd.Parameters.AddWithValue("@senha", senha);
                     cmd.Parameters.AddWithValue("@tipo", tipo);
                     cmd.ExecuteNonQuery();
+                }
+                using (SqlConnection conn = new(Banco.conexao))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("DELETE FROM Registro WHERE Id = @Id"))
+                    {
+                        cmd.Parameters.AddWithValue("Id", id);
+                    }
+
+                }
+
+            }
+            else if(accepted == false)
+            {
+                using (SqlConnection conn = new(Banco.conexao))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("DELETE FROM Registro WHERE Id = @Id"))
+                    {
+                        cmd.Parameters.AddWithValue("Id", id);
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+
                 }
             }
 
