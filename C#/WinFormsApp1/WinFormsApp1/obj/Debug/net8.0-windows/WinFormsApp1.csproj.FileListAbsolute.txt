@@ -340,4 +340,7 @@ C:\Users\187382022\source\repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.
 C:\Users\187382022\source\repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.sugestions.resources
 C:\Users\187382022\source\repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Login.pt.resources
 C:\Users\as485\source\repos\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Aceitar.resources
+<<<<<<< HEAD
 C:\Users\User\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Aceitar.resources
+=======
+>>>>>>> e8cd71aa3e344f3ec980f20844efa04283859c74
