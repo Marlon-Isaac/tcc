@@ -19,8 +19,11 @@ CREATE TABLE [dbo].Registro
 	[Senha] varchar(100) not null,
 	[Tipo] varchar(20) not null,
 	[Aceito] bit default 0 NOT NULL
-
 )
+
+ALTER TABLE [dbo].Registro
+ADD [Imagem] VARBINARY(MAX);
+
 
 CREATE TABLE SugestoesReclamacoes (
     Id INT PRIMARY KEY IDENTITY(1,1),

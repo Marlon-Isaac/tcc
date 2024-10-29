@@ -38,10 +38,10 @@ namespace WinFormsApp1
 
         private void CreateControls()
         {
-            Banco banco = new();
+
             if (currentRow >= totalRows) return; // Se não há mais registros
 
-            using (SqlConnection conn = new SqlConnection(banco.conexao))
+            using (SqlConnection conn = new SqlConnection(Banco.conexao))
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"SELECT Id, Nome, Login, Senha, Tipo FROM registro ORDER BY ID OFFSET {currentRow} ROWS FETCH NEXT 1 ROWS ONLY", conn);

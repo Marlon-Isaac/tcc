@@ -37,12 +37,14 @@ namespace WinFormsApp1
             label1 = new Label();
             textBox1 = new TextBox();
             panel1 = new Panel();
+            label7 = new Label();
             label6 = new Label();
             pictureBox1 = new PictureBox();
             comboBox1 = new ComboBox();
             label5 = new Label();
             textBox3 = new TextBox();
             label4 = new Label();
+            openFileDialog1 = new OpenFileDialog();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -111,6 +113,7 @@ namespace WinFormsApp1
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(40, 50, 58);
+            panel1.Controls.Add(label7);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(comboBox1);
@@ -127,6 +130,19 @@ namespace WinFormsApp1
             panel1.Name = "panel1";
             panel1.Size = new Size(776, 362);
             panel1.TabIndex = 10;
+            panel1.Paint += panel1_Paint;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Comic Sans MS", 9.75F);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(383, 25);
+            label7.Name = "label7";
+            label7.Size = new Size(93, 18);
+            label7.TabIndex = 15;
+            label7.Text = "Foto de perfil";
+            label7.Click += label7_Click;
             // 
             // label6
             // 
@@ -142,12 +158,14 @@ namespace WinFormsApp1
             // 
             // pictureBox1
             // 
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(349, -1);
+            pictureBox1.Location = new Point(383, 46);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(427, 366);
+            pictureBox1.Size = new Size(346, 285);
             pictureBox1.TabIndex = 13;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // comboBox1
             // 
@@ -190,6 +208,11 @@ namespace WinFormsApp1
             label4.TabIndex = 10;
             label4.Text = "Senha";
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.FileOk += openFileDialog1_FileOk;
+            // 
             // Registro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -226,5 +249,7 @@ namespace WinFormsApp1
         private ComboBox comboBox1;
         private PictureBox pictureBox1;
         private Label label6;
+        private OpenFileDialog openFileDialog1;
+        private Label label7;
     }
 }

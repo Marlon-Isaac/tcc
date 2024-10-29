@@ -100,6 +100,7 @@
             resources.ApplyResources(label3, "label3");
             label3.ForeColor = Color.White;
             label3.Name = "label3";
+            label3.Click += label3_Click_1;
             // 
             // label4
             // 
@@ -113,6 +114,7 @@
             // 
             resources.ApplyResources(textBox2, "textBox2");
             textBox2.Name = "textBox2";
+            textBox2.TextChanged += textBox2_TextChanged_1;
             // 
             // textBox1
             // 

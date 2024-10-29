@@ -153,5 +153,15 @@ namespace WinFormsApp1
             Recuperar recuperar = new Recuperar();
             recuperar.Show();
         }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
