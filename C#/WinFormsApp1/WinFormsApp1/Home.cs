@@ -173,5 +173,12 @@ namespace WinFormsApp1
             aceitar.Show();
             this.Close();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Chat chat = new();
+            chat.Show();
+            this.Close();
+        }
     }
 }

@@ -38,13 +38,14 @@ namespace WinFormsApp1
 
         private void CreateControls()
         {
-
             if (currentRow >= totalRows) return; // Se não há mais registros
 
             using (SqlConnection conn = new SqlConnection(Banco.conexao))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT Id, Nome, Login, Senha, Tipo FROM registro ORDER BY ID OFFSET {currentRow} ROWS FETCH NEXT 1 ROWS ONLY", conn);
+                SqlCommand cmd = new SqlCommand(
+                    $"SELECT Id, Nome, Login, Senha, Tipo, Imagem FROM registro ORDER BY ID OFFSET {currentRow} ROWS FETCH NEXT 1 ROWS ONLY", conn
+                );
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
@@ -55,59 +56,94 @@ namespace WinFormsApp1
                     string senha = reader["Senha"].ToString();
                     string tipo = reader["Tipo"].ToString();
 
+                    // Converte a imagem do banco de dados em um array de bytes
+                    byte[] imageBytes = reader["Imagem"] as byte[];
+                    Image image = null;
+
+                    // Se a imagem não for nula, converte para Image
+                    if (imageBytes != null)
+                    {
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            image = Image.FromStream(ms);
+                        }
+                    }
+
+                    // Cria a PictureBox para exibir a imagem
+                    PictureBox pictureBox = new PictureBox
+                    {
+                        Image = image,
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        Width = 100,  // Defina a largura desejada
+                        Height = 100, // Defina a altura desejada
+                        Top = 10,
+                        Left = (panel2.Width - 100) / 2 // Centraliza a imagem no painel
+                    };
+                    panel2.Controls.Add(pictureBox);
+
+                    // Cria o label para o nome
                     Label nameLabel = new Label
                     {
                         Text = nome,
-                        Left = 10,
-                        Top = 10 + (currentRow * 50),
+                        Left = (panel2.Width - 100) / 2, // Centraliza o nome no painel
+                        Top = pictureBox.Bottom + 10, // Abaixo da imagem
                         AutoSize = true,
                         ForeColor = Color.White,
                         Font = new Font("ComicSans", 15, FontStyle.Regular)
-
                     };
                     panel2.Controls.Add(nameLabel);
 
+                    // Botão Aceitar
                     Button btnAccept = new Button
                     {
                         Text = "Aceitar",
-                        Left = panel2.Width - 150,
-                        Top = 10 + (currentRow * 50),
+                        Left = (panel2.Width - 150), // Centraliza no painel
+                        Top = nameLabel.Bottom + 10,
                         Width = 70,
                         ForeColor = Color.White,
                         BackColor = Color.FromArgb(40, 50, 58)
                     };
-                    btnAccept.Click += (sender, e) => HandleButtonClick( id, nome, login, senha, tipo, true);
+                    btnAccept.Click += (sender, e) => HandleButtonClick(id, nome, login, senha, tipo, imageBytes, true);
                     panel2.Controls.Add(btnAccept);
 
+                    // Botão Rejeitar
                     Button btnReject = new Button
                     {
                         Text = "Rejeitar",
-                        Left = panel2.Width - 70,
-                        Top = 10 + (currentRow * 50),
+                        Left = (panel2.Width - 70), // Centraliza no painel
+                        Top = nameLabel.Bottom + 10,
                         Width = 70,
                         ForeColor = Color.White,
                         BackColor = Color.FromArgb(40, 50, 58)
                     };
-                    btnReject.Click += (sender, e) => HandleButtonClick( id, nome, login, senha, tipo, false);
+                    btnReject.Click += (sender, e) => HandleButtonClick(id, nome, login, senha, tipo, imageBytes, false);
                     panel2.Controls.Add(btnReject);
                 }
             }
         }
 
-        private void HandleButtonClick(string id, string nome, string login, string senha, string tipo, bool accepted)
+        private void HandleButtonClick(string id, string nome, string login, string senha, string tipo, byte[] imageBytes, bool accepted)
         {
             if (accepted)
             {
                 using (SqlConnection conn = new SqlConnection(Banco.conexao))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO login (Nome, Login, Senha, Tipo) VALUES (@nome, @login, @senha, @tipo)", conn);
+                    SqlCommand cmd = new SqlCommand(
+                        "INSERT INTO login (Nome, Login, Senha, Tipo, Imagem) VALUES (@nome, @login, @senha, @tipo, @imagem)", conn
+                    );
                     cmd.Parameters.AddWithValue("@nome", nome);
                     cmd.Parameters.AddWithValue("@login", login);
                     cmd.Parameters.AddWithValue("@senha", senha);
                     cmd.Parameters.AddWithValue("@tipo", tipo);
+
+                    // Adiciona a imagem como parâmetro, ou como DBNull.Value se não houver imagem
+                    SqlParameter imageParameter = cmd.Parameters.Add("@imagem", SqlDbType.VarBinary);
+                    imageParameter.Value = (imageBytes != null) ? imageBytes : (object)DBNull.Value;
+
                     cmd.ExecuteNonQuery();
                 }
+
                 using (SqlConnection conn = new(Banco.conexao))
                 {
                     conn.Open();
@@ -116,11 +152,9 @@ namespace WinFormsApp1
                         cmd.Parameters.AddWithValue("Id", id);
                         cmd.ExecuteNonQuery();
                     }
-
                 }
-
             }
-            else if(accepted == false)
+            else if (!accepted)
             {
                 using (SqlConnection conn = new SqlConnection(Banco.conexao))
                 {
@@ -129,9 +163,7 @@ namespace WinFormsApp1
                     {
                         cmd.Parameters.AddWithValue("Id", id);
                         cmd.ExecuteNonQuery();
-                        
                     }
-
                 }
             }
 

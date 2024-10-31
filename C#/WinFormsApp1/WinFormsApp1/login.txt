@@ -34,14 +34,33 @@ CREATE TABLE SugestoesReclamacoes (
 );
 
 CREATE TABLE Dicas (
-    Id INT IDENTITY(1,1) PRIMARY KEY, 
-    TituloDica NVARCHAR(255) NOT NULL, 
-    AutorDica NVARCHAR(100) NOT NULL,   
-    DataDica DATETIME NOT NULL DEFAULT GETDATE(),  
-    ConteudoDica NVARCHAR(MAX) NOT NULL, 
-    FotoDica VARBINARY(MAX) NULL         
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    TituloDica NVARCHAR(255) NOT NULL,
+    AutorDica NVARCHAR(100) NOT NULL,
+    DataDica DATETIME NOT NULL DEFAULT GETDATE(),
+    ConteudoDica NVARCHAR(MAX) NOT NULL,
+    FotoDica VARBINARY(MAX) NULL,
+    Curtidas INT DEFAULT 1,
+    Descurtidas INT DEFAULT 1
+);
+
+
+CREATE TABLE Mensagens (
+    Id INT PRIMARY KEY IDENTITY,
+    UsuarioRemetenteId INT,
+    UsuarioDestinatarioId INT,
+    Conteudo NVARCHAR(MAX),
+    DataEnvio DATETIME DEFAULT GETDATE(),
+    Lida BIT DEFAULT 0
 );
 
 
 
-
+CREATE TABLE Votos (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    UsuarioId INT NOT NULL,
+    DicaId INT NOT NULL,
+    TipoVoto NVARCHAR(10) NOT NULL, -- 'curtida' ou 'descurtida'
+    FOREIGN KEY (UsuarioId) REFERENCES Login(Id),
+    FOREIGN KEY (DicaId) REFERENCES Dicas(Id)
+);

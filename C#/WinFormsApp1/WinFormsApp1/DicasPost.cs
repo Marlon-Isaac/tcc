@@ -10,6 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+using System.IO;
+
 
 namespace WinFormsApp1
 {
@@ -55,14 +58,13 @@ namespace WinFormsApp1
             int usuarioLogadoId = SessaoUsuario.UsuarioLogadoId;
             string tipoUsuario = ObterTipoUsuario(usuarioLogadoId);
 
-            // Condição para mostrar ou ocultar o botão com base no tipo de usuário
             if (tipoUsuario == "Profissional")
             {
-                button8.Visible = true; // Oculta o botão se o usuário for Profissional
+                button8.Visible = true;
             }
             else
             {
-                button8.Visible = false; // Mostra o botão para outros tipos de usuários
+                button8.Visible = false;
             }
 
             List<Comentario> comentarios = CarregarComentariosDoBanco();
@@ -71,21 +73,16 @@ namespace WinFormsApp1
 
         private string ObterTipoUsuario(int usuarioId)
         {
-            // Inicializa tipoUsuario como vazio para evitar referências nulas
             string tipoUsuario = string.Empty;
-
             if (usuarioId != 0)
             {
                 try
                 {
-                    // Sua string de conexão
                     Banco banco = new();
                     string conexao = banco.conexao;
-
                     using SqlConnection conn = new(conexao);
                     conn.Open();
 
-                    // Consulta SQL para buscar o tipo do usuário
                     string query = "SELECT Tipo FROM Login WHERE Id = @id";
                     using SqlCommand cmd = new(query, conn);
                     cmd.Parameters.AddWithValue("@id", usuarioId);
@@ -93,12 +90,11 @@ namespace WinFormsApp1
                     using SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        tipoUsuario = reader["Tipo"]?.ToString() ?? string.Empty; // Retorna vazio se nulo
+                        tipoUsuario = reader["Tipo"]?.ToString() ?? string.Empty;
                     }
                     else
                     {
-                        // Caso não encontre nenhum resultado, mantenha tipoUsuario como vazio
-                        tipoUsuario = string.Empty; // Ou você pode definir um tipo padrão, se necessário
+                        tipoUsuario = string.Empty;
                     }
                 }
                 catch (Exception ex)
@@ -106,8 +102,7 @@ namespace WinFormsApp1
                     MessageBox.Show("Erro ao acessar o banco de dados: " + ex.Message);
                 }
             }
-
-            return tipoUsuario; // Retorna o tipo do usuário (ou vazio)
+            return tipoUsuario;
         }
 
         private void Button8_Click_1(object sender, EventArgs e)
@@ -123,38 +118,31 @@ namespace WinFormsApp1
 
         private static List<Comentario> CarregarComentariosDoBanco()
         {
-            List<Comentario> comentarios = new();
+            List<Comentario> comentarios = new(); // Inicializando a lista corretamente
             try
             {
                 Banco banco = new();
                 string conexaoString = banco.conexao;
                 using SqlConnection conn = new(conexaoString);
                 conn.Open();
-                // Adicione o autor à consulta SQL
-                string query = "SELECT TituloDica, ConteudoDica, FotoDica, AutorDica FROM Dicas";
+                string query = "SELECT Id, TituloDica, ConteudoDica, FotoDica, AutorDica, Curtidas, Descurtidas FROM Dicas";
                 using SqlCommand comando = new(query, conn);
                 using SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    // Inicializa as variáveis com valores padrão
-                    string titulo = reader["TituloDica"]?.ToString() ?? string.Empty;
-                    string conteudo = reader["ConteudoDica"]?.ToString() ?? string.Empty;
-                    string autor = reader["AutorDica"]?.ToString() ?? string.Empty; // Obter o autor
-                    Image? imagem = null;
-                    // Converte imagem, se existir
-                    if (reader["FotoDica"] is byte[] imagemBytes)
+                    var comentario = new Comentario
                     {
-                        using MemoryStream ms = new(imagemBytes);
-                        imagem = Image.FromStream(ms);
-                    }
-                    // Adiciona o comentário à lista
-                    comentarios.Add(new Comentario
-                    {
-                        Titulo = titulo,
-                        Conteudo = conteudo,
-                        Autor = autor, // Armazenar o autor
-                        Imagem = imagem ?? new Bitmap(1, 1)
-                    });
+                        Id = reader["Id"] != DBNull.Value ? Convert.ToInt32(reader["Id"]) : 0,
+                        Titulo = reader["TituloDica"]?.ToString() ?? string.Empty,
+                        Conteudo = reader["ConteudoDica"]?.ToString() ?? string.Empty,
+                        Autor = reader["AutorDica"]?.ToString() ?? string.Empty,
+                        Curtidas = reader["Curtidas"] != DBNull.Value ? Convert.ToInt32(reader["Curtidas"]) : 0,
+                        Descurtidas = reader["Descurtidas"] != DBNull.Value ? Convert.ToInt32(reader["Descurtidas"]) : 0,
+                        Imagem = reader["FotoDica"] is byte[] imagemBytes
+                                  ? Image.FromStream(new MemoryStream(imagemBytes))
+                                  : new Bitmap(100, 100) // A imagem padrão de 100x100
+                    };
+                    comentarios.Add(comentario);
                 }
             }
             catch (Exception ex)
@@ -165,20 +153,21 @@ namespace WinFormsApp1
         }
 
 
+
         private void ExibirComentarios(List<Comentario> comentarios)
         {
-            flowLayoutPanel1.Controls.Clear(); // Limpa os comentários antigos
+            flowLayoutPanel1.Controls.Clear();
+
             foreach (var comentario in comentarios)
             {
-                // Cria um painel para cada comentário
                 Panel comentarioPanel = new()
                 {
                     Width = flowLayoutPanel1.Width - 25,
-                    Height = 150,
+                    Height = 180,
                     BorderStyle = BorderStyle.FixedSingle,
                     Margin = new Padding(5)
                 };
-                // Título
+
                 Label tituloLabel = new()
                 {
                     Text = comentario.Titulo,
@@ -187,7 +176,7 @@ namespace WinFormsApp1
                     Location = new Point(10, 10)
                 };
                 comentarioPanel.Controls.Add(tituloLabel);
-                // Conteúdo
+
                 Label conteudoLabel = new()
                 {
                     Text = comentario.Conteudo,
@@ -199,16 +188,16 @@ namespace WinFormsApp1
                     TextAlign = ContentAlignment.TopLeft
                 };
                 comentarioPanel.Controls.Add(conteudoLabel);
-                // Autor
+
                 Label autorLabel = new()
                 {
-                    Text = "Autor: " + comentario.Autor, // Exibir autor
+                    Text = "Autor: " + comentario.Autor,
                     Font = new Font("Arial", 9, FontStyle.Italic),
                     AutoSize = true,
-                    Location = new Point(10, 100) // Posição do autor
+                    Location = new Point(10, 100)
                 };
                 comentarioPanel.Controls.Add(autorLabel);
-                // Imagem (se houver)
+
                 if (comentario.Imagem != null)
                 {
                     PictureBox pictureBox = new()
@@ -220,9 +209,118 @@ namespace WinFormsApp1
                     };
                     comentarioPanel.Controls.Add(pictureBox);
                 }
-                // Adiciona o painel com o comentário no FlowLayoutPanel
+
+                Button likeButton = new()
+                {
+                    Text = "👍",
+                    Location = new Point(10, 130),
+                    Width = 30
+                };
+                likeButton.Click += (s, e) => AtualizarCurtida(comentario, true);
+                comentarioPanel.Controls.Add(likeButton);
+
+                Button dislikeButton = new()
+                {
+                    Text = "👎",
+                    Location = new Point(50, 130),
+                    Width = 30
+                };
+                dislikeButton.Click += (s, e) => AtualizarCurtida(comentario, false);
+                comentarioPanel.Controls.Add(dislikeButton);
+
+                Label mediaLabel = new()
+                {
+                    Text = $"Média de aprovação: {(comentario.Curtidas + comentario.Descurtidas > 0 ? (float)comentario.Curtidas / (comentario.Curtidas + comentario.Descurtidas) * 100 : 0):0.0}%",
+                    Location = new Point(90, 130),
+                    Font = new Font("Arial", 8, FontStyle.Regular),
+                    AutoSize = true
+                };
+                comentarioPanel.Controls.Add(mediaLabel);
+
                 flowLayoutPanel1.Controls.Add(comentarioPanel);
+            }
+        }
+
+        private void AtualizarCurtida(Comentario comentario, bool isCurtida)
+        {
+            try
+            {
+                Banco banco = new();
+                string conexaoString = banco.conexao;
+                // Defina o usuário logado aqui
+                int usuarioLogadoId = SessaoUsuario.UsuarioLogadoId; // Pegando o Id do usuário logado
+
+                using SqlConnection conn = new(conexaoString);
+                conn.Open();
+
+                // Verifique se o usuário já votou na dica
+                string checkVotoQuery = "SELECT COUNT(*) FROM Votos WHERE UsuarioId = @usuarioId AND DicaId = @dicaId";
+                using SqlCommand checkCmd = new(checkVotoQuery, conn);
+                checkCmd.Parameters.AddWithValue("@usuarioId", usuarioLogadoId);
+                checkCmd.Parameters.AddWithValue("@dicaId", comentario.Id);
+                int votoCount = (int)checkCmd.ExecuteScalar();
+
+                if (votoCount > 0)
+                {
+                    MessageBox.Show("Você já votou nesta dica.");
+                    return; // Não insere o voto novamente
+                }
+
+                // Se o usuário ainda não votou, insira o voto
+                string votoTipo = isCurtida ? "Curtida" : "Descurtida"; // Define o tipo de voto
+                string inserirVotoQuery = "INSERT INTO Votos (UsuarioId, DicaId, TipoVoto) VALUES (@usuarioId, @dicaId, @tipoVoto)";
+                using SqlCommand inserirCmd = new(inserirVotoQuery, conn);
+                inserirCmd.Parameters.AddWithValue("@usuarioId", usuarioLogadoId);
+                inserirCmd.Parameters.AddWithValue("@dicaId", comentario.Id); // Usando o Id do comentario
+                inserirCmd.Parameters.AddWithValue("@tipoVoto", votoTipo);
+                inserirCmd.ExecuteNonQuery();
+
+                // Atualiza a contagem de curtidas ou descurtidas
+                string coluna = isCurtida ? "Curtidas" : "Descurtidas";
+                string query = $"UPDATE Dicas SET {coluna} = {coluna} + 1 WHERE Id = @dicaId"; // Use Id para atualizar
+                using SqlCommand cmd = new(query, conn);
+                cmd.Parameters.AddWithValue("@dicaId", comentario.Id);
+                cmd.ExecuteNonQuery();
+
+                // Recarregar e exibir os comentários atualizados
+                List<Comentario> comentariosAtualizados = CarregarComentariosDoBanco();
+                ExibirComentarios(comentariosAtualizados);
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Erro ao acessar o banco de dados: " + sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar curtida/descurtida: " + ex.Message);
+            }
+        }
+
+
+
+
+        private bool VerificarVoto(int usuarioId, int dicaId, string tipoVoto)
+        {
+            try
+            {
+                Banco banco = new();
+                string conexaoString = banco.conexao;
+                using SqlConnection conn = new(conexaoString);
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Votos WHERE UsuarioId = @usuarioId AND DicaId = @dicaId AND TipoVoto = @tipoVoto";
+                using SqlCommand cmd = new(query, conn);
+                cmd.Parameters.AddWithValue("@usuarioId", usuarioId);
+                cmd.Parameters.AddWithValue("@dicaId", dicaId);
+                cmd.Parameters.AddWithValue("@tipoVoto", tipoVoto);
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0; // Retorna true se o voto já existe
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao verificar voto: " + ex.Message);
+                return false;
             }
         }
     }
 }
+ 
