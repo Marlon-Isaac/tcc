@@ -85,7 +85,8 @@ namespace WinFormsApp1
                         cmd.Parameters.AddWithValue("@nome", Nome);
                         cmd.Parameters.AddWithValue("@login", Email);
                         cmd.Parameters.AddWithValue("@senha", senha);
-                        cmd.Parameters.AddWithValue("@imagem", imagem);
+                        SqlParameter imageParameter = cmd.Parameters.Add("@imagem", SqlDbType.VarBinary);
+                        imageParameter.Value = (imagem != null) ? imagem : (object)DBNull.Value;
                         cmd.Parameters.AddWithValue("@tipo", tipo);
                         cmd.ExecuteNonQuery();
                         DialogResult result = MessageBox.Show("Pedido de registro concluido!", "", MessageBoxButtons.OK);
