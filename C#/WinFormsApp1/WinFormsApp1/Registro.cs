@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
+    
     public partial class Registro : Form
     {
         byte[] imagem;
@@ -35,31 +36,26 @@ namespace WinFormsApp1
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
         }
-        private void ObterImagemDaPictureBox()
-        {
-            if (pictureBox1.Image != null) // Verifica se a imagem não é nula
-            {
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    // Salva a imagem do PictureBox no MemoryStream
-                    pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
-                    imagem = ms.ToArray(); // Converte o MemoryStream para byte[]
-                }
-            }
-            else
-            {
-                MessageBox.Show("Nenhuma imagem carregada na PictureBox.");
-            }
-        }
 
         private ComboBox GetComboBox1()
         {
             return comboBox1;
         }
 
+        public byte[] ImageToByteArray(Image imageIn)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                // Salva a imagem no MemoryStream no formato desejado (por exemplo, JPEG)
+                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                // Converte o MemoryStream em um array de bytes
+                return ms.ToArray();
+            }
+        }
+
         private void Button1_Click(object sender, EventArgs e)
         {
-
+            imagem = ImageToByteArray(pictureBox1.Image);
             var Nome = textBox1.Text;
             var Email = textBox2.Text;
             var senha = textBox3.Text;

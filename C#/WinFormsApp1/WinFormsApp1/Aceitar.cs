@@ -36,12 +36,37 @@ namespace WinFormsApp1
             }
         }
 
+        public Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            if (byteArrayIn == null || byteArrayIn.Length == 0)
+            {
+                throw new ArgumentException("O array de bytes está vazio ou nulo.");
+            }
+
+            try
+            {
+                using (MemoryStream ms = new MemoryStream(byteArrayIn))
+                {
+                    // Garante que o ponteiro do MemoryStream está no início
+                    ms.Seek(0, SeekOrigin.Begin);
+                    return Image.FromStream(ms, true); // Opcional: `true` para validar dados
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Não foi possível converter o array de bytes para uma imagem. Verifique se o array de bytes contém uma imagem válida.", ex);
+            }
+        }
+
         private void CreateControls()
         {
-            if (currentRow >= totalRows) return; // Se não há mais registros
+            if (currentRow >= totalRows) {
+                label1.Visible = true;
+            }; // Se não há mais registros
 
             using (SqlConnection conn = new SqlConnection(Banco.conexao))
             {
+                label1.Visible = false;
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(
                     $"SELECT Id, Nome, Login, Senha, Tipo, Imagem FROM registro ORDER BY ID OFFSET {currentRow} ROWS FETCH NEXT 1 ROWS ONLY", conn
@@ -55,29 +80,21 @@ namespace WinFormsApp1
                     string login = reader["Login"].ToString();
                     string senha = reader["Senha"].ToString();
                     string tipo = reader["Tipo"].ToString();
+                    byte[] imagem = reader["Imagem"] as byte[];
 
                     // Converte a imagem do banco de dados em um array de bytes
-                    byte[] imageBytes = reader["Imagem"] as byte[];
-                    Image image = null;
 
-                    // Se a imagem não for nula, converte para Image
-                    if (imageBytes != null)
-                    {
-                        using (MemoryStream ms = new MemoryStream(imageBytes))
-                        {
-                            image = Image.FromStream(ms);
-                        }
-                    }
+
 
                     // Cria a PictureBox para exibir a imagem
                     PictureBox pictureBox = new PictureBox
                     {
-                        Image = image,
+                        Image = ByteArrayToImage(imagem),
                         SizeMode = PictureBoxSizeMode.StretchImage,
-                        Width = 100,  // Defina a largura desejada
-                        Height = 100, // Defina a altura desejada
+                        Width = 1000,  // Defina a largura desejada
+                        Height = 1000, // Defina a altura desejada
                         Top = 10,
-                        Left = (panel2.Width - 100) / 2 // Centraliza a imagem no painel
+                        Left = (panel2.Width - 40) / 2, // Centraliza a imagem no painel                    
                     };
                     panel2.Controls.Add(pictureBox);
 
@@ -103,7 +120,7 @@ namespace WinFormsApp1
                         ForeColor = Color.White,
                         BackColor = Color.FromArgb(40, 50, 58)
                     };
-                    btnAccept.Click += (sender, e) => HandleButtonClick(id, nome, login, senha, tipo, imageBytes, true);
+                    btnAccept.Click += (sender, e) => HandleButtonClick(id, nome, login, senha, tipo, imagem, true);
                     panel2.Controls.Add(btnAccept);
 
                     // Botão Rejeitar
@@ -116,7 +133,7 @@ namespace WinFormsApp1
                         ForeColor = Color.White,
                         BackColor = Color.FromArgb(40, 50, 58)
                     };
-                    btnReject.Click += (sender, e) => HandleButtonClick(id, nome, login, senha, tipo, imageBytes, false);
+                    btnReject.Click += (sender, e) => HandleButtonClick(id, nome, login, senha, tipo, imagem, false);
                     panel2.Controls.Add(btnReject);
                 }
             }
