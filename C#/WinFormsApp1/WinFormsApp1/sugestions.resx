@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-    Microsoft ResX Schema 
+    Microsoft ResX Schema
 
     Version 2.0
 
@@ -48,7 +48,7 @@
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAALhJREFUSEvt0kEOATEYhuFu7C3YsbZ2BzfAmoO4EJG4DBvhBgguMN5PpgtN25i2
+        DAAACwwBP0AiyAAAALhJREFUSEvt0kEOATEYhuFu7C3YsbZ2BzfAmoO4EJG4DBvhBgguMN5PpgtN25i2
         y77Js5B2fpNpTa1UY+zxbh0wQZE0/I7G8YDWstObu8OtHbLTJ/ENlxeyi/3BE9npQH3DZYvsdFt0oO7w
         G0Yokm6LDlTfXPTmxYbXok2xweD767chtKY9nephjRPsjblgjn5rgSvs+hEr6NloM2izfbCrM5YI5nso
         RTDf5hTBfJtTBPNtTlH7N2M+IiaT2ekCQWEAAAAASUVORK5CYII=
@@ -130,7 +130,7 @@
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACVPSURBVHhe7d15
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACVPSURBVHhe7d15
         sF51nefxBwJhhySEHcK+NYZdEUQRQaG1g6ytYptewS61xpqqrrK7p6uasnSaqZ6qGcsZp+j+SxaVTXHB
         BQINsqOAbIKgBFnCloQ1EDCh5/Pl4XJuks9N7vIs39/5vV9V7yr9cXOXc87z/O49awcAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -296,7 +296,7 @@
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADbFSURBVHhe7d0J
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADbFSURBVHhe7d0J
         /HVjvfdxmed5uhEZMmeolMoQSijliAwhyhRKEzp0Mp4QKUOiSIMpDpIxhMwyNIjKFCpkTOap5/l+y819
         +//+/3vvdV3X2mut/Xm/Xp/XeZ7Tifu+9tp77b3Wta5rMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

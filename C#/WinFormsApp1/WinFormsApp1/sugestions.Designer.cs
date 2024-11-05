@@ -71,14 +71,15 @@
             // 
             textBox1.BackColor = Color.White;
             textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Cursor = Cursors.Hand;
+            textBox1.Cursor = Cursors.IBeam;
+            textBox1.Font = new Font("Comic Sans MS", 15F);
             textBox1.ForeColor = Color.Black;
             textBox1.Location = new Point(12, 125);
-            textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(460, 30);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "Nome COMPLETO*";
+            textBox1.PlaceholderText = "Nome completo:";
+            textBox1.Size = new Size(460, 28);
+            textBox1.TabIndex = 2;
+            textBox1.TabStop = false;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // pictureBox1
@@ -96,14 +97,15 @@
             // 
             textBox2.BackColor = Color.White;
             textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Cursor = Cursors.Hand;
+            textBox2.Cursor = Cursors.IBeam;
+            textBox2.Font = new Font("Comic Sans MS", 15F);
             textBox2.ForeColor = Color.Black;
             textBox2.Location = new Point(12, 174);
-            textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(460, 30);
+            textBox2.PlaceholderText = "Email";
+            textBox2.Size = new Size(460, 28);
             textBox2.TabIndex = 3;
-            textBox2.Text = "E-mail";
+            textBox2.TabStop = false;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
             // pictureBox2
@@ -132,14 +134,15 @@
             // 
             textBox3.BackColor = Color.White;
             textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Cursor = Cursors.Hand;
+            textBox3.Cursor = Cursors.IBeam;
+            textBox3.Font = new Font("Comic Sans MS", 15F);
             textBox3.ForeColor = Color.Black;
             textBox3.Location = new Point(12, 226);
-            textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(460, 30);
-            textBox3.TabIndex = 5;
-            textBox3.Text = "Telefone ";
+            textBox3.PlaceholderText = "Telefone";
+            textBox3.Size = new Size(460, 28);
+            textBox3.TabIndex = 4;
+            textBox3.TabStop = false;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
             // textBox4
@@ -151,9 +154,10 @@
             textBox4.Location = new Point(12, 287);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
+            textBox4.PlaceholderText = "Escreva aqui";
             textBox4.Size = new Size(460, 222);
             textBox4.TabIndex = 7;
-            textBox4.Text = "Escreva aqui!";
+            textBox4.TabStop = false;
             textBox4.TextChanged += textBox4_TextChanged;
             // 
             // button1
