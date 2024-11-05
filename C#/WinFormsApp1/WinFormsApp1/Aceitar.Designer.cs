@@ -38,9 +38,15 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
-            panel2 = new Panel();
             label1 = new Label();
+            pictureBox1 = new PictureBox();
+            label2 = new Label();
+            label3 = new Label();
+            panel2 = new Panel();
+            button7 = new Button();
+            button10 = new Button();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -167,26 +173,85 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // panel2
-            // 
-            panel2.Controls.Add(label1);
-            panel2.Location = new Point(155, 32);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(596, 381);
-            panel2.TabIndex = 12;
-            panel2.Paint += panel2_Paint;
-            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(41, 158);
+            label1.Location = new Point(216, 190);
             label1.Name = "label1";
             label1.Size = new Size(529, 45);
             label1.TabIndex = 0;
             label1.Text = "Sem pedidos de registro pendentes";
             label1.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(306, 32);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(282, 248);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            pictureBox1.Visible = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(420, 300);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 45);
+            label2.TabIndex = 13;
+            label2.Visible = false;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 17F);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(85, 19);
+            label3.Name = "label3";
+            label3.Size = new Size(107, 31);
+            label3.TabIndex = 14;
+            label3.Text = "Aleatorio";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            label3.Visible = false;
+            label3.Click += label3_Click;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label3);
+            panel2.Location = new Point(306, 285);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(282, 68);
+            panel2.TabIndex = 15;
+            panel2.Visible = false;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(306, 386);
+            button7.Name = "button7";
+            button7.Size = new Size(92, 37);
+            button7.TabIndex = 16;
+            button7.Text = "Aceitar";
+            button7.UseVisualStyleBackColor = true;
+            button7.Visible = false;
+            button7.Click += button7_Click;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(496, 386);
+            button10.Name = "button10";
+            button10.Size = new Size(92, 37);
+            button10.TabIndex = 17;
+            button10.Text = "Rejeitar";
+            button10.UseVisualStyleBackColor = true;
+            button10.Visible = false;
+            button10.Click += button10_Click;
             // 
             // Aceitar
             // 
@@ -194,7 +259,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
             ClientSize = new Size(800, 450);
+            Controls.Add(button10);
+            Controls.Add(button7);
             Controls.Add(panel2);
+            Controls.Add(label2);
+            Controls.Add(pictureBox1);
+            Controls.Add(label1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
@@ -203,9 +273,11 @@
             Name = "Aceitar";
             Load += Secretaria_Load;
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -219,7 +291,12 @@
         private Button button2;
         private Button button1;
         private Button button8;
-        private Panel panel2;
         private Label label1;
+        private PictureBox pictureBox1;
+        private Label label2;
+        private Label label3;
+        private Panel panel2;
+        private Button button7;
+        private Button button10;
     }
 }

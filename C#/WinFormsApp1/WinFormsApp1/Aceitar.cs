@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
@@ -22,7 +23,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             LoadData();
-            CreateControls();
+            A();
         }
 
         private void LoadData()
@@ -58,140 +59,69 @@ namespace WinFormsApp1
             }
         }
 
-        private void CreateControls()
+        public void A()
         {
-            if (currentRow >= totalRows) {
-                label1.Visible = true;
-            }; // Se não há mais registros
-
-            using (SqlConnection conn = new SqlConnection(Banco.conexao))
+            try
             {
-                label1.Visible = false;
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(
-                    $"SELECT Id, Nome, Login, Senha, Tipo, Imagem FROM registro ORDER BY ID OFFSET {currentRow} ROWS FETCH NEXT 1 ROWS ONLY", conn
-                );
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    string id = reader["Id"].ToString();
-                    string nome = reader["Nome"].ToString();
-                    string login = reader["Login"].ToString();
-                    string senha = reader["Senha"].ToString();
-                    string tipo = reader["Tipo"].ToString();
-                    byte[] imagem = reader["Imagem"] as byte[];
-
-                    // Converte a imagem do banco de dados em um array de bytes
-
-
-
-                    // Cria a PictureBox para exibir a imagem
-                    PictureBox pictureBox = new PictureBox
+                using (SqlConnection conn = new SqlConnection(Banco.conexao)) 
+                { 
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Registro"))
                     {
-                        Image = ByteArrayToImage(imagem),
-                        SizeMode = PictureBoxSizeMode.StretchImage,
-                        Width = 1000,  // Defina a largura desejada
-                        Height = 1000, // Defina a altura desejada
-                        Top = 10,
-                        Left = (panel2.Width - 40) / 2, // Centraliza a imagem no painel                    
-                    };
-                    panel2.Controls.Add(pictureBox);
-
-                    // Cria o label para o nome
-                    Label nameLabel = new Label
-                    {
-                        Text = nome,
-                        Left = (panel2.Width - 100) / 2, // Centraliza o nome no painel
-                        Top = pictureBox.Bottom + 10, // Abaixo da imagem
-                        AutoSize = true,
-                        ForeColor = Color.White,
-                        Font = new Font("ComicSans", 15, FontStyle.Regular)
-                    };
-                    panel2.Controls.Add(nameLabel);
-
-                    // Botão Aceitar
-                    Button btnAccept = new Button
-                    {
-                        Text = "Aceitar",
-                        Left = (panel2.Width - 150), // Centraliza no painel
-                        Top = nameLabel.Bottom + 10,
-                        Width = 70,
-                        ForeColor = Color.White,
-                        BackColor = Color.FromArgb(40, 50, 58)
-                    };
-                    btnAccept.Click += (sender, e) => HandleButtonClick(id, nome, login, senha, tipo, imagem, true);
-                    panel2.Controls.Add(btnAccept);
-
-                    // Botão Rejeitar
-                    Button btnReject = new Button
-                    {
-                        Text = "Rejeitar",
-                        Left = (panel2.Width - 70), // Centraliza no painel
-                        Top = nameLabel.Bottom + 10,
-                        Width = 70,
-                        ForeColor = Color.White,
-                        BackColor = Color.FromArgb(40, 50, 58)
-                    };
-                    btnReject.Click += (sender, e) => HandleButtonClick(id, nome, login, senha, tipo, imagem, false);
-                    panel2.Controls.Add(btnReject);
+                        int count = cmd.ExecuteNonQuery();
+                        if (count > 0)
+                        {
+                            b();
+                        }
+                        else
+                        {
+                            label1.Visible = true;
+                            label2.Visible = false;
+                            label3.Visible = false;
+                            pictureBox1.Visible = false;
+                            button7.Visible = false;
+                            button10.Visible = false;
+                        }
+                    }
                 }
             }
+            catch(Exception ex) 
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
         }
-
-        private void HandleButtonClick(string id, string nome, string login, string senha, string tipo, byte[] imageBytes, bool accepted)
+        public void b()
         {
-            if (accepted)
+            try
             {
                 using (SqlConnection conn = new SqlConnection(Banco.conexao))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand(
-                        "INSERT INTO login (Nome, Login, Senha, Tipo, Imagem) VALUES (@nome, @login, @senha, @tipo, @imagem)", conn
-                    );
-                    cmd.Parameters.AddWithValue("@nome", nome);
-                    cmd.Parameters.AddWithValue("@login", login);
-                    cmd.Parameters.AddWithValue("@senha", senha);
-                    cmd.Parameters.AddWithValue("@tipo", tipo);
-
-                    // Adiciona a imagem como parâmetro, ou como DBNull.Value se não houver imagem
-                    SqlParameter imageParameter = cmd.Parameters.Add("@imagem", SqlDbType.VarBinary);
-                    imageParameter.Value = (imageBytes != null) ? imageBytes : (object)DBNull.Value;
-
-                    cmd.ExecuteNonQuery();
-                }
-
-                using (SqlConnection conn = new(Banco.conexao))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("DELETE FROM Registro WHERE Id = @Id", conn))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Registro"))
                     {
-                        cmd.Parameters.AddWithValue("Id", id);
-                        cmd.ExecuteNonQuery();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            string nome = reader["Nome"].ToString();
+                            string login = reader["Login"].ToString();
+                            string senha = reader["Senha"].ToString();
+                            string tipo = reader["Tipo"].ToString();
+                            byte[] imagem = reader["Imagem"] as byte[];
+
+                            pictureBox1.Image = ByteArrayToImage(imagem);
+                            pictureBox1.Visible = true;
+                            label3.Text = nome;
+                            label3.Visible = true;
+                            label1.Visible = false;
+                        }
                     }
                 }
-            }
-            else if (!accepted)
+            } catch(Exception ex)
             {
-                using (SqlConnection conn = new SqlConnection(Banco.conexao))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("DELETE FROM Registro WHERE Id = @Id", conn))
-                    {
-                        cmd.Parameters.AddWithValue("Id", id);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
+                MessageBox.Show("Erro " + ex.Message);
             }
-
-            // Remove os controles atuais
-            panel2.Controls.Clear();
-            currentRow++;
-
-            // Recria os próximos controles
-            CreateControls();
         }
 
+        
         private void Secretaria_Load(object sender, EventArgs e)
         {
 
@@ -239,6 +169,40 @@ namespace WinFormsApp1
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Banco.conexao))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+
+                    }
+                }
+
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Erro " + ex.Message);
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
         {
 
         }

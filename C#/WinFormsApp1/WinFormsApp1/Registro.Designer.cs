@@ -162,7 +162,8 @@ namespace WinFormsApp1
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(383, 46);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(346, 285);
+            pictureBox1.Size = new Size(316, 285);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 13;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
