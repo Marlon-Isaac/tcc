@@ -45,9 +45,11 @@
             panel2 = new Panel();
             button7 = new Button();
             button10 = new Button();
+            pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -253,12 +255,25 @@
             button10.Visible = false;
             button10.Click += button10_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(747, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(41, 40);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 18;
+            pictureBox2.TabStop = false;
+            pictureBox2.Visible = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
             // Aceitar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox2);
             Controls.Add(button10);
             Controls.Add(button7);
             Controls.Add(panel2);
@@ -276,6 +291,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -298,5 +314,6 @@
         private Panel panel2;
         private Button button7;
         private Button button10;
+        private PictureBox pictureBox2;
     }
 }

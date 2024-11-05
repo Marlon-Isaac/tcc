@@ -16,27 +16,33 @@ namespace WinFormsApp1
 
     public partial class Aceitar : Form
     {
+        string nome;
+        string login;
+        string senha;
+        string tipo;
+        byte[] imagem;
+        int id;
         Banco Banco = new();
-        private int totalRows; // total de registros na tabela 'registro'
-        private int currentRow = 0; // índice do registro atual
+        /*private int totalRows; // total de registros na tabela 'registro'
+        private int currentRow = 0; // índice do registro atual*/
         public Aceitar()
         {
             InitializeComponent();
-            LoadData();
+            // LoadData();
             A();
         }
 
-        private void LoadData()
-        {
-            Banco banco = new();
-            using (SqlConnection conn = new SqlConnection(banco.conexao))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM registro", conn);
-                totalRows = (int)cmd.ExecuteScalar();
-            }
-        }
-
+        /*   private void LoadData()
+           {
+               Banco banco = new();
+               using (SqlConnection conn = new SqlConnection(banco.conexao))
+               {
+                   conn.Open();
+                   SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM registro", conn);
+                   totalRows = (int)cmd.ExecuteScalar();
+               }
+           }
+        */
         public Image ByteArrayToImage(byte[] byteArrayIn)
         {
             if (byteArrayIn == null || byteArrayIn.Length == 0)
@@ -63,15 +69,15 @@ namespace WinFormsApp1
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(Banco.conexao)) 
-                { 
+                using (SqlConnection conn = new SqlConnection(Banco.conexao))
+                {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Registro"))
+                    using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Registro", conn))
                     {
-                        int count = cmd.ExecuteNonQuery();
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
                         if (count > 0)
                         {
-                            b();
+                            B();
                         }
                         else
                         {
@@ -79,49 +85,61 @@ namespace WinFormsApp1
                             label2.Visible = false;
                             label3.Visible = false;
                             pictureBox1.Visible = false;
+                            pictureBox2.Visible = true;
                             button7.Visible = false;
                             button10.Visible = false;
+
                         }
                     }
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("Erro: " + ex.Message);
             }
         }
-        public void b()
+        public void B()
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(Banco.conexao))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Registro"))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Registro", conn))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            string nome = reader["Nome"].ToString();
-                            string login = reader["Login"].ToString();
-                            string senha = reader["Senha"].ToString();
-                            string tipo = reader["Tipo"].ToString();
-                            byte[] imagem = reader["Imagem"] as byte[];
+                            if (reader.Read())
+                            {
+                                id = Convert.ToInt32(reader["Id"]);
+                                nome = reader["Nome"].ToString();
+                                login = reader["Login"].ToString();
+                                senha = reader["Senha"].ToString();
+                                tipo = reader["Tipo"].ToString();
+                                imagem = reader["Imagem"] as byte[];
 
-                            pictureBox1.Image = ByteArrayToImage(imagem);
-                            pictureBox1.Visible = true;
-                            label3.Text = nome;
-                            label3.Visible = true;
-                            label1.Visible = false;
+                                pictureBox1.Image = ByteArrayToImage(imagem);
+                                pictureBox1.Visible = true;
+                                pictureBox2.Visible = false;
+                                label3.Text = nome;
+                                label3.Visible = true;
+                                label1.Visible = false;
+                                label2.Visible = true;
+                                button10.Visible = true;
+                                button7.Visible = true;
+                                panel2.Visible = true;
+                            }
                         }
                     }
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Erro " + ex.Message);
             }
         }
 
-        
+
         private void Secretaria_Load(object sender, EventArgs e)
         {
 
@@ -190,21 +208,54 @@ namespace WinFormsApp1
                 using (SqlConnection conn = new SqlConnection(Banco.conexao))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand())
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Login (Nome, Login, Senha, Tipo, Imagem) VALUES (@nome, @login, @senha, @tipo, @imagem)", conn))
                     {
-
+                        cmd.Parameters.AddWithValue("@nome", nome);
+                        cmd.Parameters.AddWithValue("@login", login);
+                        cmd.Parameters.AddWithValue("@senha", senha);
+                        cmd.Parameters.AddWithValue("@tipo", tipo);
+                        cmd.Parameters.AddWithValue("@imagem", imagem);
+                        cmd.ExecuteNonQuery();
+                    }
+                    using (SqlCommand cmd = new SqlCommand("DELETE FROM Registro WHERE Id = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("id", id);
+                        cmd.ExecuteNonQuery();
                     }
                 }
 
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Erro " + ex.Message);
             }
+            A();
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Banco.conexao))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("DELETE FROM Registro WHERE Id = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
+            A();
+        }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            A();
         }
     }
 }

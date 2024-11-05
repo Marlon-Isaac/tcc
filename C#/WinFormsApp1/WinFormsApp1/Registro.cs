@@ -37,11 +37,6 @@ namespace WinFormsApp1
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
         }
 
-        private ComboBox GetComboBox1()
-        {
-            return comboBox1;
-        }
-
         public byte[] ImageToByteArray(Image imageIn)
         {
             using (MemoryStream ms = new MemoryStream())
@@ -82,7 +77,7 @@ namespace WinFormsApp1
                         cmd.Parameters.AddWithValue("@login", Email);
                         cmd.Parameters.AddWithValue("@senha", senha);
                         SqlParameter imageParameter = cmd.Parameters.Add("@imagem", SqlDbType.VarBinary);
-                        imageParameter.Value = (imagem != null) ? imagem : (object)DBNull.Value;
+                        imageParameter.Value = (imagem != null) ? imagem : DBNull.Value;
                         cmd.Parameters.AddWithValue("@tipo", tipo);
                         cmd.ExecuteNonQuery();
                         DialogResult result = MessageBox.Show("Pedido de registro concluido!", "", MessageBoxButtons.OK);
