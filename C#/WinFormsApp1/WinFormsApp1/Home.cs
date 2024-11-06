@@ -180,5 +180,12 @@ namespace WinFormsApp1
             chat.Show();
             this.Close();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Agenda agenda = new Agenda();
+            agenda.Show();
+            this.Close();
+        }
     }
 }
