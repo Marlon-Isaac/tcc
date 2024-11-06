@@ -52,43 +52,67 @@ namespace WinFormsApp1
         {
             imagem = ImageToByteArray(pictureBox1.Image);
             var Nome = textBox1.Text;
-            var Email = textBox2.Text;
+            var login = textBox2.Text;
             var senha = textBox3.Text;
             string tipo = comboBox1.SelectedItem.ToString();
             _ = new Validar();
 
-            if (Nome.Length != 0 && Email.Length != 0 && senha.Length != 0 && comboBox1.SelectedIndex != -1)
+            if (Nome.Length != 0 && login.Length != 0 && senha.Length != 0 && comboBox1.SelectedIndex != -1)
             {
-                if (Validar.ValidarEmail(Email))
+                if (Validar.ValidarEmail(login))
                 {
-                    //string conexao = "Server=tcp:sapae.database.windows.net,1433;Initial Catalog=TCC1;Persist Security Info=False;User ID=sapae;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                     Banco banco = new();
                     string conexao = banco.conexao;
-
-
                     try
                     {
 
-                        using SqlConnection conn = new(conexao);
-                        conn.Open();
-                        String query = "INSERT INTO Registro (Nome, Login, Senha, Tipo, Imagem) VALUES (@nome, @login, @senha, @tipo, @imagem)";
-                        using SqlCommand cmd = new(query, conn);
-                        cmd.Parameters.AddWithValue("@nome", Nome);
-                        cmd.Parameters.AddWithValue("@login", Email);
-                        cmd.Parameters.AddWithValue("@senha", senha);
-                        SqlParameter imageParameter = cmd.Parameters.Add("@imagem", SqlDbType.VarBinary);
-                        imageParameter.Value = (imagem != null) ? imagem : DBNull.Value;
-                        cmd.Parameters.AddWithValue("@tipo", tipo);
-                        cmd.ExecuteNonQuery();
-                        DialogResult result = MessageBox.Show("Pedido de registro concluido!", "", MessageBoxButtons.OK);
-                        if (result == DialogResult.OK)
+                        using (SqlConnection conn = new(conexao))
                         {
-                            Login form1 = new();
-                            form1.Show();
-                            this.Close();
-                        }
-                        conn.Close();
+                            conn.Open();
+                            using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM Registro WHERE Login = @login", conn))
+                            {
+                                command.Parameters.AddWithValue("@login", login);
+                                int count = Convert.ToInt32(command.ExecuteScalar());
+                                if (count == 0)
+                                {
+                                    using (SqlCommand command1 = new SqlCommand("SELECT COUNT(*) FROM Registro WHERE Login = @login", conn)) 
+                                    {
+                                        command1.Parameters.AddWithValue("@login", login);
+                                        int count1 = Convert.ToInt32(command1.ExecuteScalar());
+                                        if (count1 == 0)
+                                        {
 
+                                            
+                                            String query = "INSERT INTO Registro (Nome, Login, Senha, Tipo, Imagem) VALUES (@nome, @login, @senha, @tipo, @imagem)";
+                                            using (SqlCommand cmd = new(query, conn))
+                                            {
+                                                cmd.Parameters.AddWithValue("@nome", Nome);
+                                                cmd.Parameters.AddWithValue("@login", login);
+                                                cmd.Parameters.AddWithValue("@senha", senha);
+                                                SqlParameter imageParameter = cmd.Parameters.Add("@imagem", SqlDbType.VarBinary);
+                                                imageParameter.Value = (imagem != null) ? imagem : DBNull.Value;//verificar se a imagem é nula e transformar a imagem de byte[] para varbit
+                                                cmd.Parameters.AddWithValue("@tipo", tipo);
+                                                cmd.ExecuteNonQuery();
+                                                DialogResult result = MessageBox.Show("Pedido de registro concluido!", "", MessageBoxButtons.OK);
+                                                if (result == DialogResult.OK)
+                                                {
+                                                    Login form1 = new();
+                                                    form1.Show();
+                                                    this.Close();
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Email ja cadastrado", "Erro", MessageBoxButtons.OK);
+                                        }
+                                    }
+                                }else
+                                {
+                                    MessageBox.Show("Email ja cadastrado", "Erro", MessageBoxButtons.OK);
+                                }
+                            }
+                        }
                     }
 
                     catch (Exception ex)

@@ -39,7 +39,12 @@
             button2 = new Button();
             button1 = new Button();
             monthCalendar1 = new MonthCalendar();
+            panel2 = new Panel();
+            label1 = new Label();
+            labelMes = new Label();
+            labelDia = new Label();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -161,13 +166,58 @@
             // monthCalendar1
             // 
             monthCalendar1.CalendarDimensions = new Size(2, 3);
-            monthCalendar1.Location = new Point(201, -7);
-            monthCalendar1.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
+            monthCalendar1.Location = new Point(130, -7);
+            monthCalendar1.MaxDate = new DateTime(2024, 12, 31, 0, 0, 0, 0);
+            monthCalendar1.MaxSelectionCount = 1;
             monthCalendar1.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.ShowToday = false;
             monthCalendar1.TabIndex = 13;
             monthCalendar1.DateChanged += monthCalendar1_DateChanged;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(40, 50, 58);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(labelMes);
+            panel2.Controls.Add(labelDia);
+            panel2.Location = new Point(587, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(213, 450);
+            panel2.TabIndex = 14;
+            panel2.Visible = false;
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 10F);
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(3, 58);
+            label1.Name = "label1";
+            label1.Size = new Size(207, 133);
+            label1.TabIndex = 2;
+            label1.Text = "label1";
+            // 
+            // labelMes
+            // 
+            labelMes.AutoSize = true;
+            labelMes.Font = new Font("Segoe UI", 12F);
+            labelMes.ForeColor = SystemColors.Control;
+            labelMes.Location = new Point(62, 29);
+            labelMes.Name = "labelMes";
+            labelMes.Size = new Size(97, 21);
+            labelMes.TabIndex = 1;
+            labelMes.Text = "de fevereiro ";
+            // 
+            // labelDia
+            // 
+            labelDia.AutoSize = true;
+            labelDia.Font = new Font("Segoe UI", 12F);
+            labelDia.ForeColor = SystemColors.Control;
+            labelDia.Location = new Point(3, 8);
+            labelDia.Name = "labelDia";
+            labelDia.Size = new Size(204, 21);
+            labelDia.TabIndex = 0;
+            labelDia.Text = "Eventos agendados do dia X";
             // 
             // Agenda
             // 
@@ -175,11 +225,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
             ClientSize = new Size(800, 450);
+            Controls.Add(panel2);
             Controls.Add(monthCalendar1);
             Controls.Add(panel1);
             Name = "Agenda";
             Text = "Agenda";
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -195,5 +248,9 @@
         private Button button2;
         private Button button1;
         private MonthCalendar monthCalendar1;
+        private Panel panel2;
+        private Label labelDia;
+        private Label labelMes;
+        private Label label1;
     }
 }
