@@ -230,6 +230,7 @@
             Controls.Add(panel1);
             Name = "Agenda";
             Text = "Agenda";
+            Load += Agenda_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
