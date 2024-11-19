@@ -43,6 +43,7 @@
             label1 = new Label();
             labelMes = new Label();
             labelDia = new Label();
+            button10 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -178,6 +179,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(40, 50, 58);
+            panel2.Controls.Add(button10);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(labelMes);
             panel2.Controls.Add(labelDia);
@@ -193,7 +195,7 @@
             label1.ForeColor = SystemColors.Control;
             label1.Location = new Point(3, 58);
             label1.Name = "label1";
-            label1.Size = new Size(207, 133);
+            label1.Size = new Size(207, 243);
             label1.TabIndex = 2;
             label1.Text = "label1";
             // 
@@ -218,6 +220,20 @@
             labelDia.Size = new Size(204, 21);
             labelDia.TabIndex = 0;
             labelDia.Text = "Eventos agendados do dia X";
+            // 
+            // button10
+            // 
+            button10.FlatAppearance.BorderColor = Color.White;
+            button10.FlatStyle = FlatStyle.Flat;
+            button10.ImageAlign = ContentAlignment.MiddleLeft;
+            button10.Location = new Point(13, 374);
+            button10.Name = "button10";
+            button10.Size = new Size(188, 49);
+            button10.TabIndex = 8;
+            button10.Text = "Agendar novo compromisso";
+            button10.UseVisualStyleBackColor = true;
+            button10.Visible = false;
+            button10.Click += button10_Click;
             // 
             // Agenda
             // 
@@ -253,5 +269,6 @@
         private Label labelDia;
         private Label labelMes;
         private Label label1;
+        private Button button10;
     }
 }

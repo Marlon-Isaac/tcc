@@ -21,9 +21,19 @@ namespace WinFormsApp1
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
+            tipo2 tipo2 = new tipo2();
+            string a = tipo2.Tipoo();
+            if(a == "Secretaria")
+            {
+                button10.Visible = true;
+            }
+            else
+            {
+                button10.Visible = false;
+            }
             int hora;
             List<string> compromisso = new List<string>();
-            
+
             DateTime date = ((MonthCalendar)sender).SelectionStart;//Guardar o dia selecionado em uma variavel
             string dia = date.Day.ToString();//tratando a variavel date para apenas salvar o dia 
             Mes mes1 = new Mes();
@@ -44,7 +54,7 @@ namespace WinFormsApp1
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     if (count > 0)
                     {
-                        using(SqlDataReader reader = cmd.ExecuteReader())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
@@ -59,6 +69,11 @@ namespace WinFormsApp1
         }
 
         private void Agenda_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
         {
 
         }

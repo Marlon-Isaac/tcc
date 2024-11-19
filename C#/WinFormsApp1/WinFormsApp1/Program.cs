@@ -23,6 +23,7 @@ namespace WinFormsApp1
     }
     public class Banco()
     {
+        public string tipo { get; set;}
         public string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
         //public string conexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TCC;Integrated Security=True;Connect Timeout=30;Encrypt=False";
     }

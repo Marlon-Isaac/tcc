@@ -10,7 +10,6 @@ namespace WinFormsApp1
         public Login()
         {
             InitializeComponent();
-
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -85,7 +84,7 @@ namespace WinFormsApp1
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        public void button1_Click_1(object sender, EventArgs e)
         {
             var login = textBox1.Text;
             var senha = textBox2.Text;
@@ -114,6 +113,7 @@ namespace WinFormsApp1
                         // Obter as informações do usuário logado
                         int usuarioLogadoId = reader["Id"] != DBNull.Value ? Convert.ToInt32(reader["Id"]) : 0;
                         string nomeUsuario = reader["Nome"]?.ToString() ?? "Usuário";
+                        tipo.TipoUsuario = reader["Tipo"].ToString();
 
                         // Armazenar as informações do usuário na sessão
                         SessaoUsuario.UsuarioLogadoId = usuarioLogadoId;
