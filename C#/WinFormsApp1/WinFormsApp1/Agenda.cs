@@ -22,7 +22,8 @@ namespace WinFormsApp1
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             int hora;
-            string compromisso;
+            List<string> compromisso = new List<string>();
+            
             DateTime date = ((MonthCalendar)sender).SelectionStart;//Guardar o dia selecionado em uma variavel
             string dia = date.Day.ToString();//tratando a variavel date para apenas salvar o dia 
             Mes mes1 = new Mes();
@@ -45,14 +46,16 @@ namespace WinFormsApp1
                     {
                         using(SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            hora = Convert.ToInt32(reader["Hora"]);//.ToString();
-                            compromisso = reader["Compromisso"].ToString();
+                            while (reader.Read())
+                            {
+                                hora = Convert.ToInt32(reader["Hora"]);//.ToString();
+                                compromisso.Add(reader["Compromisso"].ToString());
+                            }
                         }
+                        label1.Text = string.Join(Environment.NewLine, compromisso);
                     }
                 }
             }
-
-
         }
 
         private void Agenda_Load(object sender, EventArgs e)
