@@ -14,6 +14,7 @@ namespace WinFormsApp1
 {
     public partial class Agenda : Form
     {
+        string dia;
         public Agenda()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace WinFormsApp1
             List<string> compromisso = new List<string>();
 
             DateTime date = ((MonthCalendar)sender).SelectionStart;//Guardar o dia selecionado em uma variavel
-            string dia = date.Day.ToString();//tratando a variavel date para apenas salvar o dia 
+            dia = date.Day.ToString();//tratando a variavel date para apenas salvar o dia 
             Mes mes1 = new Mes();
             string mes = mes1.mes(date.Month);
             panel2.Visible = true;
@@ -49,7 +50,7 @@ namespace WinFormsApp1
                 Conn.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT * FROM Agenda WHERE Dia=@dia AND Horario=@hora ", Conn))
                 {
-                    cmd.Parameters.AddWithValue("@dia", date);
+                /*    cmd.Parameters.AddWithValue("@dia", date);
                     cmd.Parameters.AddWithValue("@hora", "9:30");
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     if (count > 0)
@@ -63,7 +64,7 @@ namespace WinFormsApp1
                             }
                         }
                         label1.Text = string.Join(Environment.NewLine, compromisso);
-                    }
+                    }*/
                 }
             }
         }
@@ -75,7 +76,8 @@ namespace WinFormsApp1
 
         private void button10_Click(object sender, EventArgs e)
         {
-
+            novaAgenda novaAgenda = new novaAgenda(dia);
+            novaAgenda.Show();
         }
     }
 }

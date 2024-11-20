@@ -40,10 +40,10 @@
             button1 = new Button();
             monthCalendar1 = new MonthCalendar();
             panel2 = new Panel();
+            button10 = new Button();
             label1 = new Label();
             labelMes = new Label();
             labelDia = new Label();
-            button10 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -189,13 +189,28 @@
             panel2.TabIndex = 14;
             panel2.Visible = false;
             // 
+            // button10
+            // 
+            button10.FlatAppearance.BorderColor = Color.White;
+            button10.FlatStyle = FlatStyle.Flat;
+            button10.ForeColor = Color.White;
+            button10.ImageAlign = ContentAlignment.MiddleLeft;
+            button10.Location = new Point(13, 374);
+            button10.Name = "button10";
+            button10.Size = new Size(188, 49);
+            button10.TabIndex = 8;
+            button10.Text = "Agendar novo compromisso";
+            button10.UseVisualStyleBackColor = true;
+            button10.Visible = false;
+            button10.Click += button10_Click;
+            // 
             // label1
             // 
             label1.Font = new Font("Segoe UI", 10F);
             label1.ForeColor = SystemColors.Control;
             label1.Location = new Point(3, 58);
             label1.Name = "label1";
-            label1.Size = new Size(207, 243);
+            label1.Size = new Size(207, 313);
             label1.TabIndex = 2;
             label1.Text = "label1";
             // 
@@ -220,20 +235,6 @@
             labelDia.Size = new Size(204, 21);
             labelDia.TabIndex = 0;
             labelDia.Text = "Eventos agendados do dia X";
-            // 
-            // button10
-            // 
-            button10.FlatAppearance.BorderColor = Color.White;
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.ImageAlign = ContentAlignment.MiddleLeft;
-            button10.Location = new Point(13, 374);
-            button10.Name = "button10";
-            button10.Size = new Size(188, 49);
-            button10.TabIndex = 8;
-            button10.Text = "Agendar novo compromisso";
-            button10.UseVisualStyleBackColor = true;
-            button10.Visible = false;
-            button10.Click += button10_Click;
             // 
             // Agenda
             // 
