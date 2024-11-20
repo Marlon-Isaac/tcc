@@ -212,8 +212,13 @@ namespace WinFormsApp1
         private void button12_Click(object sender, EventArgs e)
         {
             Agenda agenda1 = new Agenda();
-            agenda1.Show(); 
+            agenda1.Show();
             this.Close();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
