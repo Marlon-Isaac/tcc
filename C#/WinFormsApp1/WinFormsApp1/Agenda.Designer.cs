@@ -62,17 +62,19 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(118, 450);
+            panel1.Size = new Size(118, 510);
             panel1.TabIndex = 12;
             // 
             // button8
             // 
             button8.FlatAppearance.BorderColor = Color.FromArgb(0, 15, 255, 255);
             button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Comic Sans MS", 9F);
+            button8.ForeColor = Color.White;
             button8.Image = (Image)resources.GetObject("button8.Image");
-            button8.Location = new Point(3, 398);
+            button8.Location = new Point(3, 451);
             button8.Name = "button8";
-            button8.Size = new Size(111, 49);
+            button8.Size = new Size(111, 56);
             button8.TabIndex = 7;
             button8.UseVisualStyleBackColor = true;
             // 
@@ -80,9 +82,9 @@
             // 
             button9.FlatStyle = FlatStyle.Flat;
             button9.Image = (Image)resources.GetObject("button9.Image");
-            button9.Location = new Point(0, 534);
+            button9.Location = new Point(0, 605);
             button9.Name = "button9";
-            button9.Size = new Size(111, 49);
+            button9.Size = new Size(111, 56);
             button9.TabIndex = 6;
             button9.UseVisualStyleBackColor = true;
             // 
@@ -90,84 +92,103 @@
             // 
             button6.FlatAppearance.BorderColor = Color.White;
             button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("Comic Sans MS", 9F);
+            button6.ForeColor = Color.White;
             button6.Image = (Image)resources.GetObject("button6.Image");
             button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(3, 307);
+            button6.Location = new Point(3, 348);
             button6.Name = "button6";
-            button6.Size = new Size(111, 49);
+            button6.Size = new Size(111, 56);
             button6.TabIndex = 4;
             button6.Text = "   Avisos";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button5
             // 
             button5.FlatAppearance.BorderColor = Color.White;
             button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Comic Sans MS", 9F);
+            button5.ForeColor = Color.White;
             button5.Image = (Image)resources.GetObject("button5.Image");
             button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(3, 252);
+            button5.Location = new Point(3, 286);
             button5.Name = "button5";
-            button5.Size = new Size(111, 49);
+            button5.Size = new Size(111, 56);
             button5.TabIndex = 3;
             button5.Text = "   Chat";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
             button4.FlatAppearance.BorderColor = Color.White;
             button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Comic Sans MS", 9F);
+            button4.ForeColor = Color.White;
             button4.Image = (Image)resources.GetObject("button4.Image");
             button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(3, 197);
+            button4.Location = new Point(3, 223);
             button4.Name = "button4";
-            button4.Size = new Size(111, 49);
+            button4.Size = new Size(111, 56);
             button4.TabIndex = 2;
             button4.Text = "   Agenda";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
             button3.FlatAppearance.BorderColor = Color.White;
             button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Comic Sans MS", 9F);
+            button3.ForeColor = Color.White;
             button3.Image = (Image)resources.GetObject("button3.Image");
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(3, 142);
+            button3.Location = new Point(3, 161);
             button3.Name = "button3";
-            button3.Size = new Size(111, 49);
+            button3.Size = new Size(111, 56);
             button3.TabIndex = 1;
             button3.Text = "   Dicas";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
             button2.FlatAppearance.BorderColor = Color.White;
             button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Comic Sans MS", 9F);
+            button2.ForeColor = Color.White;
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(3, 87);
+            button2.Location = new Point(3, 99);
             button2.Name = "button2";
-            button2.Size = new Size(111, 49);
+            button2.Size = new Size(111, 56);
             button2.TabIndex = 1;
             button2.Text = "   Perfil";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
             button1.FlatAppearance.BorderColor = Color.White;
             button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Comic Sans MS", 9F);
+            button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(3, 32);
+            button1.Location = new Point(3, 36);
             button1.Name = "button1";
-            button1.Size = new Size(111, 49);
+            button1.Size = new Size(111, 56);
             button1.TabIndex = 1;
             button1.Text = "    Home";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // monthCalendar1
             // 
             monthCalendar1.CalendarDimensions = new Size(2, 3);
-            monthCalendar1.Location = new Point(130, -7);
+            monthCalendar1.Location = new Point(126, 9);
+            monthCalendar1.Margin = new Padding(9, 10, 9, 10);
             monthCalendar1.MaxDate = new DateTime(2024, 12, 31, 0, 0, 0, 0);
             monthCalendar1.MaxSelectionCount = 1;
             monthCalendar1.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
@@ -185,7 +206,7 @@
             panel2.Controls.Add(labelDia);
             panel2.Location = new Point(587, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(213, 450);
+            panel2.Size = new Size(213, 510);
             panel2.TabIndex = 14;
             panel2.Visible = false;
             // 
@@ -195,9 +216,9 @@
             button10.FlatStyle = FlatStyle.Flat;
             button10.ForeColor = Color.White;
             button10.ImageAlign = ContentAlignment.MiddleLeft;
-            button10.Location = new Point(13, 374);
+            button10.Location = new Point(13, 424);
             button10.Name = "button10";
-            button10.Size = new Size(188, 49);
+            button10.Size = new Size(188, 56);
             button10.TabIndex = 8;
             button10.Text = "Agendar novo compromisso";
             button10.UseVisualStyleBackColor = true;
@@ -208,9 +229,9 @@
             // 
             label1.Font = new Font("Segoe UI", 10F);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(3, 58);
+            label1.Location = new Point(3, 66);
             label1.Name = "label1";
-            label1.Size = new Size(207, 313);
+            label1.Size = new Size(207, 355);
             label1.TabIndex = 2;
             label1.Text = "label1";
             // 
@@ -219,7 +240,7 @@
             labelMes.AutoSize = true;
             labelMes.Font = new Font("Segoe UI", 12F);
             labelMes.ForeColor = SystemColors.Control;
-            labelMes.Location = new Point(62, 29);
+            labelMes.Location = new Point(62, 33);
             labelMes.Name = "labelMes";
             labelMes.Size = new Size(97, 21);
             labelMes.TabIndex = 1;
@@ -230,7 +251,7 @@
             labelDia.AutoSize = true;
             labelDia.Font = new Font("Segoe UI", 12F);
             labelDia.ForeColor = SystemColors.Control;
-            labelDia.Location = new Point(3, 8);
+            labelDia.Location = new Point(3, 9);
             labelDia.Name = "labelDia";
             labelDia.Size = new Size(204, 21);
             labelDia.TabIndex = 0;
@@ -238,13 +259,15 @@
             // 
             // Agenda
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 510);
             Controls.Add(panel2);
             Controls.Add(monthCalendar1);
             Controls.Add(panel1);
+            Font = new Font("Comic Sans MS", 9F);
+            ForeColor = Color.White;
             Name = "Agenda";
             Text = "Agenda";
             Load += Agenda_Load;

@@ -24,7 +24,7 @@ namespace WinFormsApp1
         {
             tipo2 tipo2 = new tipo2();
             string a = tipo2.Tipoo();
-            if(a == "Secretaria")
+            if (a == "Secretaria")
             {
                 button10.Visible = true;
             }
@@ -50,21 +50,21 @@ namespace WinFormsApp1
                 Conn.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT * FROM Agenda WHERE Dia=@dia AND Horario=@hora ", Conn))
                 {
-                /*    cmd.Parameters.AddWithValue("@dia", date);
-                    cmd.Parameters.AddWithValue("@hora", "9:30");
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    if (count > 0)
-                    {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                    /*    cmd.Parameters.AddWithValue("@dia", date);
+                        cmd.Parameters.AddWithValue("@hora", "9:30");
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        if (count > 0)
                         {
-                            while (reader.Read())
+                            using (SqlDataReader reader = cmd.ExecuteReader())
                             {
-                                hora = Convert.ToInt32(reader["Hora"]);//.ToString();
-                                compromisso.Add(reader["Compromisso"].ToString());
+                                while (reader.Read())
+                                {
+                                    hora = Convert.ToInt32(reader["Hora"]);//.ToString();
+                                    compromisso.Add(reader["Compromisso"].ToString());
+                                }
                             }
-                        }
-                        label1.Text = string.Join(Environment.NewLine, compromisso);
-                    }*/
+                            label1.Text = string.Join(Environment.NewLine, compromisso);
+                        }*/
                 }
             }
         }
@@ -78,6 +78,46 @@ namespace WinFormsApp1
         {
             novaAgenda novaAgenda = new novaAgenda(dia);
             novaAgenda.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Chat chat = new Chat(); // Usa o construtor sem parâmetros
+            chat.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Home homeForm = new();
+            homeForm.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Perfil perfil = new Perfil();
+            perfil.Show();
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DicasPost dicasPostForm = new();
+            dicasPostForm.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Agenda agenda1 = new Agenda();
+            agenda1.Show();
+            this.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

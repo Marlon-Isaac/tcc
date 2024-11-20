@@ -218,5 +218,19 @@ namespace WinFormsApp1
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Chat chat = new Chat(); // Usa o construtor sem parâmetros
+            chat.Show();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Agenda agenda1 = new Agenda();
+            agenda1.Show();
+            this.Close();
+        }
     }
 }

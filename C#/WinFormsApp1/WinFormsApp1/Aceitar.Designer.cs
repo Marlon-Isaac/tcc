@@ -73,6 +73,8 @@
             // 
             button8.FlatAppearance.BorderColor = Color.FromArgb(0, 15, 255, 255);
             button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 9.75F);
+            button8.ForeColor = Color.White;
             button8.Image = (Image)resources.GetObject("button8.Image");
             button8.Location = new Point(3, 398);
             button8.Name = "button8";
@@ -95,6 +97,8 @@
             // 
             button6.FlatAppearance.BorderColor = Color.White;
             button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("Segoe UI", 9.75F);
+            button6.ForeColor = Color.White;
             button6.Image = (Image)resources.GetObject("button6.Image");
             button6.ImageAlign = ContentAlignment.MiddleLeft;
             button6.Location = new Point(3, 307);
@@ -109,6 +113,8 @@
             // 
             button5.FlatAppearance.BorderColor = Color.White;
             button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 9.75F);
+            button5.ForeColor = Color.White;
             button5.Image = (Image)resources.GetObject("button5.Image");
             button5.ImageAlign = ContentAlignment.MiddleLeft;
             button5.Location = new Point(3, 252);
@@ -123,6 +129,8 @@
             // 
             button4.FlatAppearance.BorderColor = Color.White;
             button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI", 9.75F);
+            button4.ForeColor = Color.White;
             button4.Image = (Image)resources.GetObject("button4.Image");
             button4.ImageAlign = ContentAlignment.MiddleLeft;
             button4.Location = new Point(3, 197);
@@ -137,6 +145,8 @@
             // 
             button3.FlatAppearance.BorderColor = Color.White;
             button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 9.75F);
+            button3.ForeColor = Color.White;
             button3.Image = (Image)resources.GetObject("button3.Image");
             button3.ImageAlign = ContentAlignment.MiddleLeft;
             button3.Location = new Point(3, 142);
@@ -151,6 +161,8 @@
             // 
             button2.FlatAppearance.BorderColor = Color.White;
             button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 9.75F);
+            button2.ForeColor = Color.White;
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleLeft;
             button2.Location = new Point(3, 87);
@@ -165,6 +177,8 @@
             // 
             button1.FlatAppearance.BorderColor = Color.White;
             button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 9.75F);
+            button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(3, 32);

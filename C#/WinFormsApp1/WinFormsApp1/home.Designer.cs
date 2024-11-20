@@ -315,7 +315,6 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Home";
             Load += Home_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

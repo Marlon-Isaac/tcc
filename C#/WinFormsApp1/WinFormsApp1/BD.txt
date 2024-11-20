@@ -45,14 +45,17 @@ CREATE TABLE Dicas (
 );
 
 
-CREATE TABLE Mensagens (
-    Id INT PRIMARY KEY IDENTITY,
-    UsuarioRemetenteId INT,
-    UsuarioDestinatarioId INT,
-    Conteudo NVARCHAR(MAX),
-    DataEnvio DATETIME DEFAULT GETDATE(),
-    Lida BIT DEFAULT 0
+-- Tabela principal de mensagens
+CREATE TABLE MensagensChat (
+    MENSAGEM_ID INT PRIMARY KEY IDENTITY(1,1),       
+    REMETENTE_ID INT NOT NULL,                       
+    DESTINATARIO_ID INT NOT NULL,                    
+    CONTEUDO NVARCHAR(MAX),                           
+    DATA_ENVIO DATETIME DEFAULT GETDATE(),           
+    FOREIGN KEY (REMETENTE_ID) REFERENCES LOGIN(Id),
+    FOREIGN KEY (DESTINATARIO_ID) REFERENCES LOGIN(Id)
 );
+
 
 
 

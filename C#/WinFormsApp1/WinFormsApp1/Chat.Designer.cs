@@ -38,6 +38,8 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
+            panel2 = new Panel();
+            label1 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -110,6 +112,7 @@
             button4.TabIndex = 2;
             button4.Text = "   Agenda";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -147,12 +150,34 @@
             button1.Text = "    Home";
             button1.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            panel2.BorderStyle = BorderStyle.Fixed3D;
+            panel2.ForeColor = Color.White;
+            panel2.Location = new Point(120, 23);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(685, 94);
+            panel2.TabIndex = 3;
+            panel2.Paint += panel2_Paint;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(123, 2);
+            label1.Name = "label1";
+            label1.Size = new Size(61, 18);
+            label1.TabIndex = 4;
+            label1.Text = "Usuarios";
+            // 
             // Chat
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
             ClientSize = new Size(811, 596);
+            Controls.Add(label1);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
@@ -162,6 +187,7 @@
             Load += Chat_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -175,5 +201,7 @@
         private Button button3;
         private Button button2;
         private Button button1;
+        private Panel panel2;
+        private Label label1;
     }
 }

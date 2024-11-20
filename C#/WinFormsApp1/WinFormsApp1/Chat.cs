@@ -14,18 +14,30 @@ namespace WinFormsApp1
     public partial class Chat : Form
     {
 
-        
         public Chat()
         {
+
+
             InitializeComponent();
 
         }
 
-       
         private void Chat_Load(object sender, EventArgs e)
         {
 
         }
-       
+
+            
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
