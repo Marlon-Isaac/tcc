@@ -21,7 +21,17 @@ namespace WinFormsApp1
         private void Home_Load(object sender, EventArgs e)
         {
             ArredondarBordasPanel4(); // Chame o método para arredondar bordas do panel4
-
+            string a = tipo.TipoUsuario;
+            if (a == "Secretaria")
+            {
+                panelGeral.Visible = false;
+                panelSecretaria.Visible = true;
+            }
+            else
+            {
+                panelGeral.Visible = true;
+                panelSecretaria.Visible = false;
+            }
 
             Banco banco = new();
             string conexaoString = banco.conexao;
@@ -169,9 +179,7 @@ namespace WinFormsApp1
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Aceitar aceitar = new Aceitar();
-            aceitar.Show();
-            this.Close();
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -185,6 +193,26 @@ namespace WinFormsApp1
         {
             Agenda agenda = new Agenda();
             agenda.Show();
+            this.Close();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            Perfil perfil = new Perfil();
+            perfil.Show();
+            this.Close();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Aceitar aceitar1 = new Aceitar();
+            aceitar1.Show(); this.Close();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Agenda agenda1 = new Agenda();
+            agenda1.Show(); 
             this.Close();
         }
     }
