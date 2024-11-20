@@ -32,7 +32,6 @@ namespace WinFormsApp1
                 panelGeral.Visible = true;
                 panelSecretaria.Visible = false;
             }
-
             Banco banco = new();
             string conexaoString = banco.conexao;
             try
