@@ -9,7 +9,7 @@ namespace WinFormsApp1
 {
     public partial class DicasPost1 : Form
     {
-        private string caminhoImagemSelecionada = "";
+        private string caminhoImagemSelecionada;
 
         public DicasPost1()
         {
@@ -35,16 +35,18 @@ namespace WinFormsApp1
             }
 
             // Verifica se uma imagem foi selecionada
-            if (string.IsNullOrEmpty(caminhoImagemSelecionada))
-            {
-                MessageBox.Show("Por favor, selecione uma imagem para enviar.");
-                return; // Não prossegue para salvar se a imagem não foi selecionada
-            }
+
 
             // Lê a imagem em bytes
-            byte[] imagemBytes = File.ReadAllBytes(caminhoImagemSelecionada);
-            SalvarDicaNoBanco(titulo, autor, conteudo, imagemBytes);
-
+            if (caminhoImagemSelecionada != null)
+            {
+                byte[] imagemBytes = File.ReadAllBytes(caminhoImagemSelecionada);
+                SalvarDicaNoBanco(titulo, autor, conteudo, imagemBytes);
+            }
+            else
+            {
+                SalvarDicaNoBanco(titulo, autor, conteudo, null);
+            }
             this.Close();
         }
 
@@ -73,30 +75,38 @@ namespace WinFormsApp1
                 string conexaoString = banco.conexao;  // Assume que você tenha uma propriedade ou método para obter a string de conexão
                 using (SqlConnection conn = new(conexaoString))
                 {
+                   
                     conn.Open();
-                    string query = "INSERT INTO Dicas (TituloDica, AutorDica, ConteudoDica, FotoDica) VALUES (@Titulo, @Autor, @Conteudo, @Imagem)";
-                    using SqlCommand comando = new(query, conn);
-                    comando.Parameters.AddWithValue("@Titulo", titulo);
-                    comando.Parameters.AddWithValue("@Autor", autor);
-                    comando.Parameters.AddWithValue("@Conteudo", conteudo);
-
-                    // Define o parâmetro de imagem de forma explícita
                     if (imagemBytes != null)
                     {
-                        // Se houver imagem, passa como byte array
-                        SqlParameter imagemParam = new SqlParameter("@Imagem", SqlDbType.VarBinary, -1) // -1 para indicar VARBINARY(MAX)
+                        string query = "INSERT INTO Dicas (TituloDica, AutorDica, ConteudoDica, FotoDica) VALUES (@Titulo, @Autor, @Conteudo, @Imagem)";
+                        using SqlCommand comando = new(query, conn);
+                        comando.Parameters.AddWithValue("@Titulo", titulo);
+                        comando.Parameters.AddWithValue("@Autor", autor);
+                        comando.Parameters.AddWithValue("@Conteudo", conteudo);
+
+                        // Define o parâmetro de imagem de forma explícita
+                        if (imagemBytes != null)
                         {
-                            Value = imagemBytes
-                        };
-                        comando.Parameters.Add(imagemParam);
+                            // Se houver imagem, passa como byte array
+                            SqlParameter imagemParam = new SqlParameter("@Imagem", SqlDbType.VarBinary, -1) // -1 para indicar VARBINARY(MAX)
+                            {
+                                Value = imagemBytes
+                            };
+                            comando.Parameters.Add(imagemParam);
+                        }
+                        comando.ExecuteNonQuery();
                     }
                     else
                     {
-                        // Se não houver imagem, passa DBNull.Value
-                        comando.Parameters.AddWithValue("@Imagem", DBNull.Value);
+                        using(SqlCommand command = new SqlCommand("INSERT INTO Dicas (TituloDica, AutorDica, ConteudoDica) VALUES (@Titulo, @Autor, @Conteudo)", conn))
+                        {
+                            command.Parameters.AddWithValue("@Titulo", titulo);
+                            command.Parameters.AddWithValue("@Autor", autor);
+                            command.Parameters.AddWithValue("@Conteudo", conteudo);
+                            command.ExecuteNonQuery();
+                        }
                     }
-
-                    comando.ExecuteNonQuery();
                 }
                 MessageBox.Show("Dica salva com sucesso!, Por favor, Atualize a pagina!");
             }

@@ -127,7 +127,6 @@ namespace WinFormsApp1
                                 label2.Visible = true;
                                 button10.Visible = true;
                                 button7.Visible = true;
-                                panel2.Visible = true;
                             }
                         }
                     }

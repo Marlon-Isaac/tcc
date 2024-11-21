@@ -98,6 +98,7 @@
             button5.TabIndex = 3;
             button5.Text = "   Chat";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 

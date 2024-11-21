@@ -308,8 +308,8 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel4);
-            Controls.Add(panelSecretaria);
             Controls.Add(panelGeral);
+            Controls.Add(panelSecretaria);
             Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
