@@ -40,66 +40,28 @@ namespace WinFormsApp1
                     try
                     {
                         string hora ="";
-                        switch (horario)
+                        hora = horario switch
                         {
-                            case "7:00":
-                                hora = "SeteHoras";
-                                break;
-                            case "7:30":
-                                hora = "SeteMeia";
-                                break;
-                            case "8:00":
-                                hora = "OitoHoras";
-                                break;
-                            case "8:30":
-                                hora = "OitoMeia";
-                                break;
-                            case "9:00":
-                                hora = "NoveHoras";
-                                break;
-                            case "9:30":
-                                hora = "NoveMeia";
-                                break;
-                            case "10:00":
-                                hora = "DezHoras";
-                                break;
-                            case "10:30":
-                                hora = "DezMeia";
-                                break;
-                            case "11:00":
-                                hora = "OnzeHoras";
-                                break;
-                            case "11:30":
-                                hora = "OnzeMeia";
-                                break;
-                            case "13:00":
-                                hora = "TrezeHoras";
-                                break;
-                            case "13:30":
-                                hora = "TrezeMeia";
-                                break;
-                            case "14:00":
-                                hora = "QuatorzeHoras";
-                                break;
-                            case "14:30":
-                                hora = "QuatorzeMeia";
-                                break;
-                            case "15:00":
-                                hora = "QuinzeHoras";
-                                break;
-                            case "15:30":
-                                hora = "QuinzeMeia";
-                                break;
-                            case "16:00":
-                                hora = "DezesseisHoras";
-                                break;
-                            case "16:30":
-                                hora = "DezesseisMeia";
-                                break;
-                            default:
-                                hora = "Horário desconhecido"; // Caso o horário não seja encontrado
-                                break;
-                        }
+                            "7:00" => "SeteHoras",
+                            "7:30" => "SeteMeia",
+                            "8:00" => "OitoHoras",
+                            "8:30" => "OitoMeia",
+                            "9:00" => "NoveHoras",
+                            "9:30" => "NoveMeia",
+                            "10:00" => "DezHoras",
+                            "10:30" => "DezMeia",
+                            "11:00" => "OnzeHoras",
+                            "11:30" => "OnzeMeia",
+                            "13:00" => "TrezeHoras",
+                            "13:30" => "TrezeMeia",
+                            "14:00" => "QuatorzeHoras",
+                            "14:30" => "QuatorzeMeia",
+                            "15:00" => "QuinzeHoras",
+                            "15:30" => "QuinzeMeia",
+                            "16:00" => "DezesseisHoras",
+                            "16:30" => "DezesseisMeia",
+                            _ => "Horário desconhecido",// Caso o horário não seja encontrado
+                        };
                         Banco banco = new Banco();
                         using (SqlConnection conn = new SqlConnection(banco.conexao))
                         {

@@ -38,6 +38,7 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -148,12 +149,20 @@
             button1.Text = "    Home";
             button1.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            panel2.Location = new Point(120, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(679, 584);
+            panel2.TabIndex = 3;
+            // 
             // Chat
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
             ClientSize = new Size(811, 596);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
@@ -176,5 +185,6 @@
         private Button button3;
         private Button button2;
         private Button button1;
+        private Panel panel2;
     }
 }

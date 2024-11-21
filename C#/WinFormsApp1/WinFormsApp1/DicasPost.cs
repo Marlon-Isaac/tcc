@@ -66,9 +66,11 @@ namespace WinFormsApp1
             {
                 button8.Visible = false;
             }
-
-            List<Comentario> comentarios = CarregarComentariosDoBanco();
-            ExibirComentarios(comentarios);
+            while (true)
+            {
+                List<Comentario> comentarios = CarregarComentariosDoBanco();
+                ExibirComentarios(comentarios);
+            }
         }
 
         private string ObterTipoUsuario(int usuarioId)
@@ -118,6 +120,7 @@ namespace WinFormsApp1
 
         private static List<Comentario> CarregarComentariosDoBanco()
         {
+
             List<Comentario> comentarios = new(); // Inicializando a lista corretamente
             try
             {
