@@ -1,1 +1,0 @@
-chat gpt eu preciso que vc faça um codigo C# que construa em um panel um panel menor com um tamanho de 600; 180, onde neste panel menor tenha uma picture box no canto superior esquerdo, do lado tenha uma label que receba o
