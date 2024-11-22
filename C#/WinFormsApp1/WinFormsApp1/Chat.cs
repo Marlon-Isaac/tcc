@@ -4,16 +4,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace WinFormsApp1
 {
     public partial class Chat : Form
     {
-
+        int i = 0;
 
         public Chat()
         {
@@ -21,10 +25,22 @@ namespace WinFormsApp1
 
         }
 
+        private System.Windows.Forms.Timer timer;
 
         private void Chat_Load(object sender, EventArgs e)
         {
             BancoC();
+            PersonalizarBotao(button10);
+            button10.TextAlign = ContentAlignment.MiddleCenter;
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 1000; // Intervalo em milissegundos (5 segundos)
+            timer.Tick += (s, args) => { BancoC(); sim(); };
+            timer.Start();
+        }
+        private void sim()
+        {
+            i++;
+            button10.Text = i.ToString();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -34,38 +50,38 @@ namespace WinFormsApp1
 
         public void BancoC()
         {
-            while (true)
-            {
+      
                 Banco banco = new Banco();
-                using (SqlConnection conn = new SqlConnection(banco.conexao))
+            using (SqlConnection conn = new SqlConnection(banco.conexao))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Mensagens WHERE UsuarioRemetenteId = @id OR UsuarioDestinatarioId = @id", conn))
                 {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Chat WHERE UsuarioRemetenteId = @id OR UsuarioDestinatarioId = @id", conn))
+                    cmd.Parameters.AddWithValue("@id", SessaoUsuario.UsuarioLogadoId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        while (reader.Read())
                         {
-                            while (reader.Read())
+                            int remetente = Convert.ToInt32(reader["UsuarioRemetenteId"]);
+                            int destinatario = Convert.ToInt32(reader["UsuarioDestinatarioId"]);
+                            string mensagem = reader["Conteudo"].ToString();
+                            string data = reader["DataEnvio"].ToString();
+                            bool lida = Convert.ToBoolean(reader["Lida"]);
+                            ObterImagem obterImagem = new ObterImagem();
+                            byte[] imagem;
+                            if (remetente == SessaoUsuario.UsuarioLogadoId)
                             {
-                                int remetente = Convert.ToInt32(reader["UsuarioRemetenteId"]);
-                                int destinatario = Convert.ToInt32(reader["UsuarioDestinatarioId"]);
-                                string mensagem = reader["Conteudo"].ToString();
-                                string data = reader["DataEnvio"].ToString();
-                                bool lida = Convert.ToBoolean(reader["Lida"]);
-                                ObterImagem obterImagem = new ObterImagem();
-                                byte[] imagem;
-                                if (remetente == SessaoUsuario.UsuarioLogadoId)
-                                {
-                                    imagem = obterImagem.Obter(destinatario);
-                                }
-                                else
-                                {
-                                    imagem = obterImagem.Obter(remetente);
-                                }
-                                construir(remetente,destinatario,mensagem,data,lida,imagem);
+                                imagem = obterImagem.Obter(destinatario);
                             }
+                            else
+                            {
+                                imagem = obterImagem.Obter(remetente);
+                            }
+                            construir(remetente, destinatario, mensagem, data, lida, imagem);
                         }
                     }
                 }
+
             }
         }
         public void construir(int remetente, int destinatario, string mensagem, string data, bool lida, byte[] imagem)
@@ -169,7 +185,33 @@ namespace WinFormsApp1
                 }
             }
         }
+        private void PersonalizarBotao(Button button)
+        {
+            // Definir as propriedades básicas
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+            button.BackColor = Color.FromArgb(40, 50, 58);
+            button.ForeColor = Color.White;
 
+            // Tornar o botão arredondado
+            int cornerRadius = button.Height; // Define o raio com base na altura do botão
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(0, 0, cornerRadius, cornerRadius);
+            button.Region = new Region(path);
+
+            // Redesenhar o botão
+            button.Paint += (sender, e) =>
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                using (SolidBrush brush = new SolidBrush(button.BackColor))
+                {
+                    e.Graphics.FillEllipse(brush, 0, 0, button.Width, button.Height);
+                }
+
+                TextRenderer.DrawText(e.Graphics, button.Text, button.Font,
+                    button.ClientRectangle, button.ForeColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+            };
+        }
 
     }
 }

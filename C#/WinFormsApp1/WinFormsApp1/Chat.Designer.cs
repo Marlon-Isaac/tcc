@@ -39,7 +39,9 @@
             button2 = new Button();
             button1 = new Button();
             panel2 = new Panel();
+            button10 = new Button();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -151,10 +153,24 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(button10);
             panel2.Location = new Point(120, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(679, 584);
+            panel2.Size = new Size(679, 583);
             panel2.TabIndex = 3;
+            // 
+            // button10
+            // 
+            button10.BackColor = Color.FromArgb(40, 50, 58);
+            button10.FlatStyle = FlatStyle.Flat;
+            button10.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button10.ImageAlign = ContentAlignment.MiddleLeft;
+            button10.Location = new Point(634, 534);
+            button10.Name = "button10";
+            button10.Size = new Size(42, 43);
+            button10.TabIndex = 7;
+            button10.Text = "+";
+            button10.UseVisualStyleBackColor = false;
             // 
             // Chat
             // 
@@ -171,6 +187,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Load += Chat_Load;
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -186,5 +203,6 @@
         private Button button2;
         private Button button1;
         private Panel panel2;
+        private Button button10;
     }
 }
