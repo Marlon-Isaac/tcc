@@ -25,6 +25,9 @@
     <Compile Update="novaAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="novoChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Perfil.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -34,14 +34,10 @@ namespace WinFormsApp1
             button10.TextAlign = ContentAlignment.MiddleCenter;
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000; // Intervalo em milissegundos (5 segundos)
-            timer.Tick += (s, args) => { BancoC(); sim(); };
+            timer.Tick += (s, args) => { BancoC(); };
             timer.Start();
         }
-        private void sim()
-        {
-            i++;
-            button10.Text = i.ToString();
-        }
+
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -50,41 +46,55 @@ namespace WinFormsApp1
 
         public void BancoC()
         {
-      
-                Banco banco = new Banco();
+
+            Banco banco = new Banco();
             using (SqlConnection conn = new SqlConnection(banco.conexao))
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Mensagens WHERE UsuarioRemetenteId = @id OR UsuarioDestinatarioId = @id", conn))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Chat WHERE UsuarioRemetenteId = @id OR UsuarioDestinatarioId = @id", conn))
                 {
                     cmd.Parameters.AddWithValue("@id", SessaoUsuario.UsuarioLogadoId);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
+                            int id = Convert.ToInt32(reader["Id"]);
                             int remetente = Convert.ToInt32(reader["UsuarioRemetenteId"]);
                             int destinatario = Convert.ToInt32(reader["UsuarioDestinatarioId"]);
                             string mensagem = reader["Conteudo"].ToString();
                             string data = reader["DataEnvio"].ToString();
                             bool lida = Convert.ToBoolean(reader["Lida"]);
+                            string nome = "";
                             ObterImagem obterImagem = new ObterImagem();
                             byte[] imagem;
-                            if (remetente == SessaoUsuario.UsuarioLogadoId)
-                            {
-                                imagem = obterImagem.Obter(destinatario);
+                            using (SqlCommand command = new SqlCommand("SELECT * FROM Login WHERE Id = @id")) {
+                                if (remetente == SessaoUsuario.UsuarioLogadoId)
+                                {
+                                    command.Parameters.AddWithValue("@id", destinatario);
+                                    using (SqlDataReader reader1 = command.ExecuteReader())
+                                    {
+                                        imagem = reader1["Imagem"] as byte[];
+                                        nome = reader1["Nome"].ToString();
+                                    }
+                                }
+                                else
+                                {
+                                    command.Parameters.AddWithValue("@id", remetente);
+                                    using (SqlDataReader reader1 = command.ExecuteReader())
+                                    {
+                                        imagem = reader1["Imagem"] as byte[];
+                                        nome = reader1["Nome"].ToString();
+                                    }
+                                }
                             }
-                            else
-                            {
-                                imagem = obterImagem.Obter(remetente);
-                            }
-                            construir(remetente, destinatario, mensagem, data, lida, imagem);
+                            construir(id, nome, mensagem, data, lida, imagem);
                         }
                     }
                 }
 
             }
         }
-        public void construir(int remetente, int destinatario, string mensagem, string data, bool lida, byte[] imagem)
+        public void construir(int id, string nome, string mensagem, string data, bool lida, byte[] imagem)
         {
             // Criar o Panel menor
             Panel panelMensagem = new Panel
@@ -98,7 +108,7 @@ namespace WinFormsApp1
             // Adicionar evento de clique para abrir o formulário "Conversa"
             panelMensagem.Click += (s, e) =>
             {
-                Conversa conversa = new Conversa();
+                Conversa conversa = new Conversa(-1 ,id, -1);
                 conversa.Show();
                 this.Hide();
             };
@@ -124,7 +134,7 @@ namespace WinFormsApp1
             // Criar Label para o nome do usuário
             Label labelNome = new Label
             {
-                Text = remetente.ToString(), // Substitua com o nome do usuário
+                Text = nome.ToString(), // Substitua com o nome do usuário
                 Font = new Font("Comic Sans MS", 15),
                 Location = new Point(110, 10),
                 AutoSize = true
@@ -213,5 +223,10 @@ namespace WinFormsApp1
             };
         }
 
+        private void button10_Click(object sender, EventArgs e)
+        {
+            novoChat novoChat = new novoChat();
+            novoChat.Show();
+        }
     }
 }

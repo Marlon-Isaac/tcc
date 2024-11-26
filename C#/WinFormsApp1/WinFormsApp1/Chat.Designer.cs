@@ -153,6 +153,7 @@
             // 
             // panel2
             // 
+            panel2.AutoScroll = true;
             panel2.Controls.Add(button10);
             panel2.Location = new Point(120, 0);
             panel2.Name = "panel2";
@@ -171,6 +172,7 @@
             button10.TabIndex = 7;
             button10.Text = "+";
             button10.UseVisualStyleBackColor = false;
+            button10.Click += button10_Click;
             // 
             // Chat
             // 
