@@ -116,6 +116,7 @@ C:\Users\as485\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windo
 C:\Users\as485\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.genruntimeconfig.cache
 C:\Users\as485\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\ref\WinFormsApp1.dll
 C:\Users\as485\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.novaAgenda.resources
+<<<<<<< HEAD
 C:\Users\vboxuser\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\bin\Debug\net8.0-windows\WinFormsApp1.exe
 C:\Users\vboxuser\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\bin\Debug\net8.0-windows\WinFormsApp1.deps.json
 C:\Users\vboxuser\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\bin\Debug\net8.0-windows\WinFormsApp1.runtimeconfig.json
@@ -156,3 +157,8 @@ C:\Users\vboxuser\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-wi
 C:\Users\vboxuser\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.pdb
 C:\Users\vboxuser\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.genruntimeconfig.cache
 C:\Users\vboxuser\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\ref\WinFormsApp1.dll
+=======
+C:\Users\187382022\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.novaAgenda.resources
+C:\Users\as485\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Conversa.resources
+C:\Users\as485\Downloads\tcc\C#\WinFormsApp1\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.novoChat.resources
+>>>>>>> 42f35a37673c8983802f24281d9c0778d63411ba

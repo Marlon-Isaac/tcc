@@ -7,6 +7,9 @@
     <Compile Update="Chat.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Conversa.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="DicasPost.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -20,6 +23,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="novaAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="novoChat.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Perfil.cs">

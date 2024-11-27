@@ -176,7 +176,7 @@
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(120, 54);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(668, 535);
+            flowLayoutPanel1.Size = new Size(668, 533);
             flowLayoutPanel1.TabIndex = 6;
             flowLayoutPanel1.WrapContents = false;
             flowLayoutPanel1.Paint += FlowLayoutPanel1_Paint;

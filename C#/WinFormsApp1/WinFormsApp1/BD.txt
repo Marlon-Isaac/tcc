@@ -67,3 +67,28 @@ CREATE TABLE Votos (
     FOREIGN KEY (UsuarioId) REFERENCES Login(Id),
     FOREIGN KEY (DicaId) REFERENCES Dicas(Id)
 );
+
+CREATE TABLE [dbo].[Agenda] (
+    [Id]             INT           IDENTITY (1, 1) NOT NULL,
+    [Dia]            VARCHAR (50)  NOT NULL,
+    [SeteHoras]      VARCHAR (MAX) NULL,
+    [SeteMeia]       VARCHAR (MAX) NULL,
+    [OitoHoras]      VARCHAR (MAX) NULL,
+    [OitoMeia]       VARCHAR (MAX) NULL,
+    [NoveHoras]      VARCHAR (MAX) NULL,
+    [NoveMeia]       VARCHAR (MAX) NULL,
+    [DezHoras]       VARCHAR (MAX) NULL,
+    [DezMeia]        VARCHAR (MAX) NULL,
+    [OnzeHoras]      VARCHAR (MAX) NULL,
+    [OnzeMeia]       VARCHAR (MAX) NULL,
+    [TrezeHoras]     VARCHAR (MAX) NULL,
+    [TrezeMeia]      VARCHAR (MAX) NULL,
+    [QuatorzeHoras]  VARCHAR (MAX) NULL,
+    [QuatorzeMeia]   VARCHAR (MAX) NULL,
+    [QuinzeHoras]    VARCHAR (MAX) NULL,
+    [QuinzeMeia]     VARCHAR (MAX) NULL,
+    [DezesseisHoras] VARCHAR (MAX) NULL,
+    [DezesseisMeia]  VARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+

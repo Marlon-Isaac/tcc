@@ -39,8 +39,13 @@
             button2 = new Button();
             button1 = new Button();
             panel2 = new Panel();
+<<<<<<< HEAD
             label1 = new Label();
+=======
+            button10 = new Button();
+>>>>>>> 42f35a37673c8983802f24281d9c0778d63411ba
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -100,6 +105,7 @@
             button5.TabIndex = 3;
             button5.Text = "   Chat";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -152,6 +158,7 @@
             // 
             // panel2
             // 
+<<<<<<< HEAD
             panel2.BorderStyle = BorderStyle.Fixed3D;
             panel2.ForeColor = Color.White;
             panel2.Location = new Point(120, 23);
@@ -169,6 +176,28 @@
             label1.Size = new Size(61, 18);
             label1.TabIndex = 4;
             label1.Text = "Usuarios";
+=======
+            panel2.AutoScroll = true;
+            panel2.Controls.Add(button10);
+            panel2.Location = new Point(120, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(679, 583);
+            panel2.TabIndex = 3;
+            // 
+            // button10
+            // 
+            button10.BackColor = Color.FromArgb(40, 50, 58);
+            button10.FlatStyle = FlatStyle.Flat;
+            button10.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button10.ImageAlign = ContentAlignment.MiddleLeft;
+            button10.Location = new Point(634, 534);
+            button10.Name = "button10";
+            button10.Size = new Size(42, 43);
+            button10.TabIndex = 7;
+            button10.Text = "+";
+            button10.UseVisualStyleBackColor = false;
+            button10.Click += button10_Click;
+>>>>>>> 42f35a37673c8983802f24281d9c0778d63411ba
             // 
             // Chat
             // 
@@ -176,7 +205,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
             ClientSize = new Size(811, 596);
+<<<<<<< HEAD
             Controls.Add(label1);
+=======
+>>>>>>> 42f35a37673c8983802f24281d9c0778d63411ba
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -186,6 +218,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Load += Chat_Load;
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -202,6 +235,10 @@
         private Button button2;
         private Button button1;
         private Panel panel2;
+<<<<<<< HEAD
         private Label label1;
+=======
+        private Button button10;
+>>>>>>> 42f35a37673c8983802f24281d9c0778d63411ba
     }
 }
