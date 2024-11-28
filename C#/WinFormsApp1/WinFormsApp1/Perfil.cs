@@ -53,6 +53,17 @@ namespace WinFormsApp1
 
         private void Perfil_Load(object sender, EventArgs e)
         {
+            string a = tipo.TipoUsuario;
+            if (a == "Secretaria")
+            {
+                panelGeral.Visible = false;
+                panelSecretaria.Visible = true;
+            }
+            else
+            {
+                panelGeral.Visible = true;
+                panelSecretaria.Visible = false;
+            }
             using Bitmap originalImage = new(pictureBox1.Image);
             Bitmap circleImage = new(originalImage.Width, originalImage.Height);
 
@@ -217,13 +228,6 @@ namespace WinFormsApp1
         private void label5_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Chat chat = new Chat(); // Usa o construtor sem parâmetros
-            chat.Show();
-            this.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)

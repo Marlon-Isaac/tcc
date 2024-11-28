@@ -112,6 +112,13 @@ namespace WinFormsApp1
                                     MessageBox.Show("Email ja cadastrado", "Erro", MessageBoxButtons.OK);
                                 }
                             }
+                            using (SqlCommand cmd = new SqlCommand("INSERT INTO notificacoes (notificacao, data, Usuario), VALUES (@nota, @data, @tipo)", conn))
+                            {
+                                cmd.Parameters.AddWithValue("@nota", "Novo usuario Registrado" + Nome);
+                                cmd.Parameters.AddWithValue("@data", DateTime.Now.Date.ToString());
+                                cmd.Parameters.AddWithValue("@tipo", "Secretaria");
+                                cmd.ExecuteNonQuery();
+                            }
                         }
                     }
 
