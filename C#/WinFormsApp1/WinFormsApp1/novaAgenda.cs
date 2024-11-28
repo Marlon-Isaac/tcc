@@ -13,9 +13,10 @@ namespace WinFormsApp1
 {
     public partial class novaAgenda : Form
     {
-        string dia;
+        DateTime data;
         string mes;
-        public novaAgenda(string Dia, string Mes)
+        string dia;
+        public novaAgenda(string Dia, string Mes, DateTime data)
         {
             mes = Mes;
            dia = Dia;
@@ -67,7 +68,6 @@ namespace WinFormsApp1
                         Banco banco = new Banco();
                         using (SqlConnection conn = new SqlConnection(banco.conexao))
                         {
-                            
                             conn.Open();
                             using (SqlCommand command = new SqlCommand("SELECT COUNT(1) FROM Agenda WHERE Dia = @dia ", conn)) 
                             {
@@ -90,7 +90,7 @@ namespace WinFormsApp1
 
                                     using (SqlCommand cmd = new SqlCommand(query, conn))
                                     {
-                                        cmd.Parameters.AddWithValue("@dia", dia);
+                                        cmd.Parameters.AddWithValue("@dia", data.ToString());
                                         cmd.Parameters.AddWithValue("@hora", horario);
                                         cmd.ExecuteNonQuery();
                                     }

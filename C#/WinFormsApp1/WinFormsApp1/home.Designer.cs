@@ -36,6 +36,7 @@
             label1 = new Label();
             panel3 = new Panel();
             panel4 = new Panel();
+            LabelNotificacoes = new Label();
             label3 = new Label();
             button1 = new Button();
             button2 = new Button();
@@ -50,7 +51,6 @@
             button13 = new Button();
             button14 = new Button();
             imageList1 = new ImageList(components);
-            LabelNotificacoes = new Label();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panelGeral.SuspendLayout();
@@ -122,6 +122,15 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(700, 575);
             panel4.TabIndex = 6;
+            // 
+            // LabelNotificacoes
+            // 
+            LabelNotificacoes.FlatStyle = FlatStyle.Flat;
+            LabelNotificacoes.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LabelNotificacoes.Location = new Point(3, 23);
+            LabelNotificacoes.Name = "LabelNotificacoes";
+            LabelNotificacoes.Size = new Size(692, 550);
+            LabelNotificacoes.TabIndex = 1;
             // 
             // label3
             // 
@@ -293,15 +302,6 @@
             imageList1.ImageSize = new Size(16, 16);
             imageList1.TransparentColor = Color.Transparent;
             // 
-            // LabelNotificacoes
-            // 
-            LabelNotificacoes.FlatStyle = FlatStyle.Flat;
-            LabelNotificacoes.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LabelNotificacoes.Location = new Point(3, 23);
-            LabelNotificacoes.Name = "LabelNotificacoes";
-            LabelNotificacoes.Size = new Size(692, 550);
-            LabelNotificacoes.TabIndex = 1;
-            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -311,8 +311,8 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel4);
-            Controls.Add(panelSecretaria);
             Controls.Add(panelGeral);
+            Controls.Add(panelSecretaria);
             Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;

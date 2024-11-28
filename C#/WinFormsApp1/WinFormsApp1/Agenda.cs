@@ -16,6 +16,7 @@ namespace WinFormsApp1
     {
         string dia;
         string mes;
+        DateTime data;
         public Agenda()
         {
             InitializeComponent();
@@ -40,6 +41,7 @@ namespace WinFormsApp1
             dia = date.Day.ToString();//tratando a variavel date para apenas salvar o dia 
             Mes mes1 = new Mes();
             mes = mes1.mes(date.Month);
+            data = date.Date;
             panel2.Visible = true;
             labelDia.Text = "Eventos agendados do dia " + dia;
             labelMes.Text = "de " + mes;
@@ -87,7 +89,7 @@ namespace WinFormsApp1
 
         private void button10_Click(object sender, EventArgs e)
         {
-            novaAgenda novaAgenda = new novaAgenda(dia, mes);
+            novaAgenda novaAgenda = new novaAgenda(dia, mes, data);
             novaAgenda.Show();
         }
 

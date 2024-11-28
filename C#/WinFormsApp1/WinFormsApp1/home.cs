@@ -110,7 +110,16 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Erro ao carregar dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            List<string> Notificacoes = carregar();
+            System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+            List<Notificacao> Notificacoes = carregar();
+            exibir(Notificacoes);
+            timer.Interval = 60000;
+            timer.Tick += (s, ev) =>
+            {
+                List<Notificacao> Notificacoes = carregar();
+                exibir(Notificacoes);
+            };
+            timer.Start();
         }
         private static List<Notificacao> carregar()
         {
@@ -126,39 +135,56 @@ namespace WinFormsApp1
                         if (tipo.TipoUsuario == "Secretaria")
                         {
                             cmd.Parameters.AddWithValue("@tipo", "Secretaria");
+                            cmd.ExecuteNonQuery();
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    DateTime date = Convert.ToDateTime(reader["data"]);
+                                    var notificacao = new Notificacao
+                                    {
+                                        texto = reader["Notificacao"].ToString(),
+                                        data = date.Date.ToString()
+                                    };
+                                    notificacoes.Add(notificacao);
+                                }
+
+                            }
                         }
                         else
                         {
                             cmd.Parameters.AddWithValue("@tipo", "Geral");
-                        }
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
+                            cmd.ExecuteNonQuery();
+                            using (SqlDataReader reader = cmd.ExecuteReader())
                             {
-                                var notificacoes = new Notificacao
+                                while (reader.Read())
                                 {
-                                    texto = reader["Notificacao"].ToString(),
-                                    data = reader["data"].ToString()
-                                };
-
-                                
+                                    var notificacao = new Notificacao
+                                    {
+                                        texto = reader["Notificacao"].ToString(),
+                                        data = reader["data"].ToString()
+                                    };
+                                    notificacoes.Add(notificacao);
+                                }
                             }
-                            
                         }
                     }
-                    return notificacoes;
                 }
             }
             catch(Exception ex)
             {
                 MessageBox.Show("Erro " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error );
             }
+            return notificacoes;
 
 
         }
         private void exibir(List<Notificacao> notificacoes)
         {
-
+            foreach(Notificacao notificacao in notificacoes)
+            {
+                LabelNotificacoes.Text = notificacao.texto + notificacao.data;
+            }
         }
 
         private void ArredondarBordasPanel4()
@@ -204,9 +230,7 @@ namespace WinFormsApp1
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
-            this.Close();
+           Application.Exit();  
         }
 
         private void Panel3_Paint(object sender, PaintEventArgs e)
