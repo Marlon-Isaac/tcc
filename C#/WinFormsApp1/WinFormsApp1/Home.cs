@@ -135,7 +135,6 @@ namespace WinFormsApp1
                         if (tipo.TipoUsuario == "Secretaria")
                         {
                             cmd.Parameters.AddWithValue("@tipo", "Secretaria");
-                            cmd.ExecuteNonQuery();
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
                                 while (reader.Read())
@@ -154,15 +153,15 @@ namespace WinFormsApp1
                         else
                         {
                             cmd.Parameters.AddWithValue("@tipo", "Geral");
-                            cmd.ExecuteNonQuery();
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
                                 while (reader.Read())
                                 {
+                                    DateTime date = Convert.ToDateTime(reader["data"]);
                                     var notificacao = new Notificacao
                                     {
                                         texto = reader["Notificacao"].ToString(),
-                                        data = reader["data"].ToString()
+                                        data = date.Date.ToString()
                                     };
                                     notificacoes.Add(notificacao);
                                 }
@@ -181,9 +180,35 @@ namespace WinFormsApp1
         }
         private void exibir(List<Notificacao> notificacoes)
         {
-            foreach(Notificacao notificacao in notificacoes)
+            panelNotificacao.Controls.Clear();
+
+            foreach (var notificacao in notificacoes)
             {
-                LabelNotificacoes.Text = notificacao.texto + notificacao.data;
+                Panel NotificacaoPanel = new()
+                {
+                    Width = panelNotificacao.Width - 50,
+                    Height = 100,
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(5)
+                };
+                panelNotificacao.Controls.Add(NotificacaoPanel);
+
+                Label texto = new()
+                {
+                    Text = notificacao.texto,
+                    Font = new Font("Arial", 12, FontStyle.Bold),
+                    AutoSize = true,
+                    Location = new Point(10, 10)
+                };
+                NotificacaoPanel.Controls.Add(texto);
+
+                Label data = new()
+                {
+                    Text = notificacao.data,
+                    Font = new Font("Arial", 12, FontStyle.Bold),
+                    AutoSize = false,
+                    Location = new Point(10, NotificacaoPanel.Width - 20)
+                };
             }
         }
 

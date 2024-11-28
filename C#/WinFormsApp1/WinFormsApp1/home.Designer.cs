@@ -36,7 +36,6 @@
             label1 = new Label();
             panel3 = new Panel();
             panel4 = new Panel();
-            LabelNotificacoes = new Label();
             label3 = new Label();
             button1 = new Button();
             button2 = new Button();
@@ -51,6 +50,7 @@
             button13 = new Button();
             button14 = new Button();
             imageList1 = new ImageList(components);
+            panelNotificacao = new Panel();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panelGeral.SuspendLayout();
@@ -116,21 +116,12 @@
             // panel4
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(LabelNotificacoes);
+            panel4.Controls.Add(panelNotificacao);
             panel4.Controls.Add(label3);
             panel4.Location = new Point(120, 14);
             panel4.Name = "panel4";
             panel4.Size = new Size(700, 575);
             panel4.TabIndex = 6;
-            // 
-            // LabelNotificacoes
-            // 
-            LabelNotificacoes.FlatStyle = FlatStyle.Flat;
-            LabelNotificacoes.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LabelNotificacoes.Location = new Point(3, 23);
-            LabelNotificacoes.Name = "LabelNotificacoes";
-            LabelNotificacoes.Size = new Size(692, 550);
-            LabelNotificacoes.TabIndex = 1;
             // 
             // label3
             // 
@@ -302,6 +293,13 @@
             imageList1.ImageSize = new Size(16, 16);
             imageList1.TransparentColor = Color.Transparent;
             // 
+            // panelNotificacao
+            // 
+            panelNotificacao.Location = new Point(3, 26);
+            panelNotificacao.Name = "panelNotificacao";
+            panelNotificacao.Size = new Size(696, 548);
+            panelNotificacao.TabIndex = 1;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -348,6 +346,6 @@
         private Button button14;
         private ImageList imageList1;
         private Button button5;
-        private Label LabelNotificacoes;
+        private Panel panelNotificacao;
     }
 }

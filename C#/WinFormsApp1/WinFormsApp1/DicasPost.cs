@@ -177,7 +177,7 @@ namespace WinFormsApp1
             {
                 Panel comentarioPanel = new()
                 {
-                    Width = flowLayoutPanel1.Width - 25,
+                    Width = flowLayoutPanel1.Width - 50,
                     Height = 180,
                     BorderStyle = BorderStyle.FixedSingle,
                     Margin = new Padding(5)
