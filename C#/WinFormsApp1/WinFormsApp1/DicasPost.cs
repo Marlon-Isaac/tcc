@@ -52,7 +52,7 @@ namespace WinFormsApp1
             login.Show();
             this.Close();
         }
-
+        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private void DicasPost_Load(object sender, EventArgs e)
         {
             int usuarioLogadoId = SessaoUsuario.UsuarioLogadoId;
@@ -66,11 +66,23 @@ namespace WinFormsApp1
             {
                 button8.Visible = false;
             }
-            while (true)
+            List<Comentario> comentarios = CarregarComentariosDoBanco();
+            ExibirComentarios(comentarios); // Atualiza a interface
+
+            timer.Interval = 60000; // 1 segundo
+            timer.Tick += (s, ev) =>
             {
+                // Ação executada a cada intervalo
                 List<Comentario> comentarios = CarregarComentariosDoBanco();
-                ExibirComentarios(comentarios);
-            }
+                ExibirComentarios(comentarios); // Atualiza a interface
+            };
+            timer.Start(); // Inicia o Timer
+        }
+
+        private void DicasPost_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer?.Stop(); // Para o Timer
+            timer?.Dispose(); // Libera os recursos
         }
 
         private string ObterTipoUsuario(int usuarioId)
@@ -143,7 +155,7 @@ namespace WinFormsApp1
                         Descurtidas = reader["Descurtidas"] != DBNull.Value ? Convert.ToInt32(reader["Descurtidas"]) : 0,
                         Imagem = reader["FotoDica"] is byte[] imagemBytes
                                   ? Image.FromStream(new MemoryStream(imagemBytes))
-                                  : new Bitmap(100, 100) // A imagem padrão de 100x100
+                                  : new Bitmap(100, 100)
                     };
                     comentarios.Add(comentario);
                 }
@@ -330,18 +342,6 @@ namespace WinFormsApp1
             Agenda agenda1 = new Agenda();
             agenda1.Show();
             this.Close();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Chat chat = new Chat(); // Usa o construtor sem parâmetros
-            chat.Show();
-            this.Close();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

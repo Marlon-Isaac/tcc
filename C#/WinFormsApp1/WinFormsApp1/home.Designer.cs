@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             panel2 = new Panel();
             button8 = new Button();
@@ -43,10 +44,13 @@
             button7 = new Button();
             panelGeral = new Panel();
             panelSecretaria = new Panel();
+            button5 = new Button();
             button9 = new Button();
             button12 = new Button();
             button13 = new Button();
             button14 = new Button();
+            imageList1 = new ImageList(components);
+            LabelNotificacoes = new Label();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panelGeral.SuspendLayout();
@@ -112,6 +116,7 @@
             // panel4
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(LabelNotificacoes);
             panel4.Controls.Add(label3);
             panel4.Location = new Point(120, 14);
             panel4.Name = "panel4";
@@ -120,12 +125,11 @@
             // 
             // label3
             // 
-            label3.AutoSize = true;
             label3.FlatStyle = FlatStyle.Flat;
             label3.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(3, 0);
+            label3.Location = new Point(3, 3);
             label3.Name = "label3";
-            label3.Size = new Size(175, 20);
+            label3.Size = new Size(179, 20);
             label3.TabIndex = 0;
             label3.Text = "Central de Notificações";
             // 
@@ -202,22 +206,36 @@
             panelGeral.Controls.Add(button1);
             panelGeral.Location = new Point(0, 0);
             panelGeral.Name = "panelGeral";
-            panelGeral.Size = new Size(114, 601);
+            panelGeral.Size = new Size(118, 601);
             panelGeral.TabIndex = 0;
             panelGeral.Visible = false;
             // 
             // panelSecretaria
             // 
             panelSecretaria.BackColor = Color.FromArgb(40, 50, 58);
+            panelSecretaria.Controls.Add(button5);
             panelSecretaria.Controls.Add(button9);
             panelSecretaria.Controls.Add(button12);
             panelSecretaria.Controls.Add(button13);
             panelSecretaria.Controls.Add(button14);
             panelSecretaria.Location = new Point(2, 0);
             panelSecretaria.Name = "panelSecretaria";
-            panelSecretaria.Size = new Size(114, 613);
+            panelSecretaria.Size = new Size(116, 613);
             panelSecretaria.TabIndex = 6;
             panelSecretaria.Visible = false;
+            // 
+            // button5
+            // 
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Image = (Image)resources.GetObject("button5.Image");
+            button5.ImageAlign = ContentAlignment.MiddleLeft;
+            button5.Location = new Point(3, 148);
+            button5.Name = "button5";
+            button5.Size = new Size(111, 49);
+            button5.TabIndex = 6;
+            button5.Text = "    Home";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button9
             // 
@@ -235,7 +253,7 @@
             button12.FlatStyle = FlatStyle.Flat;
             button12.Image = (Image)resources.GetObject("button12.Image");
             button12.ImageAlign = ContentAlignment.MiddleLeft;
-            button12.Location = new Point(3, 313);
+            button12.Location = new Point(3, 332);
             button12.Name = "button12";
             button12.Size = new Size(111, 49);
             button12.TabIndex = 2;
@@ -248,7 +266,7 @@
             button13.FlatStyle = FlatStyle.Flat;
             button13.Image = (Image)resources.GetObject("button13.Image");
             button13.ImageAlign = ContentAlignment.MiddleLeft;
-            button13.Location = new Point(3, 239);
+            button13.Location = new Point(4, 271);
             button13.Name = "button13";
             button13.Size = new Size(111, 49);
             button13.TabIndex = 1;
@@ -261,13 +279,28 @@
             button14.FlatStyle = FlatStyle.Flat;
             button14.Image = (Image)resources.GetObject("button14.Image");
             button14.ImageAlign = ContentAlignment.MiddleLeft;
-            button14.Location = new Point(3, 172);
+            button14.Location = new Point(5, 212);
             button14.Name = "button14";
             button14.Size = new Size(111, 49);
             button14.TabIndex = 1;
             button14.Text = "   Perfil";
             button14.UseVisualStyleBackColor = true;
             button14.Click += button14_Click;
+            // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageSize = new Size(16, 16);
+            imageList1.TransparentColor = Color.Transparent;
+            // 
+            // LabelNotificacoes
+            // 
+            LabelNotificacoes.FlatStyle = FlatStyle.Flat;
+            LabelNotificacoes.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LabelNotificacoes.Location = new Point(3, 23);
+            LabelNotificacoes.Name = "LabelNotificacoes";
+            LabelNotificacoes.Size = new Size(692, 550);
+            LabelNotificacoes.TabIndex = 1;
             // 
             // Home
             // 
@@ -289,7 +322,6 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             panelGeral.ResumeLayout(false);
             panelSecretaria.ResumeLayout(false);
             ResumeLayout(false);
@@ -314,5 +346,8 @@
         private Button button12;
         private Button button13;
         private Button button14;
+        private ImageList imageList1;
+        private Button button5;
+        private Label LabelNotificacoes;
     }
 }

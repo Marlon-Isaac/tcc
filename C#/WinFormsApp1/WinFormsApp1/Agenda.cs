@@ -15,6 +15,7 @@ namespace WinFormsApp1
     public partial class Agenda : Form
     {
         string dia;
+        string mes;
         public Agenda()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace WinFormsApp1
             DateTime date = ((MonthCalendar)sender).SelectionStart;//Guardar o dia selecionado em uma variavel
             dia = date.Day.ToString();//tratando a variavel date para apenas salvar o dia 
             Mes mes1 = new Mes();
-            string mes = mes1.mes(date.Month);
+            mes = mes1.mes(date.Month);
             panel2.Visible = true;
             labelDia.Text = "Eventos agendados do dia " + dia;
             labelMes.Text = "de " + mes;
@@ -71,20 +72,23 @@ namespace WinFormsApp1
 
         private void Agenda_Load(object sender, EventArgs e)
         {
-
+            string a = tipo.TipoUsuario;
+            if (a == "Secretaria")
+            {
+                panelGeral.Visible = false;
+                panelSecretaria.Visible = true;
+            }
+            else
+            {
+                panelGeral.Visible = true;
+                panelSecretaria.Visible = false;
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            novaAgenda novaAgenda = new novaAgenda(dia);
+            novaAgenda novaAgenda = new novaAgenda(dia, mes);
             novaAgenda.Show();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Chat chat = new Chat(); // Usa o construtor sem parâmetros
-            chat.Show();
-            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -117,7 +121,29 @@ namespace WinFormsApp1
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Close();
+        }
+
+        private void button6_Click_2(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panelSecretaria_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -14,8 +14,10 @@ namespace WinFormsApp1
     public partial class novaAgenda : Form
     {
         string dia;
-        public novaAgenda(string Dia)
+        string mes;
+        public novaAgenda(string Dia, string Mes)
         {
+            mes = Mes;
            dia = Dia;
             InitializeComponent();
         }
@@ -93,6 +95,14 @@ namespace WinFormsApp1
                                         cmd.ExecuteNonQuery();
                                     }
                                 }
+                            }
+                            using (SqlCommand cmd = new SqlCommand("INSERT INTO notificacoes (notificacao, data, Usuario) VALUES (@nota, @dia, @tipo)", conn))
+                            {
+                                cmd.Parameters.AddWithValue("@nota", compromisso.ToString());
+                                cmd.Parameters.AddWithValue("@dia", dia+"/"+mes);
+                                cmd.Parameters.AddWithValue("@tipo", "Geral");
+                                cmd.ExecuteNonQuery();
+                                
                             }
                         }
                     }

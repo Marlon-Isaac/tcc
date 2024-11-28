@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agenda));
-            panel1 = new Panel();
+            panelGeral = new Panel();
             button8 = new Button();
             button9 = new Button();
-            button6 = new Button();
-            button5 = new Button();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
@@ -44,26 +42,32 @@
             label1 = new Label();
             labelMes = new Label();
             labelDia = new Label();
-            panel1.SuspendLayout();
+            panelSecretaria = new Panel();
+            button5 = new Button();
+            button6 = new Button();
+            button12 = new Button();
+            button13 = new Button();
+            button14 = new Button();
+            panelGeral.SuspendLayout();
             panel2.SuspendLayout();
+            panelSecretaria.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // panelGeral
             // 
-            panel1.BackColor = Color.FromArgb(40, 50, 58);
-            panel1.Controls.Add(button8);
-            panel1.Controls.Add(button9);
-            panel1.Controls.Add(button6);
-            panel1.Controls.Add(button5);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(118, 510);
-            panel1.TabIndex = 12;
+            panelGeral.BackColor = Color.FromArgb(40, 50, 58);
+            panelGeral.Controls.Add(panelSecretaria);
+            panelGeral.Controls.Add(button8);
+            panelGeral.Controls.Add(button9);
+            panelGeral.Controls.Add(button4);
+            panelGeral.Controls.Add(button3);
+            panelGeral.Controls.Add(button2);
+            panelGeral.Controls.Add(button1);
+            panelGeral.Dock = DockStyle.Left;
+            panelGeral.Location = new Point(0, 0);
+            panelGeral.Name = "panelGeral";
+            panelGeral.Size = new Size(118, 510);
+            panelGeral.TabIndex = 12;
             // 
             // button8
             // 
@@ -88,38 +92,6 @@
             button9.TabIndex = 6;
             button9.UseVisualStyleBackColor = true;
             // 
-            // button6
-            // 
-            button6.FlatAppearance.BorderColor = Color.White;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Comic Sans MS", 9F);
-            button6.ForeColor = Color.White;
-            button6.Image = (Image)resources.GetObject("button6.Image");
-            button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(3, 348);
-            button6.Name = "button6";
-            button6.Size = new Size(111, 56);
-            button6.TabIndex = 4;
-            button6.Text = "   Avisos";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
-            // button5
-            // 
-            button5.FlatAppearance.BorderColor = Color.White;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Comic Sans MS", 9F);
-            button5.ForeColor = Color.White;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(3, 286);
-            button5.Name = "button5";
-            button5.Size = new Size(111, 56);
-            button5.TabIndex = 3;
-            button5.Text = "   Chat";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
             // button4
             // 
             button4.FlatAppearance.BorderColor = Color.White;
@@ -128,7 +100,7 @@
             button4.ForeColor = Color.White;
             button4.Image = (Image)resources.GetObject("button4.Image");
             button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(3, 223);
+            button4.Location = new Point(7, 292);
             button4.Name = "button4";
             button4.Size = new Size(111, 56);
             button4.TabIndex = 2;
@@ -144,7 +116,7 @@
             button3.ForeColor = Color.White;
             button3.Image = (Image)resources.GetObject("button3.Image");
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(3, 161);
+            button3.Location = new Point(7, 230);
             button3.Name = "button3";
             button3.Size = new Size(111, 56);
             button3.TabIndex = 1;
@@ -160,7 +132,7 @@
             button2.ForeColor = Color.White;
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(3, 99);
+            button2.Location = new Point(7, 168);
             button2.Name = "button2";
             button2.Size = new Size(111, 56);
             button2.TabIndex = 1;
@@ -176,7 +148,7 @@
             button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(3, 36);
+            button1.Location = new Point(7, 105);
             button1.Name = "button1";
             button1.Size = new Size(111, 56);
             button1.TabIndex = 1;
@@ -257,6 +229,80 @@
             labelDia.TabIndex = 0;
             labelDia.Text = "Eventos agendados do dia X";
             // 
+            // panelSecretaria
+            // 
+            panelSecretaria.BackColor = Color.FromArgb(40, 50, 58);
+            panelSecretaria.Controls.Add(button5);
+            panelSecretaria.Controls.Add(button6);
+            panelSecretaria.Controls.Add(button12);
+            panelSecretaria.Controls.Add(button13);
+            panelSecretaria.Controls.Add(button14);
+            panelSecretaria.Location = new Point(2, -8);
+            panelSecretaria.Name = "panelSecretaria";
+            panelSecretaria.Size = new Size(116, 517);
+            panelSecretaria.TabIndex = 8;
+            panelSecretaria.Visible = false;
+            panelSecretaria.Paint += panelSecretaria_Paint;
+            // 
+            // button5
+            // 
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Image = (Image)resources.GetObject("button5.Image");
+            button5.ImageAlign = ContentAlignment.MiddleLeft;
+            button5.Location = new Point(3, 141);
+            button5.Name = "button5";
+            button5.Size = new Size(111, 49);
+            button5.TabIndex = 6;
+            button5.Text = "    Home";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Image = (Image)resources.GetObject("button6.Image");
+            button6.Location = new Point(4, 466);
+            button6.Name = "button6";
+            button6.Size = new Size(111, 49);
+            button6.TabIndex = 5;
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click_2;
+            // 
+            // button12
+            // 
+            button12.FlatStyle = FlatStyle.Flat;
+            button12.Image = (Image)resources.GetObject("button12.Image");
+            button12.ImageAlign = ContentAlignment.MiddleLeft;
+            button12.Location = new Point(3, 325);
+            button12.Name = "button12";
+            button12.Size = new Size(111, 49);
+            button12.TabIndex = 2;
+            button12.Text = "   Agenda";
+            button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            button13.FlatStyle = FlatStyle.Flat;
+            button13.Image = (Image)resources.GetObject("button13.Image");
+            button13.ImageAlign = ContentAlignment.MiddleLeft;
+            button13.Location = new Point(4, 264);
+            button13.Name = "button13";
+            button13.Size = new Size(111, 49);
+            button13.TabIndex = 1;
+            button13.Text = "    Registros";
+            button13.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            button14.FlatStyle = FlatStyle.Flat;
+            button14.Image = (Image)resources.GetObject("button14.Image");
+            button14.ImageAlign = ContentAlignment.MiddleLeft;
+            button14.Location = new Point(5, 205);
+            button14.Name = "button14";
+            button14.Size = new Size(111, 49);
+            button14.TabIndex = 1;
+            button14.Text = "   Perfil";
+            button14.UseVisualStyleBackColor = true;
+            // 
             // Agenda
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -265,25 +311,24 @@
             ClientSize = new Size(800, 510);
             Controls.Add(panel2);
             Controls.Add(monthCalendar1);
-            Controls.Add(panel1);
+            Controls.Add(panelGeral);
             Font = new Font("Comic Sans MS", 9F);
             ForeColor = Color.White;
             Name = "Agenda";
             Text = "Agenda";
             Load += Agenda_Load;
-            panel1.ResumeLayout(false);
+            panelGeral.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panelSecretaria.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
+        private Panel panelGeral;
         private Button button8;
         private Button button9;
-        private Button button6;
-        private Button button5;
         private Button button4;
         private Button button3;
         private Button button2;
@@ -294,5 +339,11 @@
         private Label labelMes;
         private Label label1;
         private Button button10;
+        private Panel panelSecretaria;
+        private Button button5;
+        private Button button6;
+        private Button button12;
+        private Button button13;
+        private Button button14;
     }
 }

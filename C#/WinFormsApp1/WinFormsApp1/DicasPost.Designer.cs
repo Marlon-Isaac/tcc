@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DicasPost));
             panel1 = new Panel();
             button7 = new Button();
-            button6 = new Button();
-            button5 = new Button();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
@@ -47,8 +45,6 @@
             // 
             panel1.BackColor = Color.FromArgb(40, 50, 58);
             panel1.Controls.Add(button7);
-            panel1.Controls.Add(button6);
-            panel1.Controls.Add(button5);
             panel1.Controls.Add(button4);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
@@ -70,38 +66,12 @@
             button7.UseVisualStyleBackColor = true;
             button7.Click += Button7_Click;
             // 
-            // button6
-            // 
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Image = (Image)resources.GetObject("button6.Image");
-            button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(3, 368);
-            button6.Name = "button6";
-            button6.Size = new Size(111, 49);
-            button6.TabIndex = 4;
-            button6.Text = "   Avisos";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
-            // button5
-            // 
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(3, 313);
-            button5.Name = "button5";
-            button5.Size = new Size(111, 49);
-            button5.TabIndex = 3;
-            button5.Text = "   Chat";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
             // button4
             // 
             button4.FlatStyle = FlatStyle.Flat;
             button4.Image = (Image)resources.GetObject("button4.Image");
             button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(3, 258);
+            button4.Location = new Point(3, 343);
             button4.Name = "button4";
             button4.Size = new Size(111, 49);
             button4.TabIndex = 2;
@@ -114,7 +84,7 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Image = (Image)resources.GetObject("button3.Image");
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(3, 203);
+            button3.Location = new Point(3, 288);
             button3.Name = "button3";
             button3.Size = new Size(111, 49);
             button3.TabIndex = 1;
@@ -127,7 +97,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(3, 148);
+            button2.Location = new Point(3, 233);
             button2.Name = "button2";
             button2.Size = new Size(111, 49);
             button2.TabIndex = 1;
@@ -140,7 +110,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(3, 93);
+            button1.Location = new Point(3, 178);
             button1.Name = "button1";
             button1.Size = new Size(111, 49);
             button1.TabIndex = 1;
@@ -176,7 +146,7 @@
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(120, 54);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(668, 533);
+            flowLayoutPanel1.Size = new Size(682, 533);
             flowLayoutPanel1.TabIndex = 6;
             flowLayoutPanel1.WrapContents = false;
             flowLayoutPanel1.Paint += FlowLayoutPanel1_Paint;
@@ -186,7 +156,7 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
-            ClientSize = new Size(800, 599);
+            ClientSize = new Size(814, 599);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(label1);
             Controls.Add(button8);
@@ -206,8 +176,6 @@
 
         private Panel panel1;
         private Button button7;
-        private Button button6;
-        private Button button5;
         private Button button4;
         private Button button3;
         private Button button2;

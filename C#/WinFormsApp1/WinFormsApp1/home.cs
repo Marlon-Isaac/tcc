@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.Marshalling;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -107,12 +108,56 @@ namespace WinFormsApp1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar dados: " + ex.Message, "Erro", MessageBoxButtons.OK);
+                MessageBox.Show("Erro ao carregar dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            List<string> Notificacoes = carregar();
+        }
+        private static List<Notificacao> carregar()
+        {
+            List<Notificacao> notificacoes = new();
+            try
+            {
+                Banco banco = new Banco();
+                using (SqlConnection conn = new(banco.conexao))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM notificacoes WHERE Usuario = @tipo", conn))
+                    {
+                        if (tipo.TipoUsuario == "Secretaria")
+                        {
+                            cmd.Parameters.AddWithValue("@tipo", "Secretaria");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@tipo", "Geral");
+                        }
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var notificacoes = new Notificacao
+                                {
+                                    texto = reader["Notificacao"].ToString(),
+                                    data = reader["data"].ToString()
+                                };
+
+                                
+                            }
+                            
+                        }
+                    }
+                    return notificacoes;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Erro " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error );
             }
 
 
-
-
+        }
+        private void exibir(List<Notificacao> notificacoes)
+        {
 
         }
 
@@ -210,6 +255,13 @@ namespace WinFormsApp1
         private void button9_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show(); this.Close();
+            this.Close();
         }
     }
 }
