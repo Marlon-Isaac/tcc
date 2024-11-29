@@ -32,15 +32,15 @@
             panelGeral = new Panel();
             button9 = new Button();
             button7 = new Button();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
             panelSecretaria = new Panel();
             button5 = new Button();
             button12 = new Button();
             button13 = new Button();
             button14 = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
@@ -90,6 +90,58 @@
             button7.Name = "button7";
             button7.Size = new Size(75, 23);
             button7.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(3, 162);
+            button1.Name = "button1";
+            button1.Size = new Size(111, 49);
+            button1.TabIndex = 1;
+            button1.Text = "    Home";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += Button1_Click;
+            // 
+            // button2
+            // 
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(3, 217);
+            button2.Name = "button2";
+            button2.Size = new Size(111, 49);
+            button2.TabIndex = 1;
+            button2.Text = "   Perfil";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += Button2_Click;
+            // 
+            // button3
+            // 
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(3, 272);
+            button3.Name = "button3";
+            button3.Size = new Size(111, 49);
+            button3.TabIndex = 1;
+            button3.Text = "   Dicas";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button4
+            // 
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Image = (Image)resources.GetObject("button4.Image");
+            button4.ImageAlign = ContentAlignment.MiddleLeft;
+            button4.Location = new Point(3, 327);
+            button4.Name = "button4";
+            button4.Size = new Size(111, 49);
+            button4.TabIndex = 2;
+            button4.Text = "   Agenda";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // panelSecretaria
             // 
@@ -149,58 +201,6 @@
             button14.TabIndex = 1;
             button14.Text = "   Perfil";
             button14.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(3, 162);
-            button1.Name = "button1";
-            button1.Size = new Size(111, 49);
-            button1.TabIndex = 1;
-            button1.Text = "    Home";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += Button1_Click;
-            // 
-            // button2
-            // 
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(3, 217);
-            button2.Name = "button2";
-            button2.Size = new Size(111, 49);
-            button2.TabIndex = 1;
-            button2.Text = "   Perfil";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += Button2_Click;
-            // 
-            // button3
-            // 
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(3, 272);
-            button3.Name = "button3";
-            button3.Size = new Size(111, 49);
-            button3.TabIndex = 1;
-            button3.Text = "   Dicas";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // button4
-            // 
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(3, 327);
-            button4.Name = "button4";
-            button4.Size = new Size(111, 49);
-            button4.TabIndex = 2;
-            button4.Text = "   Agenda";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
             // 
             // panel2
             // 

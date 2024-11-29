@@ -122,7 +122,7 @@
             // 
             button8.FlatStyle = FlatStyle.Flat;
             button8.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button8.Location = new Point(641, 4);
+            button8.Location = new Point(642, 14);
             button8.Name = "button8";
             button8.Size = new Size(160, 37);
             button8.TabIndex = 4;
@@ -134,7 +134,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(140, 4);
+            label1.Location = new Point(135, 18);
             label1.Name = "label1";
             label1.Size = new Size(311, 33);
             label1.TabIndex = 5;

@@ -42,11 +42,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(31, 29);
+            label1.Location = new Point(27, 39);
             label1.Name = "label1";
-            label1.Size = new Size(245, 29);
+            label1.Size = new Size(181, 23);
             label1.TabIndex = 0;
             label1.Text = "Editor de compromissos";
             // 
@@ -64,7 +64,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Comic Sans MS", 11.25F);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(12, 98);
+            label3.Location = new Point(12, 117);
             label3.Name = "label3";
             label3.Size = new Size(164, 20);
             label3.TabIndex = 3;
@@ -72,9 +72,10 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 130);
+            textBox1.Location = new Point(12, 140);
+            textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(266, 23);
+            textBox1.Size = new Size(196, 25);
             textBox1.TabIndex = 4;
             // 
             // label2
@@ -82,7 +83,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Comic Sans MS", 11.25F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(12, 168);
+            label2.Location = new Point(9, 177);
             label2.Name = "label2";
             label2.Size = new Size(179, 20);
             label2.TabIndex = 5;
@@ -90,31 +91,35 @@
             // 
             // button1
             // 
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Comic Sans MS", 11.25F);
-            button1.Location = new Point(196, 275);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(12, 241);
             button1.Name = "button1";
             button1.Size = new Size(82, 28);
             button1.TabIndex = 7;
-            button1.Text = "salvar";
+            button1.Text = "Salvar";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
+            button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Comic Sans MS", 11.25F);
-            button2.Location = new Point(15, 275);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(126, 241);
             button2.Name = "button2";
             button2.Size = new Size(82, 28);
             button2.TabIndex = 8;
-            button2.Text = "cancelar";
+            button2.Text = "Cancelar";
             button2.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(15, 200);
+            comboBox1.Location = new Point(9, 200);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(176, 23);
+            comboBox1.Size = new Size(199, 23);
             comboBox1.TabIndex = 9;
             // 
             // novaAgenda
@@ -122,7 +127,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 21, 24);
-            ClientSize = new Size(302, 345);
+            ClientSize = new Size(220, 345);
             Controls.Add(comboBox1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -130,8 +135,8 @@
             Controls.Add(textBox1);
             Controls.Add(label3);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "novaAgenda";
-            Text = "novaAgenda";
             Load += novaAgenda_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

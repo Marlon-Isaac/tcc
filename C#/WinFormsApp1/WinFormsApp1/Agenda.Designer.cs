@@ -112,7 +112,7 @@
             button12.FlatStyle = FlatStyle.Flat;
             button12.Image = (Image)resources.GetObject("button12.Image");
             button12.ImageAlign = ContentAlignment.MiddleLeft;
-            button12.Location = new Point(3, 325);
+            button12.Location = new Point(2, 307);
             button12.Name = "button12";
             button12.Size = new Size(111, 49);
             button12.TabIndex = 2;
@@ -124,7 +124,7 @@
             button13.FlatStyle = FlatStyle.Flat;
             button13.Image = (Image)resources.GetObject("button13.Image");
             button13.ImageAlign = ContentAlignment.MiddleLeft;
-            button13.Location = new Point(4, 264);
+            button13.Location = new Point(3, 251);
             button13.Name = "button13";
             button13.Size = new Size(111, 49);
             button13.TabIndex = 1;
@@ -136,7 +136,7 @@
             button14.FlatStyle = FlatStyle.Flat;
             button14.Image = (Image)resources.GetObject("button14.Image");
             button14.ImageAlign = ContentAlignment.MiddleLeft;
-            button14.Location = new Point(5, 205);
+            button14.Location = new Point(3, 196);
             button14.Name = "button14";
             button14.Size = new Size(111, 49);
             button14.TabIndex = 1;
@@ -232,7 +232,9 @@
             // 
             // monthCalendar1
             // 
+            monthCalendar1.BackColor = Color.FromArgb(17, 21, 24);
             monthCalendar1.CalendarDimensions = new Size(2, 3);
+            monthCalendar1.ForeColor = Color.Black;
             monthCalendar1.Location = new Point(126, 9);
             monthCalendar1.Margin = new Padding(9, 10, 9, 10);
             monthCalendar1.MaxDate = new DateTime(2024, 12, 31, 0, 0, 0, 0);
@@ -313,8 +315,8 @@
             Controls.Add(panelGeral);
             Font = new Font("Comic Sans MS", 9F);
             ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Agenda";
-            Text = "Agenda";
             Load += Agenda_Load;
             panelGeral.ResumeLayout(false);
             panelSecretaria.ResumeLayout(false);

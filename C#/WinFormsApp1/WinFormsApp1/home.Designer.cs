@@ -36,6 +36,7 @@
             label1 = new Label();
             panel3 = new Panel();
             panel4 = new Panel();
+            panelNotificacao = new Panel();
             label3 = new Label();
             button1 = new Button();
             button2 = new Button();
@@ -50,7 +51,6 @@
             button13 = new Button();
             button14 = new Button();
             imageList1 = new ImageList(components);
-            panelNotificacao = new Panel();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panelGeral.SuspendLayout();
@@ -123,6 +123,13 @@
             panel4.Size = new Size(700, 575);
             panel4.TabIndex = 6;
             // 
+            // panelNotificacao
+            // 
+            panelNotificacao.Location = new Point(3, 26);
+            panelNotificacao.Name = "panelNotificacao";
+            panelNotificacao.Size = new Size(696, 548);
+            panelNotificacao.TabIndex = 1;
+            // 
             // label3
             // 
             label3.FlatStyle = FlatStyle.Flat;
@@ -138,7 +145,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(2, 184);
+            button1.Location = new Point(5, 184);
             button1.Name = "button1";
             button1.Size = new Size(111, 49);
             button1.TabIndex = 1;
@@ -151,7 +158,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(2, 239);
+            button2.Location = new Point(5, 239);
             button2.Name = "button2";
             button2.Size = new Size(111, 49);
             button2.TabIndex = 1;
@@ -164,7 +171,7 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Image = (Image)resources.GetObject("button3.Image");
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(2, 294);
+            button3.Location = new Point(6, 294);
             button3.Name = "button3";
             button3.Size = new Size(111, 49);
             button3.TabIndex = 1;
@@ -177,7 +184,7 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Image = (Image)resources.GetObject("button4.Image");
             button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(2, 349);
+            button4.Location = new Point(6, 349);
             button4.Name = "button4";
             button4.Size = new Size(111, 49);
             button4.TabIndex = 2;
@@ -292,13 +299,6 @@
             imageList1.ColorDepth = ColorDepth.Depth32Bit;
             imageList1.ImageSize = new Size(16, 16);
             imageList1.TransparentColor = Color.Transparent;
-            // 
-            // panelNotificacao
-            // 
-            panelNotificacao.Location = new Point(3, 26);
-            panelNotificacao.Name = "panelNotificacao";
-            panelNotificacao.Size = new Size(696, 548);
-            panelNotificacao.TabIndex = 1;
             // 
             // Home
             // 
