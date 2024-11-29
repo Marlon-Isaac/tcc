@@ -22,7 +22,7 @@ namespace WinFormsApp1
         private void Home_Load(object sender, EventArgs e)
         {
             ArredondarBordasPanel4(); // Chame o método para arredondar bordas do panel4
-            string a = tipo.TipoUsuario;
+            string a = SessaoUsuario.TipoUsuario;
             if (a == "Secretaria")
             {
                 panelGeral.Visible = false;
@@ -111,17 +111,17 @@ namespace WinFormsApp1
                 MessageBox.Show("Erro ao carregar dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-            List<Notificacao> Notificacoes = carregar();
+            List<Notificacao> Notificacoes = CarregarBanco();
             exibir(Notificacoes);
             timer.Interval = 60000;
             timer.Tick += (s, ev) =>
             {
-                List<Notificacao> Notificacoes = carregar();
+                List<Notificacao> Notificacoes = CarregarBanco();
                 exibir(Notificacoes);
             };
             timer.Start();
         }
-        private static List<Notificacao> carregar()
+        private static List<Notificacao> CarregarBanco()
         {
             List<Notificacao> notificacoes = new();
             try
@@ -132,7 +132,7 @@ namespace WinFormsApp1
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand("SELECT * FROM notificacoes WHERE Usuario = @tipo", conn))
                     {
-                        if (tipo.TipoUsuario == "Secretaria")
+                        if (SessaoUsuario.TipoUsuario == "Secretaria")
                         {
                             cmd.Parameters.AddWithValue("@tipo", "Secretaria");
                             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -178,20 +178,20 @@ namespace WinFormsApp1
 
 
         }
+        int yPosition = 0;
         private void exibir(List<Notificacao> notificacoes)
         {
-            panelNotificacao.Controls.Clear();
 
             foreach (var notificacao in notificacoes)
             {
                 Panel NotificacaoPanel = new()
                 {
-                    Width = panelNotificacao.Width - 50,
-                    Height = 100,
+                    Width = panelNotificacao.Width - 20,
+                    Height = 45,
                     BorderStyle = BorderStyle.FixedSingle,
+                    Location = new Point(5, yPosition),
                     Margin = new Padding(5)
                 };
-                panelNotificacao.Controls.Add(NotificacaoPanel);
 
                 Label texto = new()
                 {
@@ -204,11 +204,14 @@ namespace WinFormsApp1
 
                 Label data = new()
                 {
-                    Text = notificacao.data,
-                    Font = new Font("Arial", 12, FontStyle.Bold),
+                    Text = notificacao.data.ToString(),
+                    Font = new Font("Arial", 8, FontStyle.Bold),
                     AutoSize = false,
-                    Location = new Point(10, NotificacaoPanel.Width - 20)
+                    Location = new Point(600, 10)
                 };
+                NotificacaoPanel.Controls.Add(data);
+                panelNotificacao.Controls.Add(NotificacaoPanel);
+                yPosition += NotificacaoPanel.Height + 10;
             }
         }
 

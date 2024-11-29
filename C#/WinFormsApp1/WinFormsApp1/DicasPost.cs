@@ -69,7 +69,7 @@ namespace WinFormsApp1
             List<Comentario> comentarios = CarregarComentariosDoBanco();
             ExibirComentarios(comentarios); // Atualiza a interface
 
-            timer.Interval = 60000; // 1 segundo
+            timer.Interval = 60000; // 1 minuto
             timer.Tick += (s, ev) =>
             {
                 // Ação executada a cada intervalo

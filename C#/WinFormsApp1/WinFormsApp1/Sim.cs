@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
-    public static class Sim
+    public class Sim
     {
-        public static string a;
+        public string horario { get; set; }
+        public string compromisso { get; set; }
     }
 }

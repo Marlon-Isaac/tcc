@@ -4,11 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WinFormsApp1
 {
@@ -24,8 +26,8 @@ namespace WinFormsApp1
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            tipo2 tipo2 = new tipo2();
-            string a = tipo2.Tipoo();
+
+            string a = SessaoUsuario.TipoUsuario;
             if (a == "Secretaria")
             {
                 button10.Visible = true;
@@ -47,28 +49,125 @@ namespace WinFormsApp1
             labelMes.Text = "de " + mes;
             label1.Text = "Sem eventos agendados para este dia";
             label1.TextAlign = ContentAlignment.TopCenter;
+            List<Sim> sim = CarregarBanco();
+            Exibir(sim);
+            System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+            timer.Interval = 1000;
+            timer.Tick += (s, ev) =>
+            {
+                List<Sim> sim = CarregarBanco();
+                Exibir(sim);
+            };
+        }
+
+        private List<Sim> CarregarBanco()
+        {
+            List<Sim> dados = new();
             Banco banco = new Banco();
             using (SqlConnection Conn = new SqlConnection(banco.conexao))
             {
                 Conn.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Agenda WHERE Dia=@dia AND Horario=@hora ", Conn))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Agenda WHERE Dia=@dia", Conn))
                 {
-                    /*    cmd.Parameters.AddWithValue("@dia", date);
-                        cmd.Parameters.AddWithValue("@hora", "9:30");
-                        int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        if (count > 0)
+                    cmd.Parameters.AddWithValue("@dia", dia + '/' + mes);
+                    using(SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
                         {
-                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            var sim = new Sim
                             {
-                                while (reader.Read())
-                                {
-                                    hora = Convert.ToInt32(reader["Hora"]);//.ToString();
-                                    compromisso.Add(reader["Compromisso"].ToString());
-                                }
-                            }
-                            label1.Text = string.Join(Environment.NewLine, compromisso);
-                        }*/
+                                horario = reader["Horario"].ToString(),
+                                compromisso = reader["Compromisso"].ToString()
+                            };
+                            dados.Add(sim);
+                        }
+                    }
                 }
+            }
+            return dados;
+        }
+        private void Exibir(List<Sim> lista)
+        {
+            List<string> a = new();
+            foreach (Sim sim in lista)
+            {
+                if (sim.horario == "7:00")
+                {
+                    a.Add(sim.horario + ": " +  sim.compromisso + "\n") ;
+                }
+                if (sim.horario == "7:30")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "8:00")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "8:30")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "9:00")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "9:30")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "10:00")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "10:30")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "11:00")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "11:30")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "13:00")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "13:30")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "14:00")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "14:30")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "15:00")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "15:30")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "16:00")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (sim.horario == "16:30")
+                {
+                    a.Add(sim.horario + ": " + sim.compromisso + "\n");
+                }
+                if (a != null)
+                {
+                    label1.Text = string.Join("", a);
+                }
+                else { label1.Text = "Sem compromissos para esta data";  }
             }
         }
 

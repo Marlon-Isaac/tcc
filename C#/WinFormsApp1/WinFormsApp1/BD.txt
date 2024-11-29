@@ -68,27 +68,23 @@ CREATE TABLE Votos (
     FOREIGN KEY (DicaId) REFERENCES Dicas(Id)
 );
 
+DROP TABLE Agenda;
+
 CREATE TABLE [dbo].[Agenda] (
-    [Id]             INT           IDENTITY (1, 1) NOT NULL,
-    [Dia]            VARCHAR (50)  NOT NULL,
-    [SeteHoras]      VARCHAR (MAX) NULL,
-    [SeteMeia]       VARCHAR (MAX) NULL,
-    [OitoHoras]      VARCHAR (MAX) NULL,
-    [OitoMeia]       VARCHAR (MAX) NULL,
-    [NoveHoras]      VARCHAR (MAX) NULL,
-    [NoveMeia]       VARCHAR (MAX) NULL,
-    [DezHoras]       VARCHAR (MAX) NULL,
-    [DezMeia]        VARCHAR (MAX) NULL,
-    [OnzeHoras]      VARCHAR (MAX) NULL,
-    [OnzeMeia]       VARCHAR (MAX) NULL,
-    [TrezeHoras]     VARCHAR (MAX) NULL,
-    [TrezeMeia]      VARCHAR (MAX) NULL,
-    [QuatorzeHoras]  VARCHAR (MAX) NULL,
-    [QuatorzeMeia]   VARCHAR (MAX) NULL,
-    [QuinzeHoras]    VARCHAR (MAX) NULL,
-    [QuinzeMeia]     VARCHAR (MAX) NULL,
-    [DezesseisHoras] VARCHAR (MAX) NULL,
-    [DezesseisMeia]  VARCHAR (MAX) NULL,
+    [Id]          INT           IDENTITY (1, 1) NOT NULL,
+    [Dia]         VARCHAR (50)  NOT NULL,
+    [Horario]     VARCHAR (MAX) NOT NULL,
+    [Compromisso] VARCHAR (MAX) NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
+
+
+
+CREATE TABLE [dbo].notificacoes
+(
+	[Id] INT NOT NULL PRIMARY KEY identity(1,1), 
+    [notificacao] varchar(max) not NULL,
+	[data] date not null,
+	[Usuario] varchar(max) not null
+)

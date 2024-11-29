@@ -16,10 +16,11 @@ namespace WinFormsApp1
         DateTime data;
         string mes;
         string dia;
-        public novaAgenda(string Dia, string Mes, DateTime data)
+        public novaAgenda(string Dia, string Mes, DateTime Data)
         {
             mes = Mes;
            dia = Dia;
+            data = Data;
             InitializeComponent();
         }
 
@@ -31,85 +32,39 @@ namespace WinFormsApp1
             }
             else
             {
-
-
                 string horario = comboBox1.SelectedItem.ToString();
-                if (horario == "Todos os horários preenchidos")
-                {
-                    MessageBox.Show("Todos os horários preenchidos tente marcar para outro dia");
-                } else
-                {
-                    string compromisso = textBox1.Text;
-                    try
-                    {
-                        string hora ="";
-                        hora = horario switch
-                        {
-                            "7:00" => "SeteHoras",
-                            "7:30" => "SeteMeia",
-                            "8:00" => "OitoHoras",
-                            "8:30" => "OitoMeia",
-                            "9:00" => "NoveHoras",
-                            "9:30" => "NoveMeia",
-                            "10:00" => "DezHoras",
-                            "10:30" => "DezMeia",
-                            "11:00" => "OnzeHoras",
-                            "11:30" => "OnzeMeia",
-                            "13:00" => "TrezeHoras",
-                            "13:30" => "TrezeMeia",
-                            "14:00" => "QuatorzeHoras",
-                            "14:30" => "QuatorzeMeia",
-                            "15:00" => "QuinzeHoras",
-                            "15:30" => "QuinzeMeia",
-                            "16:00" => "DezesseisHoras",
-                            "16:30" => "DezesseisMeia",
-                            _ => "Horário desconhecido",// Caso o horário não seja encontrado
-                        };
-                        Banco banco = new Banco();
-                        using (SqlConnection conn = new SqlConnection(banco.conexao))
-                        {
-                            conn.Open();
-                            using (SqlCommand command = new SqlCommand("SELECT COUNT(1) FROM Agenda WHERE Dia = @dia ", conn)) 
-                            {
-                                command.Parameters.AddWithValue("@dia", dia);
-                                int result = Convert.ToInt32(command.ExecuteScalar());
-                                if(result != 0)
-                                {
-                                    MessageBox.Show("a");
-                                    using (SqlCommand cmd = new SqlCommand($"UPDATE Agenda SET {hora} = @compromisso WHERE Dia = @dia ", conn))
-                                    {
-                                        cmd.Parameters.AddWithValue("@dia", dia);
-                                        cmd.Parameters.AddWithValue("@compromisso", compromisso);
-                                        cmd.ExecuteScalar();
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show(horario);
-                                    string query = $"INSERT INTO Agenda (Dia, {hora}) VALUES (@dia, @hora)";
+                string compromisso = textBox1.Text;
 
-                                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                                    {
-                                        cmd.Parameters.AddWithValue("@dia", data.ToString());
-                                        cmd.Parameters.AddWithValue("@hora", horario);
-                                        cmd.ExecuteNonQuery();
-                                    }
-                                }
-                            }
-                            using (SqlCommand cmd = new SqlCommand("INSERT INTO notificacoes (notificacao, data, Usuario) VALUES (@nota, @dia, @tipo)", conn))
-                            {
-                                cmd.Parameters.AddWithValue("@nota", compromisso.ToString());
-                                cmd.Parameters.AddWithValue("@dia", dia+"/"+mes);
-                                cmd.Parameters.AddWithValue("@tipo", "Geral");
-                                cmd.ExecuteNonQuery();
-                                
-                            }
+                try
+                {
+                    Banco banco = new Banco();
+                    using (SqlConnection conn = new SqlConnection(banco.conexao))
+                    {
+                        conn.Open();
+
+                        string query = "INSERT INTO Agenda (Dia, Horario, Compromisso) VALUES (@dia, @hora, @Compromisso)";
+
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@dia", dia + '/' + mes);
+                            cmd.Parameters.AddWithValue("@hora", horario);
+                            cmd.Parameters.AddWithValue("@Compromisso", compromisso);
+                            cmd.ExecuteNonQuery();
+                        }
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO notificacoes (notificacao, data, Usuario) VALUES (@nota, @dia, @tipo)", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@nota", "Novo compromisso para o dia "+ data.Date.ToString() +": " + compromisso);
+                            cmd.Parameters.AddWithValue("@dia", DateTime.Now.Date);
+                            cmd.Parameters.AddWithValue("@tipo", "Geral");
+                            cmd.ExecuteNonQuery();
+
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Erro: " + ex.Message);
-                    }
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
                 }
             }
         }
@@ -118,194 +73,144 @@ namespace WinFormsApp1
         {
             try
             {
+                List<string> lista = new List<string>
+                {
+                    "7:00",
+                    "7:30",
+                    "8:00",
+                    "8:30",
+                    "9:00",
+                    "9:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30"
+                };
+
+                comboBox1.Items.AddRange(lista.ToArray());
+
                 Banco banco = new Banco();
                 using (SqlConnection conn = new SqlConnection(banco.conexao))
                 {
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand("SELECT * FROM Agenda WHERE Dia = @dia", conn))
                     {
-                        cmd.Parameters.AddWithValue("@dia", dia);
+                        
+                        cmd.Parameters.AddWithValue("@dia", dia+'/'+mes);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
+                            DateTime horarioInicial = DateTime.Parse("7:00");
+                            DateTime horarioFinal = DateTime.Parse("16:30");
                             if (reader.Read())
                             {
-                                string seteHoras = reader["SeteHoras"].ToString(); // "Sete horas da manhã"
-                                string seteMeia = reader["SeteMeia"].ToString(); // "Sete e meia da manhã"
-                                string oitoHoras = reader["OitoHoras"].ToString(); // "Oito horas da manhã"
-                                string oitoMeia = reader["OitoMeia"].ToString(); // "Oito e meia da manhã"
-                                string noveHoras = reader["NoveHoras"].ToString(); // "Nove horas da manhã"
-                                string noveMeia = reader["NoveMeia"].ToString(); // "Nove e meia da manhã"
-                                string dezHoras = reader["DezHoras"].ToString(); // "Dez horas da manhã"
-                                string dezMeia = reader["DezMeia"].ToString(); // "Dez e meia da manhã"
-                                string onzeHoras = reader["OnzeHoras"].ToString(); // "Onze horas da manhã"
-                                string onzeMeia = reader["OnzeMeia"].ToString(); // "Onze e meia da manhã"
-                                string trezeHoras = reader["TrezeHoras"].ToString(); // "Treze horas"
-                                string trezeMeia = reader["TrezeMeia"].ToString(); // "Treze e meia"
-                                string quatorzeHoras = reader["QuatorzeHoras"].ToString(); // "Quatorze horas"
-                                string quatorzeMeia = reader["QuatorzeMeia"].ToString(); // "Quatorze e meia"
-                                string quinzeHoras = reader["QuinzeHoras"].ToString(); // "Quinze horas"
-                                string quinzeMeia = reader["QuinzeMeia"].ToString(); // "Quinze e meia"
-                                string dezesseisHoras = reader["DezesseisHoras"].ToString(); // "Dezesseis horas"
-                                string dezesseisMeia = reader["DezesseisMeia"].ToString(); // "Dezesseis e meia"
-                                //------------------------------------------------//
-                                //so para deixar melhor para ver//
-                                //------------------------------------------------//
 
-                                //fiz do jeito preguiçoso mesmo, pedi pro carlos fazer isso daqui, to afim de fazer mil ifs mas nem fudendo
-                                //mesma coisa para as variaveis ali em cima
-                                bool todosVazios = true;
-                                List<string> lista = new List<string>();
-                                MessageBox.Show("essa logica ta certa");
-
-                                if (string.IsNullOrEmpty(seteHoras))
+                                if (reader["Horario"].ToString() == "7:00")
                                 {
-                                    lista.Add("7:00");
-
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("7:00");
                                 }
-
-                                if (string.IsNullOrEmpty(seteMeia))
+                                if (reader["Horario"].ToString() == "7:30")
                                 {
-                                    comboBox1.Items.Add("7:30");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("7:30");
                                 }
-
-                                if (string.IsNullOrEmpty(oitoHoras))
+                                if (reader["Horario"].ToString() == "8:00")
                                 {
-                                    comboBox1.Items.Add("8:00");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("8:00");
                                 }
-
-                                if (string.IsNullOrEmpty(oitoMeia))
+                                if (reader["Horario"].ToString() == "8:30")
                                 {
-                                    comboBox1.Items.Add("8:30");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("8:30");
                                 }
-
-                                if (string.IsNullOrEmpty(noveHoras))
+                                if (reader["Horario"].ToString() == "9:00")
                                 {
-                                    comboBox1.Items.Add("9:00");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("9:00");
                                 }
-
-                                if (string.IsNullOrEmpty(noveMeia))
+                                if (reader["Horario"].ToString() == "9:30")
                                 {
-                                    comboBox1.Items.Add("9:30");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("9:30");
                                 }
-
-                                if (string.IsNullOrEmpty(dezHoras))
+                                if (reader["Horario"].ToString() == "10:00")
                                 {
-                                    comboBox1.Items.Add("10:00");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("10:00");
                                 }
-
-                                if (string.IsNullOrEmpty(dezMeia))
+                                if (reader["Horario"].ToString() == "10:30")
                                 {
-                                    comboBox1.Items.Add("10:30");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("10:30");
                                 }
-
-                                if (string.IsNullOrEmpty(onzeHoras))
-                                {  
-                                    comboBox1.Items.Add("11:00");
-                                    todosVazios = false;
-                                }
-
-                                if (string.IsNullOrEmpty(onzeMeia))
+                                if (reader["Horario"].ToString() == "11:00")
                                 {
-                                    comboBox1.Items.Add("11:30");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("11:00");
                                 }
-
-                                if (string.IsNullOrEmpty(trezeHoras))
+                                if (reader["Horario"].ToString() == "11:30")
                                 {
-                                    comboBox1.Items.Add("13:00");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("11:30");
                                 }
-
-                                if (string.IsNullOrEmpty(trezeMeia))
+                                if (reader["Horario"].ToString() == "12:00")
                                 {
-                                    comboBox1.Items.Add("13:30");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("12:00");
                                 }
-
-                                if (string.IsNullOrEmpty(quatorzeHoras))
+                                if (reader["Horario"].ToString() == "12:30")
                                 {
-                                    comboBox1.Items.Add("14:00");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("12:30");
                                 }
-
-                                if (string.IsNullOrEmpty(quatorzeMeia))
+                                if (reader["Horario"].ToString() == "13:00")
                                 {
-                                    comboBox1.Items.Add("14:30");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("13:00");
                                 }
-
-                                if (string.IsNullOrEmpty(quinzeHoras))
+                                if (reader["Horario"].ToString() == "13:30")
                                 {
-                                    comboBox1.Items.Add("15:00");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("13:30");
                                 }
-
-                                if (string.IsNullOrEmpty(quinzeMeia))
+                                if (reader["Horario"].ToString() == "14:00")
                                 {
-                                    comboBox1.Items.Add("15:30");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("14:00");
                                 }
-
-                                if (string.IsNullOrEmpty(dezesseisHoras))
+                                if (reader["Horario"].ToString() == "14:30")
                                 {
-                                    comboBox1.Items.Add("16:00");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("14:30");
                                 }
-
-                                if (string.IsNullOrEmpty(dezesseisMeia))
+                                if (reader["Horario"].ToString() == "15:00")
                                 {
-                                    comboBox1.Items.Add("16:30");
-                                    todosVazios = false;
+                                    comboBox1.Items.Remove("15:00");
                                 }
-
-                                // Verificação final: Se todas as variáveis estiverem vazias
-                                if (todosVazios)
+                                if (reader["Horario"].ToString() == "15:30")
                                 {
-                                    comboBox1.Items.Add("Todos os horários preenchidos");
+                                    comboBox1.Items.Remove("15:30");
                                 }
-                                comboBox1.Items.AddRange(lista.ToArray());
-
+                                if (reader["Horario"].ToString() == "16:00")
+                                {
+                                    comboBox1.Items.Remove("16:00");
+                                }
+                                if (reader["Horario"].ToString() == "16:30")
+                                {
+                                    comboBox1.Items.Remove("16:30");
+                                }
                             }
-                            else
-                            {
-                                List<string> lista = new List<string>
-                                {
-                                "7:00",
-                                "7:30",
-                                "8:00",
-                                "8:30",
-                                "9:00",
-                                "9:30",
-                                "10:00",
-                                "10:30",
-                                "11:00",
-                                "11:30",
-                                "13:00",
-                                "13:30",
-                                "14:00",
-                                "14:30",
-                                "15:00",
-                                "15:30",
-                                "16:00",
-                                "16:30"
-                                };
-
-                                comboBox1.Items.AddRange(lista.ToArray());
-                            }
+                        }
+                    }
+                    if(comboBox1.Items.Count <= 0)
+                    {
+                        DialogResult result = MessageBox.Show("Todos os horários preenchidos tente marcar para outro dia", "Lotado", MessageBoxButtons.OK);
+                        if (result == DialogResult.OK)
+                        {
+                            this.Close();
                         }
                     }
                 }
             }catch(Exception ex)
             {
-                MessageBox.Show("Erro: ", ex.Message);
+                DialogResult result = MessageBox.Show("Erro: " + ex.Message, "Erro", MessageBoxButtons.OK);
+                if (result == DialogResult.OK)
+                {
+                    this.Close();
+                }
             }
         }
     }
