@@ -76,7 +76,7 @@
             textBox1.ForeColor = Color.Black;
             textBox1.Location = new Point(12, 125);
             textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Nome completo:";
+            textBox1.PlaceholderText = "Nome Completo";
             textBox1.Size = new Size(460, 28);
             textBox1.TabIndex = 2;
             textBox1.TabStop = false;
